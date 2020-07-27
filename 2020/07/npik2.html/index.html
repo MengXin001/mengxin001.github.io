@@ -381,10 +381,8 @@
         
         <div class="entry-content">
           <p>1.使用SSH或者在图形桌面下使用终端连接到你的NanoPiK2上<br>2.备份官方软件源</p>
-<pre><code class="BASH">sudo cp /etc/apt/sources.list /etc/apt/sources.backup.list</code></pre>
-<p>3.更换软件源<br>这里使用<a href="https://mirrors.huaweicloud.com/" target="_blank" rel="noopener">华为开源镜像站</a>的镜像</p>
-<pre><code class="BASH">sudo nano /etc/apt/sources.list</code></pre>
-<p>可以单独将<code>http://ports.ubuntu.com/</code>替换为<code>https://mirrors.huaweicloud.com/ubuntu-ports/</code><br>也可以把全部内容用下面的内容替换</p>
+<pre><code>sudo cp /etc/apt/sources.list /etc/apt/sources.backup.list</code></pre><p>3.更换软件源<br>这里使用<a href="https://mirrors.huaweicloud.com/" target="_blank" rel="noopener">华为开源镜像站</a>的镜像</p>
+<pre><code>sudo nano /etc/apt/sources.list</code></pre><p>可以单独将<code>http://ports.ubuntu.com/</code>替换为<code>https://mirrors.huaweicloud.com/ubuntu-ports/</code><br>也可以把全部内容用下面的内容替换</p>
 <pre><code>deb https://mirrors.huaweicloud.com/ubuntu-ports/ focal main restricted universe multiverse
 #deb-src http://ports.ubuntu.com/ focal main restricted universe multiverse
 
@@ -396,9 +394,8 @@ deb https://mirrors.huaweicloud.com/ubuntu-ports/ focal-updates main restricted 
 
 deb https://mirrors.huaweicloud.com/ubuntu-ports/ focal-backports main restricted universe multiverse
 #deb-src http://ports.ubuntu.com/ focal-backports main restricted universe multiverse</code></pre><p>4.完成后使用<code>Ctrl+X</code>退出并输入<code>Y</code>+回车保存文件<br>5.更新软件源</p>
-<pre><code class="BASH">sudo apt-get update</code></pre>
-<hr>
-<p>附一份官方源地址备份</p>
+<pre><code>sudo apt-get update</code></pre><hr>
+<p>附一份官方源地址备份<img src="/images/pp-9.png" alt=""></p>
 <pre><code class="sources.backup.list">deb http://ports.ubuntu.com/ focal main restricted universe multiverse
 #deb-src http://ports.ubuntu.com/ focal main restricted universe multiverse
 
@@ -431,9 +428,28 @@ deb http://ports.ubuntu.com/ focal-backports main restricted universe multiverse
       <div class="toc" style="background: none;"></div>
       <section class="post-squares nextprev">
         
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2020/07/scrapy.html/" rel="prev">
+              <div class="background">
+<!--                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/MengXin001/CDN/pic/f_003a25.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/MengXin001/CDN/pic/f_003a25.png">-->
+                
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/MengXin001/CDN/pic/f_003a25.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" >
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                在NanoPi上安装Scrapy框架</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
         
           
-            <div class="post-nepre full next">
+            <div class="post-nepre half next">
           
             <a href="/2020/07/crawler.html/" rel="next">
               <div class="background">
@@ -541,7 +557,7 @@ deb http://ports.ubuntu.com/ focal-backports main restricted universe multiverse
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -553,10 +569,10 @@ deb http://ports.ubuntu.com/ focal-backports main restricted universe multiverse
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: '文章',
-            // PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
+            POSTS: 'Posts',
+            // PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
