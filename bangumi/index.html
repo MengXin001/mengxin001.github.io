@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title>bangumi | MengXin的BLOG</title>
+  <title>bangumi | 萌の新小窝</title>
   <meta name="description" content="萌新的BLOG" />
   <meta name="keywords" content="MengXin,Linux,Python,Java,C++,萌新,Sakura,气象" />
   
@@ -31,7 +31,7 @@
   mashiro_option.qzone_autocomplete = false;
   mashiro_option.site_name = "萌の新えか";
   mashiro_option.author_name = "新えか";
-  mashiro_option.site_url = "https://www.moex.club";
+  mashiro_option.site_url = "https://www.xinmoe.cn";
   mashiro_option.v_appId = "sLr75njDfFWhAEkbCfnUmqq2-gzGzoHsz";
   mashiro_option.v_appKey = "VGneg1o3HLxMDPbxH2aD4vvn";
   mashiro_option.mathjax = "1";
@@ -39,7 +39,7 @@
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
   </script>
   <script type="text/javascript">
-  var bg = "https://api.gymxbl.com/images/,https://cdn.jsdelivr.net/gh/MengXin001/CDN@1.0.7/pic/f_000cd3.png".split(",");
+  var bg = "https://api.gymxbl.com/images/".split(",");
   var bgindex = Math.floor(Math.random()*bg.length);
   if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
     alert('朋友，IE浏览器未适配哦~');
@@ -57,13 +57,13 @@
   </div>
   <a href="#" class="cd-top faa-float animated"></a>
   <section id="main-container">
-    <div class="headertop ">
+    <div class="headertop filter-dim">
   <div id="banner_wave_1"></div>
   <div id="banner_wave_2"></div>
   <figure id="centerbg" class="centerbg">
     <div class="focusinfo no-select">
       <div class="header-tou">
-        <a href="https://www.moex.club">
+        <a href="https://www.xinmoe.cn">
           <img src="https://cdn.jsdelivr.net/gh/Mengxin001/CDN/Head3.jpg">
         </a>
       </div>
@@ -166,7 +166,7 @@
     <div class="site-branding">
       <span class="site-title">
         <span class="logolink moe-mashiro">
-          <a href="https://www.moex.club">
+          <a href="https://www.moex.club" target="_blank" rel="noopener">
             <ruby> <span class="sakuraso">萌</span><span class="no">の</span> <span class="shironeko">え か</span> <rp></rp><rt class="chinese-font">天气之子</rt><rp></rp></ruby>
           </a>
         </span>
@@ -275,13 +275,6 @@
                         <a href="/about/">
                           <i class="fa fa-meetup" aria-hidden="true"></i>
                           我？
-                        </a>
-                      </li>
-                    
-                      <li>
-                        <a href="/theme-sakura/">
-                          <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
-                          主题
                         </a>
                       </li>
                     
@@ -664,6 +657,51 @@
             </div>
           </div>
         
+          <div class="col s12 m6" id="bangumi-7">
+            <div class="card hoverable" style="overflow: visible;">
+              <div class="card-image waves-effect waves-block waves-light">
+                <div class="activator itempic lazyload" style="background-image: url(https://i0.hdslb.com/bfs/bangumi/image/09533e0b510630235326a818adabb6c64c1abce2.png);" data-src="https://i0.hdslb.com/bfs/bangumi/image/09533e0b510630235326a818adabb6c64c1abce2.png">
+                </div>
+              </div>
+              <div class="card-content">
+                <div class="card-title should-ellipsis activator grey-text text-darken-4">
+                  魔女之旅<i class="fa fa-commenting-o right"></i>
+                </div>
+                <p class="should-ellipsis-full">
+                魔女の旅々</p>
+                <ul class="skill-list">
+                  <li class="skill">
+                    <div>
+                    追番中</div>
+                    <progress class="skill-1" max="100" value="15">
+                    </progress>
+                  </li>
+                </ul>
+              </div>
+              <div class="card-reveal" style="display: none; transform: translateY(0%);">
+                <span class="card-title grey-text text-darken-4">
+                  魔女之旅<i class="fa fa-close right"></i>
+                </span>
+                <span>
+                  魔女の旅々<br>
+                </span>
+                <span>
+                  放送时间: 2020-10-02 FRI.<span>
+                    <p>某个地方有一位旅人，她的名字是伊蕾娜。是一位年纪轻轻就成了魔法使中最上位「魔女」的天才。因为向往着幼时读过的旅行故事，随意地进行着漫长的旅行。</p>
+                    <ul class="skill-list">
+                      <li class="skill">
+                        <div>
+                        追番中</div>
+                        <progress class="skill-1" max="100" value="15">
+                        </progress>
+                      </li>
+                    </ul>
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+        
       </div>
     </div>
     
@@ -674,7 +712,7 @@
     <div class="ins-search-mask"></div>
     <div class="ins-search-container">
         <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..."/>
             <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
         </div>
         <div class="ins-section-wrapper">
@@ -686,10 +724,10 @@
 (function (window) {
     var INSIGHT_CONFIG = {
         TRANSLATION: {
-            POSTS: 'Posts',
-            // PAGES: 'Pages',
-            CATEGORIES: 'Categories',
-            TAGS: 'Tags',
+            POSTS: '文章',
+            // PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
         },
         ROOT_URL: '/',
         CONTENT_URL: '/content.json',
@@ -702,7 +740,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2020 MengXin<br>
+      &copy; 2021 冷渦<br>
       powered_by <a href="/" target="_blank">Tencent</a>
     </div>
   </div>
@@ -718,7 +756,7 @@
                 <p id="chakhsu"></p>
             
             <p>本站总访问量：<a id="allcount"></a></p>
-            <p style="color: #666666;">© 2019-2020 MengXin的BLOG</p>
+            <p style="color: #666666;">© 2019-2021 MengXin的BLOG</p>
             
                 <p id="momk" style="font-family: 'Ubuntu', sans-serif;color: #b9b9b9;"></p>
             
@@ -736,6 +774,7 @@
     </div><!-- .site-info -->
 </footer>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/xbclub/staticCDN@0.8/js/lib.min.js"></script>
+<script src="/Biu/autoload.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/xbclub/staticCDN@0.8/js/InsightSearch.js"></script>
 <script type="text/javascript"
@@ -1061,13 +1100,6 @@
                 <a href="/about/">
                   <i class="fa fa-meetup" aria-hidden="true"></i>
                   我？
-                </a>
-              </li>
-            
-              <li>
-                <a href="/theme-sakura/">
-                  <i class="fa iconfont icon-sakura" aria-hidden="true"></i>
-                  主题
                 </a>
               </li>
             
