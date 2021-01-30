@@ -1,1 +1,25 @@
 .logolink a{color:#464646;float:left;font-size:20px;font-weight:800;height:56px;line-height:56px;padding-left:35px;padding-right:15px;padding-top:11px;text-decoration-line:none}.logolink .sakuraso{background-color:rgba(255,255,255,.5);border-radius:5px;color:#464646;height:auto;line-height:25px;margin-right:0;padding-bottom:0;padding-top:1px;text-size-adjust:100%;width:auto}.logolink a:hover .sakuraso{background-color:orange;color:#fff}.logolink a:hover .shironeko,.logolink a:hover rt{color:orange}.logolink.moe-mashiro a{color:#464646;float:left;font-size:25px;font-weight:800;height:56px;line-height:56px;padding-left:6px;padding-right:15px;padding-top:11px;text-decoration-line:none}.logolink.moe-mashiro .sakuraso,.logolink.moe-mashiro .no{font-size:25px;border-radius:9px;padding-bottom:2px;padding-top:5px}.logolink.moe-mashiro .no{display:inline-block;margin-left:5px}.logolink a:hover .no{-webkit-animation:spin 1.5s linear infinite;animation:spin 1.5s linear infinite}.logolink ruby{ruby-position:under;-webkit-ruby-position:after}.logolink ruby rt{font-size:10px;transform:translateY(-15px);opacity:0;transiton-property:opacity;transition-duration:.5s,.5s}.logolink a:hover ruby rt{opacity:1}
+.header-info {
+    width: 63%;
+    margin: auto;
+    font-size: 16px;
+    color: #e6e6e6;
+    background: rgba(0, 0, 0, .5);
+    padding: 15px;
+    margin-top: 22px;
+    letter-spacing: 0;
+    line-height: 30px;
+    border-radius: 10px;
+    box-sizing: initial;
+    white-space: nowrap;
+}
+.post-meta, .post-meta a {
+	color: rgba(0, 0, 0, .66);
+    font-size: 12px;
+}
+.post-date {
+	color: #fff;
+    font-size: 12px;
+}
+.serif {
+    font-family:'Source Han Serif SC','Source Han Serif','source-han-serif-sc','PT Serif','SongTi SC','MicroSoft Yahei',Georgia,serif
