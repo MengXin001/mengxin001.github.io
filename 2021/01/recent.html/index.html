@@ -21,6 +21,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xbclub/staticCDN@0.6/css/jquery.fancybox.min.css" media="all">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xbclub/staticCDN@0.6/css/zoom.css" media="all">
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xbclub/staticCDN@0.6/css/sharejs.css">
+  <link type='text/css' rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.2/css/all.min.css"/>
+  <link type='text/css' rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"/>
+  
   <script>
   var mashiro_option = new Object();
   var mashiro_global = new Object();
@@ -50,6 +53,7 @@
   </style>
   <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
   </style>
+  
 <meta name="generator" content="Hexo 4.2.1"></head>
 
 <body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
@@ -166,7 +170,7 @@
     <div class="site-branding">
       <span class="site-title">
         <span class="logolink moe-mashiro">
-          <a href="https://www.moex.club" target="_blank" rel="noopener">
+          <a href="https://www.xinmoe.cn">
             <ruby> <span class="sakuraso">萌</span><span class="no">の</span> <span class="shironeko">え か</span> <rp></rp><rt class="chinese-font">天气之子</rt><rp></rp></ruby>
           </a>
         </span>
@@ -332,6 +336,204 @@
     </div>
   </div>
 </header>
+  <!-- 元宵节灯笼样式开始 -->
+<style>
+    @media only screen and (min-width: 1124px) {
+        .nav-menu {
+            padding-right: 96px;
+        }
+    }
+    @media only screen and (max-width: 760px) {
+        .deng-box, .deng-box1 {
+            width: 40%;
+        }
+        .right {
+            float: left!important;
+        }
+    }
+    @media only screen and (min-width: 768px) and (max-width: 1024px) {
+        .right {
+            float: left!important;
+        }
+    }
+    .deng-box {
+        position: fixed;
+        top: 47px;
+        right: -20px;
+        z-index: 999;
+    }
+    .deng-box1 {
+        position: fixed;
+        top: 46px;
+        right: 10px;
+        z-index: 999;
+    }
+    .deng-box1 .deng {
+        position: relative;
+        width: 120px;
+        height: 90px;
+        margin: 50px;
+        background: #d8000f;
+        background: rgba(216, 0, 15, 0.8);
+        border-radius: 50% 50%;
+        -webkit-transform-origin: 50% -100px;
+        -webkit-animation: swing 5s infinite ease-in-out;
+        box-shadow: -5px 5px 30px 4px rgba(252, 144, 61, 1);
+    }
+    .deng {
+        position: relative;
+        width: 120px;
+        height: 90px;
+        margin: 50px;
+        background: #d8000f;
+        background: rgba(216, 0, 15, 0.8);
+        border-radius: 50% 50%;
+        -webkit-transform-origin: 50% -100px;
+        -webkit-animation: swing 3s infinite ease-in-out;
+        box-shadow: -5px 5px 50px 4px rgba(250, 108, 0, 1);
+    }
+    .deng-a {
+        width: 100px;
+        height: 90px;
+        background: #d8000f;
+        background: rgba(216, 0, 15, 0.1);
+        margin: 12px 8px 8px 10px;
+        border-radius: 50% 50%;
+        border: 2px solid #dc8f03;
+    }
+    .deng-b {
+        width: 45px;
+        height: 90px;
+        background: #d8000f;
+        background: rgba(216, 0, 15, 0.1);
+        margin: -4px 8px 8px 26px;
+        border-radius: 50% 50%;
+        border: 2px solid #dc8f03;
+    }
+    .xian {
+        position: absolute;
+        top: -96px;
+        left: 60px;
+        width: 2px;
+        height: 90px;
+        background: #dc8f03;
+    }
+    .shui-a {
+        position: relative;
+        width: 5px;
+        height: 20px;
+        margin: -5px 0 0 59px;
+        -webkit-animation: swing 4s infinite ease-in-out;
+        -webkit-transform-origin: 50% -45px;
+        background: #ffa500;
+        border-radius: 0 0 5px 5px;
+    }
+    .shui-b {
+        position: absolute;
+        top: 14px;
+        left: -2px;
+        width: 10px;
+        height: 10px;
+        background: #dc8f03;
+        border-radius: 50%;
+    }
+    .shui-c {
+        position: absolute;
+        top: 18px;
+        left: -2px;
+        width: 10px;
+        height: 35px;
+        background: #ffa500;
+        border-radius: 0 0 0 5px;
+    }
+    .deng:before {
+        position: absolute;
+        top: -7px;
+        left: 29px;
+        height: 12px;
+        width: 60px;
+        content: " ";
+        display: block;
+        z-index: 999;
+        border-radius: 5px 5px 0 0;
+        border: solid 1px #dc8f03;
+        background: #ffa500;
+        background: linear-gradient(to right, #dc8f03, #ffa500, #dc8f03, #ffa500, #dc8f03);
+    }
+    .deng:after {
+        position: absolute;
+        bottom: -7px;
+        left: 10px;
+        height: 12px;
+        width: 60px;
+        content: " ";
+        display: block;
+        margin-left: 20px;
+        border-radius: 0 0 5px 5px;
+        border: solid 1px #dc8f03;
+        background: #ffa500;
+        background: linear-gradient(to right, #dc8f03, #ffa500, #dc8f03, #ffa500, #dc8f03);
+    }
+    @font-face {
+        font-family: "华文行楷";
+        src: url('/fonts/华文行楷.ttf');
+    }
+    .deng-t {
+        font-family: 华文行楷;
+        font-size: 26px;
+        color: #dc8f03;
+        font-weight: bold;
+        line-height: 44px;
+        text-align: center;
+    }
+    .night .deng-t,
+    .night .deng-box,
+    .night .deng-box1 {
+        background: transparent !important;
+    }
+    @-moz-keyframes swing {
+        0% {
+                -moz-transform: rotate(-10deg)
+        }
+        50% {
+             -moz-transform: rotate(10deg)
+        }
+        100% {
+                -moz-transform: rotate(-10deg)
+        }
+    }
+    @-webkit-keyframes swing {
+        0% {
+                -webkit-transform: rotate(-10deg)
+        }
+        50% {
+                -webkit-transform: rotate(10deg)
+        }
+        100% {
+                -webkit-transform: rotate(-10deg)
+        }
+    }
+</style>
+<div class="deng-box">
+    <div class="deng">
+        <div class="xian"></div>
+        <div class="deng-a">
+            <div class="deng-b"><div class="deng-t">喜迎</div></div>
+        </div>
+        <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+    </div>
+</div>
+<div class="deng-box1">
+    <div class="deng">
+        <div class="xian"></div>
+        <div class="deng-a">
+            <div class="deng-b"><div class="deng-t">元旦</div></div>
+        </div>
+        <div class="shui shui-a"><div class="shui-c"></div><div class="shui-b"></div></div>
+    </div>
+</div>
+<!-- 元宵节灯笼样式结束 -->
+
 
       <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xbclub/staticCDN@0.6/css/sharejs.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xbclub/staticCDN@0.6/css/tocbot.css">
@@ -419,71 +621,125 @@
         
       </section>
       
-<div id="vcomments"></div>
+<div id="vcomments">
+
+</div>
 <script>
   window.onload = function(){
       var valine = new Valine();
       valine.init({
         el: '#vcomments',
+	    enableQQ: true,
+        boolean: true,
+		recordIP: true,
         appId: "sLr75njDfFWhAEkbCfnUmqq2-gzGzoHsz",
         appKey: "VGneg1o3HLxMDPbxH2aD4vvn",
+		verify: true,
+        visitor: true,
+		master: ["442d88c7b88989a1f1ca2a236de35add"],
+		friends: ["30777cec3092897e4708322fbfb0bf8b", "3151245cea36d1bda0858dba221cdaf2", "994406373848f5c4da91baa07566c065", "17885ae2e792de13ef1b68309799f7e4", "bbbf9dd42d982b6848b5a3b2c7c344c1", "f1530c85fcd96794561f53b9725f9446", "0f91e98b8eabeb169d77c276cc0673c4"],
         path: window.location.pathname,
-        placeholder: "你是我一生只会遇见一次的惊喜 ...",
+        placeholder: "你是我一生只会遇见一次的惊喜~填入QQ邮箱可以自动获取头像啦",
 		emojiCDN: '//i0.hdslb.com/bfs/emote/', 
         emojiMaps: {
-"tv_doge": "6ea59c827c414b4a2955fe79e0f6fd3dcd515e24.png",
-"tv_亲亲": "a8111ad55953ef5e3be3327ef94eb4a39d535d06.png",
-"tv_偷笑": "bb690d4107620f1c15cff29509db529a73aee261.png",
-"tv_再见": "180129b8ea851044ce71caf55cc8ce44bd4a4fc8.png",
-"tv_冷漠": "b9cbc755c2b3ee43be07ca13de84e5b699a3f101.png",
-"tv_发怒": "34ba3cd204d5b05fec70ce08fa9fa0dd612409ff.png",
-"tv_发财": "34db290afd2963723c6eb3c4560667db7253a21a.png",
-"tv_可爱": "9e55fd9b500ac4b96613539f1ce2f9499e314ed9.png",
-"tv_吐血": "09dd16a7aa59b77baa1155d47484409624470c77.png",
-"tv_呆": "fe1179ebaa191569b0d31cecafe7a2cd1c951c9d.png",
-"tv_呕吐": "9f996894a39e282ccf5e66856af49483f81870f3.png",
-"tv_困": "241ee304e44c0af029adceb294399391e4737ef2.png",
-"tv_坏笑": "1f0b87f731a671079842116e0991c91c2c88645a.png",
-"tv_大佬": "093c1e2c490161aca397afc45573c877cdead616.png",
-"tv_大哭": "23269aeb35f99daee28dda129676f6e9ea87934f.png",
-"tv_委屈": "d04dba7b5465779e9755d2ab6f0a897b9b33bb77.png",
-"tv_害羞": "a37683fb5642fa3ddfc7f4e5525fd13e42a2bdb1.png",
-"tv_尴尬": "7cfa62dafc59798a3d3fb262d421eeeff166cfa4.png",
-"tv_微笑": "70dc5c7b56f93eb61bddba11e28fb1d18fddcd4c.png",
-"tv_思考": "90cf159733e558137ed20aa04d09964436f618a1.png",
-"tv_惊吓": "0d15c7e2ee58e935adc6a7193ee042388adc22af.png",
-"tv_打脸": "56ab10b624063e966bfcb76ea5dc4794d87dfd47.png",
-"tv_抓狂": "fe31c08edad661d63762b04e17b8d5ae3c71a757.png",
-"tv_抠鼻": "c666f55e88d471e51bbd9fab9bb308110824a6eb.png",
-"tv_斜眼笑": "911f987aa8bc1bee12d52aafe62bc41ef4474e6c.png",
-"tv_无奈": "ea8ed89ee9878f2fece2dda0ea8a5dbfe21b5751.png",
-"tv_晕": "5443c22b4d07fb1907ccc610c8e6db254f2461b7.png",
-"tv_流汗": "cead1c351ab8d79e9f369605beb90148db0fbed3.png",
-"tv_流泪": "7e71cde7858f0cd50d74b0264aa26db612a8a167.png",
-"tv_流鼻血": "c32d39db2737f89b904ca32700d140a9241b0767.png",
-"tv_点赞": "f85c354995bd99e28fc76c869bfe42ba6438eff4.png",
-"tv_生气": "26702dcafdab5e8225b43ffd23c94ac1ff932654.png",
-"tv_生病": "8b0ec90e6b86771092a498c54f09fc94621c1900.png",
-"tv_疑问": "0793d949b18d7be716078349c202c15ff166f314.png",
-"tv_白眼": "c1d59f439e379ee50eef488bcb5e5378e5044ea4.png",
-"tv_皱眉": "72ccad6679fea0d14cce648b4d818e09b8ffea2d.png",
-"tv_目瞪口呆": "0b8cb81a68de5d5365212c99375e7ace3e7891b7.png",
-"tv_睡着": "8b196675b53af58264f383c50ad0945048290b33.png",
-"tv_笑哭": "1abc628f6d4f4caf9d0e7800878f4697abbc8273.png",
-"tv_腼腆": "89712c0d4af73e67f89e35cbc518420380a7f6f4.png",
-"tv_色": "61822c7e9aae5da76475e7892534545336b23a6f.png",
-"tv_调侃": "4bc022533ef31544ca0d72c12c808cf4a1cce3e3.png",
-"tv_调皮": "b9c41de8e82dd7a8515ae5e3cb63e898bf245186.png",
-"tv_鄙视": "6e72339f346a692a495b123174b49e4e8e781303.png",
-"tv_闭嘴": "c9e990da7f6e93975e25fd8b70e2e290aa4086ef.png",
-"tv_难过": "87f46748d3f142ebc6586ff58860d0e2fc8263ba.png",
-"tv_馋": "fc7e829b845c43c623c8b490ee3602b7f0e76a31.png",
-"tv_鬼脸": "0ffbbddf8a94d124ca2f54b360bbc04feb6bbfea.png",
-"tv_黑人问号": "45821a01f51bc867da9edbaa2e070410819a95b2.png",
-"tv_鼓掌": "1d21793f96ef4e6f48b23e53e3b9e42da833a0f6.png"}
+	"tv_doge": "6ea59c827c414b4a2955fe79e0f6fd3dcd515e24.png",
+	"tv_亲亲": "a8111ad55953ef5e3be3327ef94eb4a39d535d06.png",
+	"tv_偷笑": "bb690d4107620f1c15cff29509db529a73aee261.png",
+	"tv_再见": "180129b8ea851044ce71caf55cc8ce44bd4a4fc8.png",
+    "tv_冷漠": "b9cbc755c2b3ee43be07ca13de84e5b699a3f101.png",
+	"tv_发怒": "34ba3cd204d5b05fec70ce08fa9fa0dd612409ff.png",
+    "tv_发财": "34db290afd2963723c6eb3c4560667db7253a21a.png",
+    "tv_可爱": "9e55fd9b500ac4b96613539f1ce2f9499e314ed9.png",
+    "tv_吐血": "09dd16a7aa59b77baa1155d47484409624470c77.png",
+    "tv_呆": "fe1179ebaa191569b0d31cecafe7a2cd1c951c9d.png",
+    "tv_呕吐": "9f996894a39e282ccf5e66856af49483f81870f3.png",
+    "tv_困": "241ee304e44c0af029adceb294399391e4737ef2.png",
+    "tv_坏笑": "1f0b87f731a671079842116e0991c91c2c88645a.png",
+    "tv_大佬": "093c1e2c490161aca397afc45573c877cdead616.png",
+    "tv_大哭": "23269aeb35f99daee28dda129676f6e9ea87934f.png",
+    "tv_委屈": "d04dba7b5465779e9755d2ab6f0a897b9b33bb77.png",
+    "tv_害羞": "a37683fb5642fa3ddfc7f4e5525fd13e42a2bdb1.png",
+    "tv_尴尬": "7cfa62dafc59798a3d3fb262d421eeeff166cfa4.png",
+    "tv_微笑": "70dc5c7b56f93eb61bddba11e28fb1d18fddcd4c.png",
+    "tv_思考": "90cf159733e558137ed20aa04d09964436f618a1.png",
+    "tv_惊吓": "0d15c7e2ee58e935adc6a7193ee042388adc22af.png",
+    "tv_打脸": "56ab10b624063e966bfcb76ea5dc4794d87dfd47.png",
+    "tv_抓狂": "fe31c08edad661d63762b04e17b8d5ae3c71a757.png",
+    "tv_抠鼻": "c666f55e88d471e51bbd9fab9bb308110824a6eb.png",
+    "tv_斜眼笑": "911f987aa8bc1bee12d52aafe62bc41ef4474e6c.png",
+    "tv_无奈": "ea8ed89ee9878f2fece2dda0ea8a5dbfe21b5751.png",
+    "tv_晕": "5443c22b4d07fb1907ccc610c8e6db254f2461b7.png",
+    "tv_流汗": "cead1c351ab8d79e9f369605beb90148db0fbed3.png",
+    "tv_流泪": "7e71cde7858f0cd50d74b0264aa26db612a8a167.png",
+    "tv_流鼻血": "c32d39db2737f89b904ca32700d140a9241b0767.png",
+    "tv_点赞": "f85c354995bd99e28fc76c869bfe42ba6438eff4.png",
+    "tv_生气": "26702dcafdab5e8225b43ffd23c94ac1ff932654.png",
+    "tv_生病": "8b0ec90e6b86771092a498c54f09fc94621c1900.png",
+    "tv_疑问": "0793d949b18d7be716078349c202c15ff166f314.png",
+    "tv_白眼": "c1d59f439e379ee50eef488bcb5e5378e5044ea4.png",
+    "tv_皱眉": "72ccad6679fea0d14cce648b4d818e09b8ffea2d.png",
+    "tv_目瞪口呆": "0b8cb81a68de5d5365212c99375e7ace3e7891b7.png",
+    "tv_睡着": "8b196675b53af58264f383c50ad0945048290b33.png",
+    "tv_笑哭": "1abc628f6d4f4caf9d0e7800878f4697abbc8273.png",
+    "tv_腼腆": "89712c0d4af73e67f89e35cbc518420380a7f6f4.png",
+    "tv_色": "61822c7e9aae5da76475e7892534545336b23a6f.png",
+    "tv_调侃": "4bc022533ef31544ca0d72c12c808cf4a1cce3e3.png",
+    "tv_调皮": "b9c41de8e82dd7a8515ae5e3cb63e898bf245186.png",
+    "tv_鄙视": "6e72339f346a692a495b123174b49e4e8e781303.png",
+    "tv_闭嘴": "c9e990da7f6e93975e25fd8b70e2e290aa4086ef.png",
+    "tv_难过": "87f46748d3f142ebc6586ff58860d0e2fc8263ba.png",
+    "tv_馋": "fc7e829b845c43c623c8b490ee3602b7f0e76a31.png",
+    "tv_鬼脸": "0ffbbddf8a94d124ca2f54b360bbc04feb6bbfea.png",
+    "tv_黑人问号": "45821a01f51bc867da9edbaa2e070410819a95b2.png",
+    "tv_鼓掌": "1d21793f96ef4e6f48b23e53e3b9e42da833a0f6.png",
+	"bilibili_热词系列_“狼火”": "https://cdn.jsdelivr.net/gh/blogimg/emotion/bilibili/热词系列_“狼火”.png",
+	"bilibili_热词系列_知识增加": "https://cdn.jsdelivr.net/gh/blogimg/emotion/bilibili/热词系列_知识增加.png",
+	"bilibili_热词系列_张三": "https://cdn.jsdelivr.net/gh/blogimg/emotion/bilibili/热词系列_张三.png",
+	"bilibili_热词系列_有内味了": "https://cdn.jsdelivr.net/gh/blogimg/emotion/bilibili/热词系列_有内味了.jpg",
+	"bilibili_热词系列_我裂开了" : "https://cdn.jsdelivr.net/gh/blogimg/emotion/bilibili/热词系列_我裂开了.png",
+	"bilibili_热词系列_我哭了" : "https://cdn.jsdelivr.net/gh/blogimg/emotion/bilibili/热词系列_我哭了.jpg",
+	"bilibili_热词系列_问号" : "https://cdn.jsdelivr.net/gh/blogimg/emotion/bilibili/热词系列_问号.png",
+	"bilibili_热词系列_危" : "https://cdn.jsdelivr.net/gh/blogimg/emotion/bilibili/热词系列_危.jpg",
+	"bilibili_热词系列_你细品" : "https://cdn.jsdelivr.net/gh/blogimg/emotion/bilibili/热词系列_你细品.jpg",
+	"bilibili_热词系列_猛男必看" : "https://cdn.jsdelivr.net/gh/blogimg/emotion/bilibili/热词系列_猛男必看.jpg",
+	"bilibili_热词系列_害" : "https://cdn.jsdelivr.net/gh/blogimg/emotion/bilibili/热词系列_害.jpg",
+	"bilibili_热词系列_咕咕" : "https://cdn.jsdelivr.net/gh/blogimg/emotion/bilibili/热词系列_咕咕.jpg",
+	"bilibili_热词系列_递话筒" : "https://cdn.jsdelivr.net/gh/blogimg/emotion/bilibili/热词系列_递话筒.png",
+	"bilibili_热词系列_标准结局" : "https://cdn.jsdelivr.net/gh/blogimg/emotion/bilibili/热词系列_标准结局.png",
+	"bilibili_热词系列_爱了爱了" : "https://cdn.jsdelivr.net/gh/blogimg/emotion/bilibili/热词系列_爱了爱了.png",
+	"bilibili_热词系列_知识盲区" : "https://cdn.jsdelivr.net/gh/blogimg/emotion/bilibili/热词系列_知识盲区.png",
+	"bilibili_热词系列_镇站之宝" : "https://cdn.jsdelivr.net/gh/blogimg/emotion/bilibili/热词系列_镇站之宝.png",
+	"bilibili_热词系列_真香" : "https://cdn.jsdelivr.net/gh/blogimg/emotion/bilibili/热词系列_真香.png",
+	"bilibili_热词系列_有生之年" : "https://cdn.jsdelivr.net/gh/blogimg/emotion/bilibili/热词系列_有生之年.png",
+	"bilibili_热词系列_爷关更" : "https://cdn.jsdelivr.net/gh/blogimg/emotion/bilibili/热词系列_爷关更.png",
+	"bilibili_热词系列_秀" : "https://cdn.jsdelivr.net/gh/blogimg/emotion/bilibili/热词系列_秀.png",
+	"bilibili_热词系列_下次一定" : "https://cdn.jsdelivr.net/gh/blogimg/emotion/bilibili/热词系列_下次一定.png",
+	"bilibili_热词系列_我太南了" : "https://cdn.jsdelivr.net/gh/blogimg/emotion/bilibili/热词系列_我太南了.png",
+	"bilibili_热词系列_我酸了" : "https://cdn.jsdelivr.net/gh/blogimg/emotion/bilibili/热词系列_我酸了.png",
+	"bilibili_热词系列_我全都要" : "https://cdn.jsdelivr.net/gh/blogimg/emotion/bilibili/热词系列_我全都要.png",
+	"bilibili_热词系列_完结撒花" : "https://cdn.jsdelivr.net/gh/blogimg/emotion/bilibili/热词系列_完结撒花.png",
+	"bilibili_热词系列_神仙UP" : "https://cdn.jsdelivr.net/gh/blogimg/emotion/bilibili/热词系列_神仙UP.png",
+	"bilibili_热词系列_三连" : "https://cdn.jsdelivr.net/gh/blogimg/emotion/bilibili/热词系列_三连.png",
+	"bilibili_热词系列_你币有了" : "https://cdn.jsdelivr.net/gh/blogimg/emotion/bilibili/热词系列_你币有了.png",
+	"bilibili_热词系列_妙啊" : "https://cdn.jsdelivr.net/gh/blogimg/emotion/bilibili/热词系列_妙啊.png",
+	"bilibili_热词系列_可以" : "https://cdn.jsdelivr.net/gh/blogimg/emotion/bilibili/热词系列_可以.png",
+	"bilibili_热词系列_高产" : "https://cdn.jsdelivr.net/gh/blogimg/emotion/bilibili/热词系列_高产.png",
+	"bilibili_热词系列_大师球" : "https://cdn.jsdelivr.net/gh/blogimg/emotion/bilibili/热词系列_大师球.png",
+	"bilibili_热词系列_打卡" : "https://cdn.jsdelivr.net/gh/blogimg/emotion/bilibili/热词系列_打卡.png",
+	"bilibili_热词系列_锤" : "https://cdn.jsdelivr.net/gh/blogimg/emotion/bilibili/热词系列_锤.png",
+	"bilibili_热词系列_吹爆" : "https://cdn.jsdelivr.net/gh/blogimg/emotion/bilibili/热词系列_吹爆.png",
+	"bilibili_热词系列_不愧是你" : "https://cdn.jsdelivr.net/gh/blogimg/emotion/bilibili/热词系列_不愧是你.png",
+	"bilibili_热词系列_奥力给" : "https://cdn.jsdelivr.net/gh/blogimg/emotion/bilibili/热词系列_奥力给.png",
+	"bilibili_热词系列_AWSL" : "https://cdn.jsdelivr.net/gh/blogimg/emotion/bilibili/热词系列_AWSL.png",
+	"bilibili_热词系列_狼火" : "https://cdn.jsdelivr.net/gh/blogimg/emotion/bilibili/热词系列_狼火.png",
+    "蛆音娘_吃惊" : "https://i0.hdslb.com/bfs/emote/7a4cb0b644214d476ce198ddf6a7a0aa31311199.png",
+    "蛆音娘_滑稽" : "https://i0.hdslb.com/bfs/emote/d3717f10ffe9787336bc39a09214270988521a67.png",
+    "蛆音娘_疑问" : "https://i0.hdslb.com/bfs/emote/b6c763c6484ce2e48299ceb21861e46318868871.png"
+		}
       })
   }
 </script>
+
 
       <section class="author-profile">
         <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
@@ -570,7 +826,7 @@
     </div><!-- .site-info -->
 </footer>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/xbclub/staticCDN@0.8/js/lib.min.js"></script>
-<script src="/Biu/autoload.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/xbclub/staticCDN@0.8/js/InsightSearch.js"></script>
 <script type="text/javascript"
@@ -579,7 +835,7 @@
 
         <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/xbclub/staticCDN@1.4/js/sakura-app.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<script src="/js/Valine.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/gh/xbclub/staticCDN@0.8/js/busuanzi.pure.mini.js"></script>
 
