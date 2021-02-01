@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title>关于近日 | 萌の新小窝</title>
+  <title>读取米家蓝牙温湿度计数据 | 萌の新小窝</title>
   <meta name="description" content="萌新的BLOG" />
   <meta name="keywords" content="MengXin,Linux,Python,Java,C++,萌新,Sakura,气象" />
   
@@ -542,11 +542,11 @@
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
     <div class="pattern-attachment-img">
-        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://tva3.sinaimg.cn/large/0072Vf1pgy1foxkimfevkj31hc0u0tmy.jpg" class="lazyload" onerror="imgError(this,3)" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://tva4.sinaimg.cn/large/0072Vf1pgy1foxkj3yaqcj31kw0w0kgs.jpg" class="lazyload" onerror="imgError(this,3)" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
       </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      关于近日</h1>
+      读取米家蓝牙温湿度计数据</h1>
       <p class="entry-census">
         <span>
           <a href="/">
@@ -558,7 +558,7 @@
         </span>
         <span class="bull">
         ·</span>
-        2021-1-30
+        2021-2-1
         
           ·<span id="busuanzi_value_page_pv"></span>次阅读
       
@@ -575,10 +575,26 @@
         <!--<div class="toc-entry-content"> <!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h3 id="看板娘"><a href="#看板娘" class="headerlink" title="看板娘"></a>看板娘</h3><p>自建了Live2D看板娘的CDN，现在的首页看起来没有以前那么空白了(咕</p>
-<h3 id="评论系统"><a href="#评论系统" class="headerlink" title="评论系统"></a>评论系统</h3><p>打算继续使用Valine系统，修改一些评论区的样式，包括系统&amp;浏览器信息显示部分等等，评论内加入了<code>Bilibili热词系列</code>的表情包</p>
-<h3 id="首页样式"><a href="#首页样式" class="headerlink" title="首页样式"></a>首页样式</h3><p>参照了孤影墨香的样式配色以及滑块等</p>
-<h3 id="balabala"><a href="#balabala" class="headerlink" title="balabala"></a>balabala</h3><p>从去年年底开始在完善2020年的气象年度回顾记录，小窝一直闲置的没有去维护，放假后好好打理一番这次一定</p>
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>由于米家APP云端只能存储半年的传感器数据，所以给出一个可以进行本地归档的方案</p>
+<ul>
+<li>通过BLE连接温湿度计不需要进行米家APP上的配对</li>
+<li>获取数据的设备需要支持蓝牙4.0或以上协议</li>
+<li>推荐使用树莓派等各类开发板进行处理归档</li>
+</ul>
+<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><p>这里使用iOS端上的<code>LightBlue</code>软件进行数据获取<br>在<code>Peripherals</code>页面搜索找到编号为<code>LYWSD03MMC</code>的设备连接。<br>连接传感器成功后找到<code>Temperature and Humidity</code>项(<code>UUID: EBE0CCC1-7A0A-4B0C-8A1A-6FF2997DA3A6</code>)<br><img src="https://gitee.com//MengXin546/CDN/raw/master/img/DG0W~SMQYT2@G_%7B%7D~PEFB7G.jpg" alt=""><br>点击<code>Listen for notifications</code>监听传感器广播的温湿度数据。数据示例</p>
+<pre><code>0x240946170B
+0x250946170B
+0x250946170B
+0x240946170B
+0x1F0946640B
+0x000000 ---空数据</code></pre><h2 id="解码"><a href="#解码" class="headerlink" title="解码"></a>解码</h2><p>以Hex数据<code>1F0946640B</code>为例<br>将十六进制数据两两分组得五组数据将其编号</p>
+<pre><code>1F
+09
+46
+64
+0B</code></pre><h4 id="温度数据"><a href="#温度数据" class="headerlink" title="温度数据"></a>温度数据</h4><p>传感器精度为小数点后两位小数，官方取小数点后一位数据，这里可以自行选择精度。<br>    1.取分组后的数据前两组<code>1F</code> <code>09</code>。<br>    2.将数据反序排列为<code>09</code> <code>1F</code>。（十六进制第一位不能为0，转换时舍去0实际输入<code>91F</code>）<br>    3.转为十进制得到数字<code>2335</code>。<br>    4.十进制数字÷100得<code>23.35</code>，此数据即为当前得温度数据</p>
+<h4 id="湿度数据"><a href="#湿度数据" class="headerlink" title="湿度数据"></a>湿度数据</h4><p>1.取分组后的第三组数据<code>46</code><br>2.转换为十进制数据得<code>70</code>，即为当前湿度数据。<br>后面两组数据暂时没有摸索出来用途，0B组似乎是固定数值没有变动。</p>
+<h2 id="On-Raspberry"><a href="#On-Raspberry" class="headerlink" title="On Raspberry"></a>On Raspberry</h2><p>推荐使用Gatttool与Bluez组合，<a href="https://blog.csdn.net/qq_33433070/article/details/78668105" target="_blank" rel="noopener">参考文章</a>。<br>当然上述只是对数据的解码提出的思路，进行本地归档还需要带家用Python或者其他语言进行处理</p>
 
         </div>
         <!-- .entry-content -->
@@ -600,39 +616,20 @@
       <div class="toc" style="background: none;"></div>
       <section class="post-squares nextprev">
         
-          
-            <div class="post-nepre half previous">
-          
-            <a href="/2021/02/xm.html/" rel="prev">
-              <div class="background">
-<!--                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://tva4.sinaimg.cn/large/0072Vf1pgy1foxkj3yaqcj31kw0w0kgs.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://tva4.sinaimg.cn/large/0072Vf1pgy1foxkj3yaqcj31kw0w0kgs.jpg">-->
-                
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://tva4.sinaimg.cn/large/0072Vf1pgy1foxkj3yaqcj31kw0w0kgs.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" >
-              </div>
-              <span class="label">
-              Previous Post</span>
-              <div class="info">
-                <h3>
-                读取米家蓝牙温湿度计数据</h3>
-                <hr>
-              </div>
-            </a>
-          </div>
-        
         
           
-            <div class="post-nepre half next">
+            <div class="post-nepre full next">
           
-            <a href="/2020/07/scrapy.html/" rel="next">
+            <a href="/2021/01/recent.html/" rel="next">
               <div class="background">
                 
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://gitee.com//MengXin546/CDN/raw/master/img/f_00019d.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" >
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://tva3.sinaimg.cn/large/0072Vf1pgy1foxkimfevkj31hc0u0tmy.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" >
               </div>
               <span class="label">
               Next Post</span>
               <div class="info">
                 <h3>
-                在NanoPi上安装Scrapy框架</h3>
+                关于近日</h3>
                 <hr>
               </div>
             </a>

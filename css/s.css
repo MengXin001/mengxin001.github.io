@@ -51,9 +51,7 @@ font-family: -apple-system,SourceCodePro,JetBrainsMono,JBMRegular,PingFangJian,h
 	font-size: 1.05rem;
 	line-height: 1.78rem;
 }
-#vcomments blockquote p {
-	text-indent: 0.2rem;
-}
+
 #vcomments a {
 	padding: 0 2px;
 	color: #4cbf30;
@@ -81,23 +79,7 @@ ol li {
 #vcomments ul ul li {
 	list-style-type: circle;
 }
-#vcomments table, th, td {
-	padding: 12px 13px;
-	border: 1px solid #dfe2e5;
-}
-#vcomments table, th, td {
-	border: 0;
-}
-table tr:nth-child(2n), thead {
-	background-color: #fafafa;
-}
-#vcomments table th {
-	background-color: #f2f2f2;
-	min-width: 80px;
-}
-#vcomments table td {
-	min-width: 80px;
-}
+
 #vcomments h1 {
 	font-size: 1.85rem;
 	font-weight: bold;
@@ -136,44 +118,8 @@ table tr:nth-child(2n), thead {
 	border: 0;
 	border-top: 1px solid #ccc;
 }
-#vcomments blockquote {
-	margin: 15px 0;
-	border-left: 5px solid #42b983;
-	padding: 1rem 0.8rem 0.3rem 0.8rem;
-	color: #666;
-	background-color: rgba(66, 185, 131, .1);
-}
-#vcomments pre {
-	font-family: monospace, monospace;
-	padding: 1.2em;
-	margin: .5em 0;
-	background: #272822;
-	overflow: auto;
-	border-radius: 0.3em;
-	tab-size: 4;
-}
-#vcomments code {
-	font-family: monospace, monospace;
-	padding: 1px 3px;
-	font-size: 0.92rem;
-	color: #e96900;
-	background-color: #f8f8f8;
-	border-radius: 2px;
-}
-#vcomments pre code {
-	font-family: monospace, monospace;
-	padding: 0;
-	color: #e8eaf6;
-	background-color: #272822;
-}
-#vcomments pre[class*="language-"] {
-	padding: 1.2em;
-	margin: .5em 0;
-}
-#vcomments code[class*="language-"],
-pre[class*="language-"] {
-	color: #e8eaf6;
-}
+
+
 #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
 	position: inherit;
 	margin-left: -1.3rem;
@@ -200,20 +146,7 @@ strong {
 	background-color: #fcf8e3;
 	padding: .2em;
 }
-#vcomments table, th, td {
-	padding: 12px 13px;
-	border: 1px solid #dfe2e5;
-}
-table tr:nth-child(2n), thead {
-	background-color: #fafafa;
-}
-#vcomments table th {
-	background-color: #f2f2f2;
-	min-width: 80px;
-}
-#vcomments table td {
-	min-width: 80px;
-}
+
 #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
 	position: inherit;
 	margin-left: -1.3rem;
