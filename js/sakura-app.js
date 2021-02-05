@@ -248,7 +248,7 @@ mashiro_global.font_control.ini()
 function code_highlight_style () {
   function gen_top_bar (i) {
     var attributes = {
-      'autocomplete': 'off',
+      'autocomplete': 'on',
       'autocorrect': 'off',
       'autocapitalize': 'off',
       'spellcheck': 'false',
