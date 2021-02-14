@@ -13,6 +13,10 @@
     box-sizing: initial;
     white-space: nowrap;
 }
+span.sitename {
+    font-family: "Microsoft YaHei";
+    font-weight: bold;
+}
 .post-meta, .post-meta a {
 	color: rgba(0, 0, 0, .66);
     font-size: 12px;
@@ -44,6 +48,17 @@
 	border-radius: 8px;
 }
 .vpower.txt-right {
+font-family: -apple-system,SourceCodePro,JetBrainsMono,JBMRegular,PingFangJian,h1,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+}
+.site-info {
+    text-align: center;
+    font-size: 14.7px;
+    color: #3f8cd9;
+}
+.site-info a {
+color: #ff8398
+}
+footer#colophon {
 font-family: -apple-system,SourceCodePro,JetBrainsMono,JBMRegular,PingFangJian,h1,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
 }
 #vcomments p {
@@ -166,28 +181,40 @@ button.vsubmit.vbtn {
 
 .fa-windows:before {
     color: #3f8cd9;
+	font-size: 16.3px;
 }
 .fa-edge:before {
     color: #1a2bdc;
+	font-size: 16.3px;
 }
 .fa-chrome:before {
     color: #4c8bf4;
+	font-size: 16.3px;
 }
 .fa-macos:before {
     color: black;
+	font-size: 16.3px;
 }
 .fa-safari:before {
     color: #26a69a;
+	font-size: 16.3px;
 }
 .fa-apple:before {
     color: black;
+	font-size: 16.3px;
 }
 .fa-firefox:before {
     color: #f53a3a;
+	font-size: 16.3px;
 }
 .fa-android:before {
     color: #0c9850;
+	font-size: 16.3px;
 }
 .fa-qq:before {
     color: #ec121e;
+	font-size: 16.3px;
 }
+.link-title span.fake-title {
+    font-family: "Microsoft YaHei";
+font-weight: 600;}
