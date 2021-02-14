@@ -194,6 +194,7 @@ button.vsubmit.vbtn {
 .fa-macos:before {
     color: black;
 	font-size: 16.3px;
+	content: "\f179";
 }
 .fa-safari:before {
     color: #26a69a;
