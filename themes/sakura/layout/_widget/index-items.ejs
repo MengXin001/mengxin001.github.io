@@ -1,0 +1,66 @@
+<% var external_link = config.external_link ? '_blank' : '_self'; %>
+<article <% if (index%2 == 0){ %> class="post post-list-thumb post-list-thumb-left" <% } %> class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
+<style>
+.post-list-thumb:hover:after {
+    height: 100%;
+}
+
+.post-list-thumb:after {
+    content: '　';
+    width: 4px;
+    height: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #05b3fc;
+    box-shadow: 0 0 6px #05b3fc;
+    border-radius: 10px;
+    transition: 1s all;
+}
+:after, :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+:after, :before {
+    box-sizing: inherit;
+}
+</style>
+
+  <div class="post-thumb">
+    <a href="<%- url_for(post.path) %>">
+      <img class="lazyload" onerror="imgError(this,3)" src="<%- theme.lazyloadImg%>" data-src="<%= post.photos[0] || 'https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/image-404.png' %>">
+    </a>
+  </div>
+  <div class="post-content-wrap">
+    <div class="post-content">
+      <div class="post-date">
+        <i class="iconfont icon-time">
+        </i>发布于: <%= date(post.date, 'YYYY-M-D HH:MM') %></div>
+      <a href="<%- url_for(post.path) %>" class="post-title">
+        <h2><%= post.title %></h2>
+      </a>
+      <div class="post-meta">
+        <span><i class="fa fa-tags"></i>
+        <% post.tags.each((tag)=>{ %>
+            <a href="<%- url_for(tag.path) %>"><%= tag.name %><em>·</em></a>
+          <% }) %>
+        </span>
+        <span>
+          <i class="iconfont icon-file"></i>
+          <% post.categories.each((category)=>{ %>
+            <a href="<%- url_for(category.path) %>"><%= category.name %></a>
+          <% }) %>
+        </span>
+      </div>
+      <div class="float-content">
+        <p><%= post.description %></p>
+        <div class="post-bottom">
+          <a href="<%- url_for(post.path) %>" class="button-normal">
+            <i class="iconfont icon-caidan"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>

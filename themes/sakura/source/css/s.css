@@ -1,0 +1,211 @@
+.logolink a{color:#464646;float:left;font-size:20px;font-weight:800;height:56px;line-height:56px;padding-left:35px;padding-right:15px;padding-top:11px;text-decoration-line:none}.logolink .sakuraso{background-color:rgba(255,255,255,.5);border-radius:5px;color:#464646;height:auto;line-height:25px;margin-right:0;padding-bottom:0;padding-top:1px;text-size-adjust:100%;width:auto}.logolink a:hover .sakuraso{background-color:orange;color:#fff}.logolink a:hover .shironeko,.logolink a:hover rt{color:orange}.logolink.moe-mashiro a{color:#464646;float:left;font-size:25px;font-weight:800;height:56px;line-height:56px;padding-left:6px;padding-right:15px;padding-top:11px;text-decoration-line:none}.logolink.moe-mashiro .sakuraso,.logolink.moe-mashiro .no{font-size:25px;border-radius:9px;padding-bottom:2px;padding-top:5px}.logolink.moe-mashiro .no{display:inline-block;margin-left:5px}.logolink a:hover .no{-webkit-animation:spin 1.5s linear infinite;animation:spin 1.5s linear infinite}.logolink ruby{ruby-position:under;-webkit-ruby-position:after}.logolink ruby rt{font-size:10px;transform:translateY(-15px);opacity:0;transiton-property:opacity;transition-duration:.5s,.5s}.logolink a:hover ruby rt{opacity:1}
+.header-info {
+    width: 63%;
+    margin: auto;
+    font-size: 16px;
+    color: #e6e6e6;
+    background: rgba(0, 0, 0, .5);
+    padding: 15px;
+    margin-top: 22px;
+    letter-spacing: 0;
+    line-height: 30px;
+    border-radius: 10px;
+    box-sizing: initial;
+    white-space: nowrap;
+}
+span.sitename {
+    font-family: "Microsoft YaHei";
+    font-weight: bold;
+}
+.post-meta, .post-meta a {
+	color: rgba(0, 0, 0, .66);
+    font-size: 12px;
+}
+.post-date {
+	color: #fff;
+    font-size: 12px;
+}
+.serif {
+    font-family:'Source Han Serif SC','Source Han Serif','source-han-serif-sc','PT Serif','SongTi SC','MicroSoft Yahei',Georgia,serif
+}
+.valine-card {
+	margin: 1.5rem auto;
+}
+.v[data-class=v] .vwrap {
+	padding-bottom: 23px;
+}
+.v[data-class=v] .vbtn:disabled {
+	color: #b2b2b5;
+	border-color: #b2b2b5;
+}
+.v[data-class=v] .vbtn:disabled {
+	background-color: transparent;
+}
+.valine-card .card-content {
+	padding: 20px 20px 5px 20px;
+}
+.v[data-class=v] .vwrap {
+	border-radius: 8px;
+}
+.vpower.txt-right {
+font-family: -apple-system,SourceCodePro,JetBrainsMono,JBMRegular,PingFangJian,h1,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+}
+.site-info {
+    text-align: center;
+    font-size: 14.7px;
+    color: #3f8cd9;
+}
+.site-info a {
+color: #ff8398
+}
+footer#colophon {
+font-family: -apple-system,SourceCodePro,JetBrainsMono,JBMRegular,PingFangJian,h1,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+}
+#vcomments p {
+	margin: 2px 2px 10px;
+	font-size: 1.05rem;
+	line-height: 1.78rem;
+}
+
+#vcomments a {
+	padding: 0 2px;
+	color: #4cbf30;
+	font-weight: 500;
+	text-decoration: none;
+}
+#vcomments ol li {
+	list-style-type: decimal;
+}
+#vcomments ol,
+ul {
+	display: block;
+	padding-left: 2em;
+	word-spacing: 0.05rem;
+}
+#vcomments ul li,
+ol li {
+	display: list-item;
+	line-height: 1.8rem;
+	font-size: 1rem;
+}
+#vcomments ul li {
+	list-style-type: disc;
+}
+#vcomments ul ul li {
+	list-style-type: circle;
+}
+
+#vcomments h1 {
+	font-size: 1.85rem;
+	font-weight: bold;
+	line-height: 2.2rem;
+}
+#vcomments h2 {
+	font-size: 1.65rem;
+	font-weight: bold;
+	line-height: 1.9rem;
+}
+#vcomments h3 {
+	font-size: 1.45rem;
+	font-weight: bold;
+	line-height: 1.7rem;
+}
+#vcomments h4 {
+	font-size: 1.25rem;
+	font-weight: bold;
+	line-height: 1.5rem;
+}
+#vcomments h5 {
+	font-size: 1.1rem;
+	font-weight: bold;
+	line-height: 1.4rem;
+}
+#vcomments h6 {
+	font-size: 1rem;
+	line-height: 1.3rem;
+}
+#vcomments p {
+	font-size: 1rem;
+	line-height: 1.5rem;
+}
+#vcomments hr {
+	margin: 12px 0;
+	border: 0;
+	border-top: 1px solid #ccc;
+}
+
+
+#vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+	position: inherit;
+	margin-left: -1.3rem;
+	margin-right: 0.4rem;
+	margin-top: -1px;
+	vertical-align: middle;
+	left: unset;
+	visibility: visible;
+}
+#vcomments b,
+strong {
+	font-weight: bold;
+}
+#vcomments dfn {
+	font-style: italic;
+}
+#vcomments small {
+	font-size: 85%;
+}
+#vcomments cite {
+	font-style: normal;
+}
+#vcomments mark {
+	background-color: #fcf8e3;
+	padding: .2em;
+}
+
+#vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+	position: inherit;
+	margin-left: -1.3rem;
+	margin-right: 0.4rem;
+	margin-top: -1px;
+	vertical-align: middle;
+	left: unset;
+	visibility: visible;
+}
+button.vsubmit.vbtn {
+    font-family: 'Source Han Serif SC','Source Han Serif','source-han-serif-sc','PT Serif','SongTi SC','MicroSoft Yahei',Georgia,serif;
+}
+.vcards {
+    font-family: -apple-system,SourceCodePro,JetBrainsMono,JBMRegular,PingFangJian,h1,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+}
+@font-face{font-family:ming;src:url(https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/box/font/GuDianMingChaoTi.otf)}@font-face{font-family:JetBrainsMono;src:url(https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/box/font/JetBrainsMono-Bold-7.ttf)}@font-face{font-family:JBMRegular;src:url(https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/box/font/JetBrainsMono-Regular-2.ttf)}@font-face{font-family:JBMMedium;src:url(https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/box/font/JetBrainsMono-Medium-3.ttf)}@font-face{font-family:SourceCodePro;src:url(https://cdn.jsdelivr.net/gh/small-rose/small-rose.github.io/box/font/SourceCodePro-Regular-12.ttf)}@font-face{font-family:PingFangJian;src:url(https://cdn.jsdelivr.net/gh/small-rose/blogstatic/box/font/PingFang-Jian-ChangGuiTi-2.ttf)}@font-face{font-family:PingFangBold;src:url(https://cdn.jsdelivr.net/gh/small-rose/blogstatic/box/font/PingFang-SC-Semibold-2.ttf)}
+
+.fa-windows:before {
+    color: #3f8cd9;
+}
+.fa-edge:before {
+    color: #1a2bdc;
+}
+.fa-chrome:before {
+    color: #4c8bf4;
+}
+.fa-macos:before {
+    color: black;
+}
+.fa-safari:before {
+    color: #26a69a;
+}
+.fa-apple:before {
+    color: black;
+}
+.fa-firefox:before {
+    color: #f53a3a;
+}
+.fa-android:before {
+    color: #0c9850;
+}
+.fa-qq:before {
+    color: #ec121e;
+}
+.link-title span.fake-title {
+    font-family: "Microsoft YaHei";
+font-weight: 600;}

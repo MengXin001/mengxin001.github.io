@@ -1,0 +1,128 @@
+# site name
+prefixName: 萌の
+siteName: 新えか
+# favicon and site master avatar
+favicon: /images/favicon.ico
+avatar: https://cdn.jsdelivr.net/gh/Mengxin001/CDN/Head3.jpg
+url: https://www.xinmoe.cn
+description: 人间四月芳菲尽，山寺桃花始盛开
+cdn: 
+pjax: 1
+# 1开启
+mathjax: 1
+
+notice: 新年快乐！
+lazyloadImg: https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg
+
+seo:
+  #网站简介
+  description: 萌新的BLOG
+  #关键词
+  keywords: MengXin,Linux,Python,Java,C++,萌新,Sakura,气象
+  
+menus:
+  首页: { path: /, fa: fa-fort-awesome faa-shake }
+  归档: { path: /archives, fa: fa-archive faa-shake, submenus: { 
+    NanoPi: {path: /categories/NanoPi/, fa: fa-code }, 
+    Hexo: {path: /categories/Hexo/, fa: fa-file-text-o }, 
+    资源: {path: /categories/资源/, fa: fa-cloud-download }, 
+    随想: {path: /categories/随想/, fa: fa-commenting-o },
+    转载: {path: /categories/转载/, fa: fa-book }
+  } }
+  清单: { path: javascript:;, fa: fa-list-ul faa-vertical, submenus: {
+    书单: {path: /tags/read/, fa: fa-th-list faa-bounce },
+    番组: {path: /bangumi/, fa: fa-film faa-vertical },
+    歌单: {path: /music/, fa: fa-headphones },
+    图集: {path: /tags/photo/, fa: fa-photo }
+  } }
+  留言板: { path: /comment/, fa: fa-pencil-square-o faa-tada }
+  赞赏: { path: /donate/, fa: fa-heart faa-pulse }
+  关于: { path: /, fa: fa-leaf faa-wrench , submenus: {
+    我？: {path: /about/, fa: fa-meetup},
+    Lab: {path: /lab/, fa: fa-cogs },
+    Debug: {path: /debug/, fa: fa-code },
+  } }
+  API: { path: /api/, fa: fa-adn faa-vertical }
+  友人帐: { path: /links/, fa: fa-link faa-shake }
+  RSS: { path: /atom.xml, fa: fa-rss faa-pulse }
+
+
+# Home page sort type: -1: newer first，1: older first.
+homePageSortType: -1
+# Home page article shown number)
+homeArticleShown: 10
+# 背景图片 更好的修改
+bg:
+  - https://api.gymxbl.com/images/
+
+# 背景图片样式 空 原图效果 filter-dim 阴影 filter-grid 横条 filter-dot 点点
+bgclass: filter-dim
+
+# startdash url, title, desc img
+startdash: 
+  - {url: /, title: MENGXIN, desc: さくら荘その萌新, img: https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/startdash/sakura.md.png}
+  - {url: http://2020.xinmoe.cn, title: 气象记录, desc: 年度回顾, img: https://i.loli.net/2020/07/23/HMFJD9kdKBYbxql.png}
+  - {url: https://www.moex.club/bangumi/, title: 追番列表, desc: 番组计划, img: https://cdn.jsdelivr.net/gh/MengXin001/CDN/bangumi.jpg}
+
+pagefooter: © 2019-2021 MengXin的BLOG
+
+# your site build time or founded date
+siteBuildingTime: 2019-8-7
+runtime: true
+
+#social  url, img PC端配置
+social:
+  github: {url: https://github.com/MengXin, img: https://cdn.jsdelivr.net/gh/xbclub/staticCDN@0.6/img/social/github.png}
+  twitter: {url: https://weibo.com/5851630216/, img: https://gitee.com//MengXin546/CDN/raw/master/img/twitter.png}
+  qq: {url: https://wpa.qq.com/msgrd?v=3&uin=3309939798&site=qq&menu=yes, img: https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/social/qq.png}
+  wangyiyun: {url: https://music.163.com/#/user/home?id=468220698, img: https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/social/wangyiyun.png}
+  zhihu: {url: https://www.zhihu.com/people/le-le-5-50, img: https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/social/zhihu.png}
+  sina: {url: https://weibo.com/5851630216/, img: https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/social/sina.png}
+  email: {url: 3309939798@qq.com, img: https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/social/email.svg}
+#social  url, img 移动端配置
+msocial:
+  github: {url: http://github.com/mengxin001, fa: fa-github, color: 333}
+  weibo: {url: https://weibo.com/5851630216/, fa: fa-weibo, color: dd4b39}
+  qq: {url: https://wpa.qq.com/msgrd?v=3&uin=3309939798&site=qq&menu=yes, fa: fa-qq, color: 25c6fe}
+
+donate:
+  paypal: /
+  alipay: https://cdn.jsdelivr.net/gh/MengXin001/CDN/IMG_3557.JPG
+  wechatSQ: https://cdn.jsdelivr.net/gh/MengXin001/CDN/IMG_4362.jpg
+  wechat: https://cdn.jsdelivr.net/gh/MengXin001/CDN/IMG_4362.jpg
+
+movies:
+  switch: false
+  url: https://blog.51qwj.xyz/wp-content/uploads/2019/11/
+  # 多个视频用逗号隔开，随机获取。支持的格式目前已知MP4,Flv。其他的可以试下，不保证有用
+  name: IMG_3149.jpg
+
+
+aplayer: 
+  switch: false
+  id: 
+  server: netease
+  type: playlist
+  fixed: true
+  autoplay: false
+  loop: all
+  order: random
+  preload: false
+  volume: 0.7
+  mutex: true
+
+# Valine
+valine: true
+v_appId: sLr75njDfFWhAEkbCfnUmqq2-gzGzoHsz
+v_appKey: VGneg1o3HLxMDPbxH2aD4vvn
+
+busuanzi:
+  switch: true
+  
+mulu:
+  switch: true
+  
+hitokoto: true
+
+
+

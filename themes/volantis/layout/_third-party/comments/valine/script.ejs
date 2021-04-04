@@ -1,0 +1,53 @@
+<% if (theme.comments.valine.js) { %>
+  <%- js(theme.comments.valine.js) %>
+<% } else if(theme.use_cdn) { %>
+  <%- js(['https://cdn.jsdelivr.net/npm/hexo-theme-volantis@'+theme.info.theme_version+'/source/js/valine.min.js']) %>
+<% } else { %>
+  <%- js(['js/valine.js']) %>
+<% } %>
+<script>
+  function emoji(path, idx, ext) {
+    return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  function pjax_valine() {
+    if(!document.querySelectorAll("#valine_container")[0])return;
+    let pagePlaceholder = pdata.commentPlaceholder || "<%= theme.comments.valine.placeholder %>";
+    let path = pdata.commentPath;
+    if (path.length == 0) {
+      let defaultPath = '<%= theme.comments.valine.path %>';
+      path = defaultPath || decodeURI(window.location.pathname);
+    }
+    var valine = new Valine();
+    valine.init(Object.assign(<%- JSON.stringify(theme.comments.valine) %>, {
+      el: '#valine_container',
+      path: path,
+      placeholder: pagePlaceholder,
+	  visitor: true,
+	  master: ["442d88c7b88989a1f1ca2a236de35add"],
+	  friends: ["30777cec3092897e4708322fbfb0bf8b", "3151245cea36d1bda0858dba221cdaf2", "994406373848f5c4da91baa07566c065", "17885ae2e792de13ef1b68309799f7e4", "bbbf9dd42d982b6848b5a3b2c7c344c1", "f1530c85fcd96794561f53b9725f9446", "0f91e98b8eabeb169d77c276cc0673c4", "151ce3645b416cfbb0b00d94c2b066de"],
+      path: window.location.pathname,
+      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+      emojiMaps: emojiMaps,
+    }))
+  }
+  $(function () {
+    pjax_valine();
+  });
+  volantis.pjax.push(pjax_valine);
+</script>
