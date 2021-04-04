@@ -1,0 +1,29 @@
+language: node_js
+node_js: stable
+
+# S: Build Lifecycle
+install:
+  - npm install
+
+#before_script:
+ # - npm install -g gulp
+
+script:
+  - hexo g
+
+after_script:
+  - cd ./public
+  - git init
+  - git config user.name "MengXin001" --{GitHub账户名称}
+  - git config user.email "3309939798@qq.com" --{Github账户邮箱}
+  - git add .
+  - git commit -m "Update docs"
+  - git push --force --quiet "https://{GH_REF}" master:master
+# E: Build LifeCycle
+
+branches:
+  only:
+    - hexo
+env:
+ global:
+   - GH_REF: github.com/MengXin001/mengxin001.github.io
