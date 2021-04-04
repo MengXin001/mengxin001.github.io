@@ -13,7 +13,7 @@
       
       <categories>
           
-          <category> Meteo </category>
+          <category> Meteorology </category>
           
       </categories>
       
@@ -35,7 +35,7 @@
       <link href="2021/02/xm.html/"/>
       <url>2021/02/xm.html/</url>
       
-        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>由于米家APP云端只能存储半年的传感器数据，所以给出一个可以进行本地归档的方案</p><ul><li>通过BLE连接温湿度计不需要进行米家APP上的配对</li><li>获取数据的设备需要支持蓝牙4.0或以上协议</li><li>推荐使用树莓派等各类开发板进行处理归档</li></ul><h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><p>这里使用iOS端上的<code>LightBlue</code>软件进行数据获取<br>在<code>Peripherals</code>页面搜索找到编号为<code>LYWSD03MMC</code>的设备连接。<br>连接传感器成功后找到<code>Temperature and Humidity</code>项(<code>UUID: EBE0CCC1-7A0A-4B0C-8A1A-6FF2997DA3A6</code>)<br><img src="https://gitee.com//MengXin546/CDN/raw/master/img/DG0W~SMQYT2@G_%7B%7D~PEFB7G.jpg" alt=""><br>点击<code>Listen for notifications</code>监听传感器广播的温湿度数据。数据示例</p><pre><code>0x240946170B0x250946170B0x250946170B0x240946170B0x1F0946640B0x000000 ---空数据</code></pre><h2 id="解码"><a href="#解码" class="headerlink" title="解码"></a>解码</h2><p>以Hex数据<code>1F0946640B</code>为例<br>将十六进制数据两两分组得五组数据将其编号</p><pre><code>1F0946640B</code></pre><h4 id="温度数据"><a href="#温度数据" class="headerlink" title="温度数据"></a>温度数据</h4><p>传感器精度为小数点后两位小数，官方取小数点后一位数据，这里可以自行选择精度。<br>    1.取分组后的数据前两组<code>1F</code> <code>09</code>。<br>    2.将数据反序排列为<code>09</code> <code>1F</code>。（十六进制第一位不能为0，转换时舍去0实际输入<code>91F</code>）<br>    3.转为十进制得到数字<code>2335</code>。<br>    4.十进制数字÷100得<code>23.35</code>，此数据即为当前得温度数据</p><h4 id="湿度数据"><a href="#湿度数据" class="headerlink" title="湿度数据"></a>湿度数据</h4><p>1.取分组后的第三组数据<code>46</code><br>2.转换为十进制数据得<code>70</code>，即为当前湿度数据。<br>后面两组数据暂时没有摸索出来用途，0B组似乎是固定数值没有变动。</p><h2 id="On-Raspberry"><a href="#On-Raspberry" class="headerlink" title="On Raspberry"></a>On Raspberry</h2><p>推荐使用Gatttool与Bluez组合，<a href="https://blog.csdn.net/qq_33433070/article/details/78668105" target="_blank" rel="noopener">参考文章</a>。<br>当然上述只是对数据的解码提出的思路，进行本地归档还需要带家用Python或者其他语言进行处理</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>由于米家APP云端只能存储半年的传感器数据，所以给出一个可以进行本地归档的方案</p><ul><li>通过BLE连接温湿度计不需要进行米家APP上的配对</li><li>获取数据的设备需要支持蓝牙4.0或以上协议</li><li>推荐使用树莓派等各类开发板进行处理归档</li></ul><h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><p>这里使用iOS端上的<code>LightBlue</code>软件进行数据获取<br>在<code>Peripherals</code>页面搜索找到编号为<code>LYWSD03MMC</code>的设备连接。<br>连接传感器成功后找到<code>Temperature and Humidity</code>项(<code>UUID: EBE0CCC1-7A0A-4B0C-8A1A-6FF2997DA3A6</code>)</p><div class="img-wrap"><div class="frame-wrap" id="iphone11"><img class="img lazyload" src="https://gitee.com//MengXin546/CDN/raw/master/img/DG0W~SMQYT2@G_{}~PEFB7G.jpg" class="lazyload" data-srcset="https://gitee.com//MengXin546/CDN/raw/master/img/DG0W~SMQYT2@G_{}~PEFB7G.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="/><div class="frame"></div></div></div><p>点击<code>Listen for notifications</code>监听传感器广播的温湿度数据。数据示例</p><pre><code>0x240946170B0x250946170B0x250946170B0x240946170B0x1F0946640B0x000000 ---空数据</code></pre><h2 id="解码"><a href="#解码" class="headerlink" title="解码"></a>解码</h2><p>以Hex数据<code>1F0946640B</code>为例<br>将十六进制数据两两分组得五组数据将其编号</p><pre><code>1F0946640B</code></pre><h4 id="温度数据"><a href="#温度数据" class="headerlink" title="温度数据"></a>温度数据</h4><p>传感器精度为小数点后两位小数，官方取小数点后一位数据，这里可以自行选择精度。<br>    1.取分组后的数据前两组<code>1F</code> <code>09</code>。<br>    2.将数据反序排列为<code>09</code> <code>1F</code>。（十六进制第一位不能为0，转换时舍去0实际输入<code>91F</code>）<br>    3.转为十进制得到数字<code>2335</code>。<br>    4.十进制数字÷100得<code>23.35</code>，此数据即为当前得温度数据</p><h4 id="湿度数据"><a href="#湿度数据" class="headerlink" title="湿度数据"></a>湿度数据</h4><p>1.取分组后的第三组数据<code>46</code><br>2.转换为十进制数据得<code>70</code>，即为当前湿度数据。<br>后面两组数据暂时没有摸索出来用途，0B组似乎是固定数值没有变动。</p><h2 id="On-Raspberry"><a href="#On-Raspberry" class="headerlink" title="On Raspberry"></a>On Raspberry</h2><p>推荐使用Gatttool与Bluez组合，<a href="https://blog.csdn.net/qq_33433070/article/details/78668105" target="_blank" rel="noopener">参考文章</a>。<br>当然上述只是对数据的解码提出的思路，进行本地归档还需要带家用Python或者其他语言进行处理</p>]]></content>
       
       
       <categories>
@@ -112,7 +112,7 @@
       <link href="2020/07/npik2.html/"/>
       <url>2020/07/npik2.html/</url>
       
-        <content type="html"><![CDATA[<p>1.使用SSH或者在图形桌面下使用终端连接到你的NanoPiK2上<br>2.备份官方软件源</p><pre><code>sudo cp /etc/apt/sources.list /etc/apt/sources.backup.list</code></pre><p>3.更换软件源<br>这里使用<a href="https://mirrors.huaweicloud.com/" target="_blank" rel="noopener">华为开源镜像站</a>的镜像</p><pre><code>sudo nano /etc/apt/sources.list</code></pre><p>可以单独将<code>http://ports.ubuntu.com/</code>替换为<code>https://mirrors.huaweicloud.com/ubuntu-ports/</code><br>也可以把全部内容用下面的内容替换</p><pre><code>deb https://mirrors.huaweicloud.com/ubuntu-ports/ focal main restricted universe multiverse#deb-src http://ports.ubuntu.com/ focal main restricted universe multiversedeb https://mirrors.huaweicloud.com/ubuntu-ports/ focal-security main restricted universe multiverse#deb-src http://ports.ubuntu.com/ focal-security main restricted universe multiversedeb https://mirrors.huaweicloud.com/ubuntu-ports/ focal-updates main restricted universe multiverse#deb-src http://ports.ubuntu.com/ focal-updates main restricted universe multiversedeb https://mirrors.huaweicloud.com/ubuntu-ports/ focal-backports main restricted universe multiverse#deb-src http://ports.ubuntu.com/ focal-backports main restricted universe multiverse</code></pre><p>4.完成后使用<code>Ctrl+X</code>退出并输入<code>Y</code>+回车保存文件<br>5.更新软件源</p><pre><code>sudo apt-get update</code></pre><hr><p>附一份官方源地址备份<img src="/images/pp-9.png" alt=""></p><pre><code class="sources.backup.list">deb http://ports.ubuntu.com/ focal main restricted universe multiverse#deb-src http://ports.ubuntu.com/ focal main restricted universe multiversedeb http://ports.ubuntu.com/ focal-security main restricted universe multiverse#deb-src http://ports.ubuntu.com/ focal-security main restricted universe multiversedeb http://ports.ubuntu.com/ focal-updates main restricted universe multiverse#deb-src http://ports.ubuntu.com/ focal-updates main restricted universe multiversedeb http://ports.ubuntu.com/ focal-backports main restricted universe multiverse#deb-src http://ports.ubuntu.com/ focal-backports main restricted universe multiverse</code></pre>]]></content>
+        <content type="html"><![CDATA[<p>1.使用SSH或者在图形桌面下使用终端连接到你的NanoPiK2上<br>2.备份官方软件源</p><pre><code>sudo cp /etc/apt/sources.list /etc/apt/sources.backup.list</code></pre><p>3.更换软件源<br>这里使用<a href="https://mirrors.huaweicloud.com/" target="_blank" rel="noopener">华为开源镜像站</a>的镜像</p><pre><code>sudo nano /etc/apt/sources.list</code></pre><p>可以单独将<code>http://ports.ubuntu.com/</code>替换为<code>https://mirrors.huaweicloud.com/ubuntu-ports/</code><br>也可以把全部内容用下面的内容替换</p><pre><code>deb https://mirrors.huaweicloud.com/ubuntu-ports/ focal main restricted universe multiverse#deb-src http://ports.ubuntu.com/ focal main restricted universe multiversedeb https://mirrors.huaweicloud.com/ubuntu-ports/ focal-security main restricted universe multiverse#deb-src http://ports.ubuntu.com/ focal-security main restricted universe multiversedeb https://mirrors.huaweicloud.com/ubuntu-ports/ focal-updates main restricted universe multiverse#deb-src http://ports.ubuntu.com/ focal-updates main restricted universe multiversedeb https://mirrors.huaweicloud.com/ubuntu-ports/ focal-backports main restricted universe multiverse#deb-src http://ports.ubuntu.com/ focal-backports main restricted universe multiverse</code></pre><p>4.完成后使用<code>Ctrl+X</code>退出并输入<code>Y</code>+回车保存文件<br>5.更新软件源</p><pre><code>sudo apt-get update</code></pre><hr><p>附一份官方源地址备份<img src="/images/pp-9.png" class="lazyload" data-srcset="/images/pp-9.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt=""></p><pre><code class="sources.backup.list">deb http://ports.ubuntu.com/ focal main restricted universe multiverse#deb-src http://ports.ubuntu.com/ focal main restricted universe multiversedeb http://ports.ubuntu.com/ focal-security main restricted universe multiverse#deb-src http://ports.ubuntu.com/ focal-security main restricted universe multiversedeb http://ports.ubuntu.com/ focal-updates main restricted universe multiverse#deb-src http://ports.ubuntu.com/ focal-updates main restricted universe multiversedeb http://ports.ubuntu.com/ focal-backports main restricted universe multiverse#deb-src http://ports.ubuntu.com/ focal-backports main restricted universe multiverse</code></pre>]]></content>
       
       
       <categories>
@@ -127,31 +127,6 @@
             <tag> Armbian </tag>
             
             <tag> NanoPi K2 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>OPQBOT使用&amp;插件</title>
-      <link href="2020/05/opqbot.html/"/>
-      <url>2020/05/opqbot.html/</url>
-      
-        <content type="html"><![CDATA[<p>###To Be Continued</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> Lua </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> OPQBOT </tag>
             
         </tags>
       
@@ -218,7 +193,7 @@
       <link href="2020/03/valine.html/"/>
       <url>2020/03/valine.html/</url>
       
-        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>作者在1.4.0+的版本中去除了邮件通知。过一段时间再看看commit修改下。<img src="https://atlinker.cn/exp/surprised.gif" alt=""><br>你现在可以使用1.3.10继续实现Valine的邮件通知或Valine-admin<a id="more"></a></p><h2 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h2><p>进入theme目录中你所使用的主题文件夹，这里以<code>hexo-Sakura</code>主题为例，编辑<code>layout/_partial/comments.ejs</code>。<br>在原有的<code>&lt;script&gt;</code>中添加以下代码</p><pre><code class="JavaScript">var notify = &#39;true&#39; ? true : false;var verify = &#39;false&#39; ? true : false;var GUEST_INFO = [&#39;nick&#39;,&#39;mail&#39;,&#39;link&#39;];var guest_info = &#39;nick,mail,link&#39;.split(&#39;,&#39;).filter(function(item){  return GUEST_INFO.indexOf(item) &gt; -1});</code></pre><p>在<code>valine.init</code>中添加</p><pre><code class="JavaScript">notify:notify</code></pre><p><img src="https://s1.ax1x.com/2020/03/15/83M3y4.png" alt="添加"></p><h2 id="后台配置"><a href="#后台配置" class="headerlink" title="后台配置"></a>后台配置</h2><p>访问<a href="https://Leancloud.cn" target="_blank" rel="noopener">LeanCloud控制台</a><br>进入应用-设置-邮件模板<br>编辑<code>用于重置密码的邮件主题</code><br>这里提供一个内容模板，可以自行修改内容</p><pre><code class="HTML">&lt;p&gt;Hi, {{username}}&lt;/p&gt;&lt;p&gt;你在气象观测/萌新的BLOG的评论收到了新的回复，请点击查看：&lt;/p&gt;&lt;center&gt;&lt;a href=&quot;https://moex.club&quot; style=&quot;display: inline-block; padding: 10px 20px; border-radius: 4px; background-color: #3090e4; color: #fff; text-decoration: none;&quot;&gt;马上查看!&lt;/a&gt;&lt;/center&gt;</code></pre><p>收到回复的效果如下<br><img src="https://i.loli.net/2020/03/15/HXsR8t4gMEf9dPe.jpg" alt=""><br>注：开启邮件回复提醒会valine自动开启评论验证码验证。</p><h3 id="Ad"><a href="#Ad" class="headerlink" title="Ad"></a>Ad</h3><p>气象观测站点上线啦！还不赶紧去看看<br><a href="https://moex.club" target="_blank" rel="noopener">点我直达</a></p>]]></content>
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>作者在1.4.0+的版本中去除了邮件通知。过一段时间再看看commit修改下。<br>你现在可以使用1.3.10继续实现Valine的邮件通知或Valine-admin<a id="more"></a></p><h2 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h2><p>进入theme目录中你所使用的主题文件夹，这里以<code>hexo-Sakura</code>主题为例，编辑<code>layout/_partial/comments.ejs</code>。<br>在原有的<code>&lt;script&gt;</code>中添加以下代码</p><pre><code class="JavaScript">var notify = &#39;true&#39; ? true : false;var verify = &#39;false&#39; ? true : false;var GUEST_INFO = [&#39;nick&#39;,&#39;mail&#39;,&#39;link&#39;];var guest_info = &#39;nick,mail,link&#39;.split(&#39;,&#39;).filter(function(item){  return GUEST_INFO.indexOf(item) &gt; -1});</code></pre><p>在<code>valine.init</code>中添加</p><pre><code class="JavaScript">notify:notify</code></pre><p><img src="https://s1.ax1x.com/2020/03/15/83M3y4.png" class="lazyload" data-srcset="https://s1.ax1x.com/2020/03/15/83M3y4.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="添加"></p><h2 id="后台配置"><a href="#后台配置" class="headerlink" title="后台配置"></a>后台配置</h2><p>访问<a href="https://Leancloud.cn" target="_blank" rel="noopener">LeanCloud控制台</a><br>进入应用-设置-邮件模板<br>编辑<code>用于重置密码的邮件主题</code><br>这里提供一个内容模板，可以自行修改内容</p><pre><code class="HTML">&lt;p&gt;Hi, {{username}}&lt;/p&gt;&lt;p&gt;你在气象观测/萌新的BLOG的评论收到了新的回复，请点击查看：&lt;/p&gt;&lt;center&gt;&lt;a href=&quot;https://moex.club&quot; style=&quot;display: inline-block; padding: 10px 20px; border-radius: 4px; background-color: #3090e4; color: #fff; text-decoration: none;&quot;&gt;马上查看!&lt;/a&gt;&lt;/center&gt;</code></pre><p>收到回复的效果如下<br><img src="https://i.loli.net/2020/03/15/HXsR8t4gMEf9dPe.jpg" class="lazyload" data-srcset="https://i.loli.net/2020/03/15/HXsR8t4gMEf9dPe.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt=""><br>注：开启邮件回复提醒会valine自动开启评论验证码验证。</p><h3 id="Ad"><a href="#Ad" class="headerlink" title="Ad"></a>Ad</h3><p>气象观测站点上线啦！还不赶紧去看看<br><a href="https://moex.club" target="_blank" rel="noopener">点我直达</a></p>]]></content>
       
       
       <categories>
@@ -306,31 +281,6 @@
         <tags>
             
             <tag> RTL-SDR </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>简易处理风云卫星数据</title>
-      <link href="2020/01/fydata.html/"/>
-      <url>2020/01/fydata.html/</url>
-      
-        <content type="html"><![CDATA[<h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><p>关于处理风云卫星数据的基础内容的笔记</p><h3 id="获取数据"><a href="#获取数据" class="headerlink" title="获取数据"></a>获取数据</h3><p>注册并登录<a href="http://satellite.nsmc.org.cn/PortalSite/Data/Satellite.aspx" target="_blank" rel="noopener">风云卫星遥感数据网</a><br>选择所需数据加入购物车并等待回调。</p><a id="more"></a><h3 id="成像仪数据-HDF格式数据"><a href="#成像仪数据-HDF格式数据" class="headerlink" title="成像仪数据-HDF格式数据"></a>成像仪数据-HDF格式数据</h3><p>目前FY-4A，FY-3D，FY-3B，FY-3A，FY-3C有成像仪产品。HDF文件推荐使用官网提供的L1处理软件包<a href="http://data.nsmc.org.cn/PortalSite/StaticContent/DownloadDetail.aspx?LinkID=91" target="_blank" rel="noopener">FENGYUN Toolkit</a>。(使用Panoply绘画HDF会报数据为空)<br>打开TOOLkit导入HDF数据并选择所要导出的图像所在数据集<br>具体各个产品的数据格式说明在<a href="http://data.nsmc.org.cn/PortalSite/StaticContent/DocumentDownload.aspx?TypeID=15" target="_blank" rel="noopener">官网-文档中</a><br>这里以FY-4A中国区域1KM数据为例，导出<code>NOMChannel01</code>数据集，0.47um 通道 1km 图像数据层。勾选<code>NOMChannel01</code>勾选是否保存图像并选择输出路径，确定等待图像生成。<br><img src="https://cdn.jsdelivr.net/gh/MengXin001/CDN/put.png" alt="输出图像"><br>其他HDF格式的产品如FY-3C的海面风速均可以使用该软件</p><h3 id="NC格式数据"><a href="#NC格式数据" class="headerlink" title="NC格式数据"></a>NC格式数据</h3><p>个人处理NC格式数据使用的是NASA的Panoply<a href="https://www.giss.nasa.gov/tools/panoply/download/" target="_blank" rel="noopener">下载地址</a>。<br>使用方法和上面的一样导入NC文件后选择所需数据集-Plot绘画即可。风云4A的nc格式文件貌似绘制后会出现没有地图图层的情况</p><h3 id="投影-AWX格式数据"><a href="#投影-AWX格式数据" class="headerlink" title="投影-AWX格式数据"></a>投影-AWX格式数据</h3><p>官网有提供9210格式的分区图绘制软件GEOSEA。用于显示国家卫星气象中心下发的9210格式静止气象卫星云图图像产品。注意只适合9210格式的SEC分区图，其他格式的投影文件请使用MeteoInfo绘制</p><p>*Panoply的详细食用方法待更新</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> Manage </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Note </tag>
             
         </tags>
       

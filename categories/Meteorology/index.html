@@ -5,6 +5,8 @@
   <!-- SEO相关 -->
   
     
+      <meta name="robots" content="noindex,follow">
+    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -22,13 +24,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>在树莓派上安装AdGuardHome - 萌の新小窝</title>
-  
-    <meta name="keywords" content="Ad,AdGuard,AdGuardHome,raspberry,树莓派,Linux">
+  <title>分类：Meteorology - 萌の新小窝</title>
   
 
-  
-    <meta name="description" content="连接你的树莓派，从Github获取发布的AdGuardHome">
   
 
   <!-- feed -->
@@ -381,7 +379,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper post dock' style="display: none;">
+        <div id="full" class='cover-wrapper  dock' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/MengXin001/CDN/pic/20170306.jpg"></div>
           
@@ -414,354 +412,74 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper" id="pjax-container">
           
 
+
 <div class='l_main'>
-  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
-
-
-  
-  <div class="article-meta" id="top">
     
-    
-    
-      <h1 class="title">
-        在树莓派上安装AdGuardHome
-      </h1>
-      <div class='new-meta-box'>
-        
-          
-            
-<div class='new-meta-item author'>
-  <a class='author' href="/" rel="nofollow">
-    <img no-lazy src="">
-    <p>请设置文章作者</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-  <div class='new-meta-item category'>
-    <a class='notlink'>
-      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-      <a class="category-link" href="/categories/Raspberry/">Raspberry</a>
-    </a>
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年3月20日</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-  <div class="new-meta-item browse leancloud">
-    <a class='notlink'>
       
-      <div id="lc-pv" data-title="在树莓派上安装AdGuardHome" data-path="/2020/03/guard.html/">
-        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
-        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
-        次浏览
-      </div>
-    </a>
-  </div>
-
-
+  <section class="post-list">
+    
+      
+        
           
+        
+      
+    
+    
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/2021/02/satima.html/">
+        配置气象云图绘图工具-SatimaV4
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      <p>在Linux & Windows系统上，配置SatimaV4云图绘制工具开始高效绘图</p>
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2021-02-05</time>
+        
+          <span class="dot"></span>
+          <a class="category-link" href="/categories/Meteorology/">Meteorology</a>
         
       </div>
-    
-  </div>
-
-
-  
-  
-  <h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>连接你的树莓派，从Github获取发布的AdGuardHome</p>
-<a id="more"></a>
-<center><iframe frameborder="0" scrolling="0" allowtransparency="true" src="https://api.2heng.xin/github-card/?repo=AdguardTeam/AdGuardHome" width="400" height="153" style="margin-left: 50%; transform: translateX(-50%);"></iframe></center>
-
-<pre><code class="BASH">wget https://github.com/AdguardTeam/AdGuardHome/releases/download/v0.101.0/AdGuardHome_linux_arm.tar.gz</code></pre>
-<pre><code class="BASH"># 解压
-tar -xvzf AdGuardHome_linux_arm.tar.gz
-cd AdGuardHome
-# screen后台运行
-screen -S Ad
-sudo ./AdGuardHome</code></pre>
-<h2 id="AdGuardHome配置"><a href="#AdGuardHome配置" class="headerlink" title="AdGuardHome配置"></a>AdGuardHome配置</h2><p>访问<code>树莓派内网IP:3000</code>进入后台<br>设置账户密码，建议在路由器中分配静态内网IP给树莓派。<br><img src="https://i.loli.net/2020/03/20/mdPE4kcgeuhax3o.jpg" class="lazyload" data-srcset="https://i.loli.net/2020/03/20/mdPE4kcgeuhax3o.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Set"><br>完成设置后Login进入控制台<br><img src="https://i.loli.net/2020/03/20/PiFQIGW2mnbVD63.png" class="lazyload" data-srcset="https://i.loli.net/2020/03/20/PiFQIGW2mnbVD63.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Main"></p>
-<h2 id="DNS配置"><a href="#DNS配置" class="headerlink" title="DNS配置"></a>DNS配置</h2><p>在过滤器中勾选自带的过滤器并应用。<br>还可以添加Adgk的广告过滤规则。添加以下链接并应用更新规则。建议修改规则自动更新时间为24Hours</p>
-<pre><code>https://gitee.com/banbendalao/adguard/raw/master/ADgk.txt</code></pre><p>在DNS设置中设置上游DNS，不推荐使用默认的CloudFlareDNS，可以使用以下国内的公共DNS</p>
-<pre><code>Ali DNS: 223.5.5.5;223.6.6.6
-Baidu DNS: 180.76.76.76
-Tencent DNS: 119.29.29.29
-oneDNS: 117.50.11.11
-CNNIC sDNS: 1.2.4.8
-114DNS: 114.114.114.114(推荐设置为备用DNS)</code></pre><p>点击测试DNS服务器可用后，应用设置。</p>
-<h2 id="设备接入"><a href="#设备接入" class="headerlink" title="设备接入"></a>设备接入</h2><p>将需要接入的设备WIFIDNS设置为树莓派的内网IP即可，在AdGuardHome后台有详细的设置教程。</p>
-<h2 id="拦截追踪"><a href="#拦截追踪" class="headerlink" title="拦截追踪"></a>拦截追踪</h2><p>接入设备后，访问一些网站就可以在AdGuardHome后台看到拦截的情况了。这是使用一晚上拦截追踪的情况。<br><img src="https://i.loli.net/2020/03/20/DZEFyMPQmw9pO2C.png" class="lazyload" data-srcset="https://i.loli.net/2020/03/20/DZEFyMPQmw9pO2C.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt=""></p>
-<table>
-<thead>
-<tr>
-<th>追踪器地址</th>
-<th>拦截次数</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>pingma.qq.com</td>
-<td>121</td>
-</tr>
-<tr>
-<td>pos.baidu.com</td>
-<td>97</td>
-</tr>
-<tr>
-<td>mqqeve.beacon.qq.com</td>
-<td>95</td>
-</tr>
-<tr>
-<td>ieventlog.beacon.qq.com</td>
-<td>81</td>
-</tr>
-<tr>
-<td>hm.baidu.com</td>
-<td>63</td>
-</tr>
-<tr>
-<td>mqqstr.beacon.qq.com</td>
-<td>51</td>
-</tr>
-<tr>
-<td>vortex.data.microsoft.com</td>
-<td>51</td>
-</tr>
-<tr>
-<td>mttstr.beacon.qq.com</td>
-<td>48</td>
-</tr>
-<tr>
-<td>sp0.baidu.com</td>
-<td>44</td>
-</tr>
-<tr>
-<td>wspeed.qq.com</td>
-<td>41</td>
-</tr>
-<tr>
-<td>adashbc.ut.taobao.com</td>
-<td>41</td>
-</tr>
-<tr>
-<td>dup.baidustatic.com</td>
-<td>39</td>
-</tr>
-<tr>
-<td>show-g.mediav.com</td>
-<td>38</td>
-</tr>
-<tr>
-<td>sp1.baidu.com</td>
-<td>38</td>
-</tr>
-<tr>
-<td>d.ifengimg.com</td>
-<td>37</td>
-</tr>
-<tr>
-<td>pingjs.qq.com</td>
-<td>36</td>
-</tr>
-<tr>
-<td>e.crashlytics.com</td>
-<td>35</td>
-</tr>
-<tr>
-<td>mobilelog.upqzfile.com</td>
-<td>35</td>
-</tr>
-<tr>
-<td>www.google-analytics.com</td>
-<td>34</td>
-</tr>
-<tr>
-<td>mtteve.beacon.qq.com</td>
-<td>33</td>
-</tr>
-<tr>
-<td>ulogs.umeng.com</td>
-<td>33</td>
-</tr>
-<tr>
-<td>ulogs.umengcloud.com</td>
-<td>31</td>
-</tr>
-<tr>
-<td>ios.bugly.qq.com</td>
-<td>30</td>
-</tr>
-<tr>
-<td>app-measurement.com</td>
-<td>30</td>
-</tr>
-<tr>
-<td>eclick.baidu.com</td>
-<td>29</td>
-</tr>
-</tbody></table>
-
-  
-  
-    
-    <div class='footer'>
       
-      
-      
-        <div class='copyright'>
-          <blockquote>
-            
-              
-                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
-
-              
-            
-              
-                <p>本文永久链接是：<a href=https://www.xinmoe.cn/2020/03/guard.html/>https://www.xinmoe.cn/2020/03/guard.html/</a></p>
-              
-            
-          </blockquote>
+        <div>
+          <a class='readmore' href='/2021/02/satima.html/'>
+            阅读全文
+          </a>
         </div>
       
-      
     </div>
   
-  
-    
 
-
-  <div class='article-meta' id="bottom">
-    <div class='new-meta-box'>
-      
-        
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-28T00:19:46+08:00">
-  <a class='notlink'>
-    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年7月28日</p>
-  </a>
 </div>
 
+          </div>
         
       
-        
-          
+    
+  </section>
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>树莓派</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/AdGuard/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>AdGuard</p></a></div>
-
-
-        
-      
-        
-          
-  <div class="new-meta-item share -mob-share-list">
-  <div class="-mob-share-list share-body">
     
-      
-        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
-          
-          href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.xinmoe.cn/2020/03/guard.html/&title=在树莓派上安装AdGuardHome - 萌の新小窝&summary=下载连接你的树莓派，从Github获取发布的AdGuardHome"
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-          
-        </a>
-      
-    
-      
-        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
-          
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.xinmoe.cn/2020/03/guard.html/&title=在树莓派上安装AdGuardHome - 萌の新小窝&summary=下载连接你的树莓派，从Github获取发布的AdGuardHome"
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-          
-        </a>
-      
-    
-      
-        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
-          
-          href="http://service.weibo.com/share/share.php?url=https://www.xinmoe.cn/2020/03/guard.html/&title=在树莓派上安装AdGuardHome - 萌の新小窝&summary=下载连接你的树莓派，从Github获取发布的AdGuardHome"
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
-          
-        </a>
-      
-    
-      
-    
-      
-    
-  </div>
-</div>
-
-
-
-        
-      
-    </div>
-  </div>
-
-
-  
   
 
-  
-    <div class="prev-next">
-      
-        <a class='prev' href='/2020/03/depoly.html/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>关于Hexo部署报错</p>
-          <p class='content'>Hexo部署报错笔记
-fatal: Unable to create &#39;C:/Users/Administrator/Desktop/Hexo-theme-sakura-master/....</p>
-        </a>
-      
-      
-        <a class='next' href='/2020/03/valine.html/'>
-          <p class='title'>为你的Valine添加评论邮箱提醒<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>前言作者在1.4.0+的版本中去除了邮件通知。过一段时间再看看commit修改下。你现在可以使用1.3.10继续实现Valine的邮件通知或Valine-admin
-主题配置进入theme目录中...</p>
-        </a>
-      
-    </div>
-  
-</article>
 
-
-  
-
-  <article class="post white-box reveal shadow" id="comments">
-    <p ct><i class='fas fa-comments'></i> 评论</p>
     
-    <div id="valine_container" class="valine_thread">
-  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
-</div>
-
-  </article>
-
-
-
-
-
-
+  
 </div>
 <aside class='l_side'>
   
@@ -769,28 +487,188 @@ fatal: Unable to create &#39;C:/Users/Administrator/Desktop/Hexo-theme-sakura-ma
     
     
 
+<section class="widget blogger shadow desktop mobile">
+  <div class='content'>
+    
+      
+        <a class='avatar flat-box circle' href='/about/'>
+          <img no-lazy src='https://cdn.jsdelivr.net/gh/MengXin001/CDN/Head3.jpg'/>
+        </a>
+      
+    
+    
+      <div class='text'>
+        
+        
+        
+          <p><span id="jinrishici-sentence">萌の新小窝</span></p>
+          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="/atom.xml"
+              class="social fas fa-rss flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="mailto:me@xxx.com"
+              class="social fas fa-envelope flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="https://github.com/volantis-x/"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="/"
+              class="social fas fa-headphones-alt flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
 
+  
 
-  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+  
+    
+    
+  
+
+  <section class="widget category shadow desktop">
     
   <header>
     
-      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
     
   </header>
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#下载"><span class="toc-text">下载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AdGuardHome配置"><span class="toc-text">AdGuardHome配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DNS配置"><span class="toc-text">DNS配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设备接入"><span class="toc-text">设备接入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#拦截追踪"><span class="toc-text">拦截追踪</span></a></li></ol>
+      <ul class="entry navigation">
+        
+          <li><a class="flat-box"
+            title="/categories/Bluetooth/" href="/categories/Bluetooth/"
+            id="categoriesBluetooth"
+            ><div class='name'>Bluetooth</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/Hexo/" href="/categories/Hexo/"
+            id="categoriesHexo"
+            ><div class='name'>Hexo</div><div class='badge'>(4)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/Intel/" href="/categories/Intel/"
+            id="categoriesIntel"
+            ><div class='name'>Intel</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/Meteorology/" href="/categories/Meteorology/"
+            id="categoriesMeteorology"
+            ><div class='name'>Meteorology</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/NanoPi/" href="/categories/NanoPi/"
+            id="categoriesNanoPi"
+            ><div class='name'>NanoPi</div><div class='badge'>(2)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/Raspberry/" href="/categories/Raspberry/"
+            id="categoriesRaspberry"
+            ><div class='name'>Raspberry</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/SDR/" href="/categories/SDR/"
+            id="categoriesSDR"
+            ><div class='name'>SDR</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/Security/" href="/categories/Security/"
+            id="categoriesSecurity"
+            ><div class='name'>Security</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/Shell/" href="/categories/Shell/"
+            id="categoriesShell"
+            ><div class='name'>Shell</div><div class='badge'>(1)</div></a></li>
+        
+      </ul>
     </div>
   </section>
 
 
   
 
+  
+    
+    
+  
+
+  <section class="widget tagcloud shadow desktop mobile">
+    
+  <header>
+    
+      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      <a href="/tags/AdGuard/" style="font-size: 14px; color: #999">AdGuard</a> <a href="/tags/Armbian/" style="font-size: 14px; color: #999">Armbian</a> <a href="/tags/Blog/" style="font-size: 14px; color: #999">Blog</a> <a href="/tags/Bluetooth/" style="font-size: 14px; color: #999">Bluetooth</a> <a href="/tags/Hexo/" style="font-size: 14px; color: #999">Hexo</a> <a href="/tags/Himawari8/" style="font-size: 14px; color: #999">Himawari8</a> <a href="/tags/MHN/" style="font-size: 14px; color: #999">MHN</a> <a href="/tags/NanoPi-K2/" style="font-size: 24px; color: #555">NanoPi K2</a> <a href="/tags/Note/" style="font-size: 24px; color: #555">Note</a> <a href="/tags/Python/" style="font-size: 24px; color: #555">Python</a> <a href="/tags/RTL-SDR/" style="font-size: 14px; color: #999">RTL-SDR</a> <a href="/tags/Valine/" style="font-size: 14px; color: #999">Valine</a> <a href="/tags/Web/" style="font-size: 14px; color: #999">Web</a> <a href="/tags/Xeon/" style="font-size: 14px; color: #999">Xeon</a> <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" style="font-size: 14px; color: #999">树莓派</a>
+    </div>
+  </section>
+
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode shadow desktop mobile">
+  
+
+  <div class='content article-entry'>
+    
+      <img src='https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png'
+      
+        height='64px'
+      />
+    
+      <img src='https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png'
+      
+        height='64px'
+      />
+    
+  </div>
+</section>
+
+  
+
 
 </aside>
-
 
 
 		  
@@ -799,8 +677,8 @@ fatal: Unable to create &#39;C:/Users/Administrator/Desktop/Hexo-theme-sakura-ma
 
 <script>
   window.pdata={}
-  pdata.ispage=true;
-  pdata.postTitle="在树莓派上安装AdGuardHome";
+  pdata.ispage=false;
+  pdata.postTitle="";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要

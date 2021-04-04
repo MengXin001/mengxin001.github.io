@@ -2,30 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.xinmoe.cn/links/index.html</loc>
+    <loc>https://www.xinmoe.cn/2020/07/npik2.html/</loc>
     
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-04-04</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.xinmoe.cn/2020/03/valine.html/</loc>
+    
+    <lastmod>2021-04-04</lastmod>
     
   </url>
   
   <url>
     <loc>https://www.xinmoe.cn/2021/02/satima.html/</loc>
     
-    <lastmod>2021-02-06</lastmod>
+    <lastmod>2021-04-04</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.xinmoe.cn/lab/index.html</loc>
+    <loc>https://www.xinmoe.cn/links/index.html</loc>
     
-    <lastmod>2021-02-02</lastmod>
+    <lastmod>2021-04-04</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.xinmoe.cn/donate/index.html</loc>
+    <loc>https://www.xinmoe.cn/comment/index.html</loc>
     
-    <lastmod>2021-02-02</lastmod>
+    <lastmod>2021-04-04</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.xinmoe.cn/2021/02/xm.html/</loc>
+    
+    <lastmod>2021-04-04</lastmod>
     
   </url>
   
@@ -44,28 +58,7 @@
   </url>
   
   <url>
-    <loc>https://www.xinmoe.cn/2021/02/xm.html/</loc>
-    
-    <lastmod>2021-02-01</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.xinmoe.cn/2020/05/opqbot.html/</loc>
-    
-    <lastmod>2021-02-01</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.xinmoe.cn/2021/01/recent.html/</loc>
-    
-    <lastmod>2021-02-01</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.xinmoe.cn/comment/index.html</loc>
     
     <lastmod>2021-02-01</lastmod>
     
@@ -86,13 +79,6 @@
   </url>
   
   <url>
-    <loc>https://www.xinmoe.cn/2020/03/valine.html/</loc>
-    
-    <lastmod>2020-07-27</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.xinmoe.cn/2020/03/guard.html/</loc>
     
     <lastmod>2020-07-27</lastmod>
@@ -101,20 +87,6 @@
   
   <url>
     <loc>https://www.xinmoe.cn/2019/12/detect.html/</loc>
-    
-    <lastmod>2020-07-27</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.xinmoe.cn/2020/01/fydata.html/</loc>
-    
-    <lastmod>2020-07-27</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.xinmoe.cn/2020/07/npik2.html/</loc>
     
     <lastmod>2020-07-27</lastmod>
     
@@ -156,21 +128,7 @@
   </url>
   
   <url>
-    <loc>https://www.xinmoe.cn/about/index.html</loc>
-    
-    <lastmod>2020-03-16</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://www.xinmoe.cn/client/index.html</loc>
-    
-    <lastmod>2020-03-16</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.xinmoe.cn/theme-sakura/index.html</loc>
     
     <lastmod>2020-03-16</lastmod>
     
@@ -200,7 +158,7 @@
 
   <url>
     <loc>https://www.xinmoe.cn/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-04-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -208,112 +166,105 @@
   
   <url>
     <loc>https://www.xinmoe.cn/tags/Xeon/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-04-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xinmoe.cn/tags/Web/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-04-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xinmoe.cn/tags/Note/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-04-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xinmoe.cn/tags/Hexo/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-04-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xinmoe.cn/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-04-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xinmoe.cn/tags/AdGuard/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-04-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xinmoe.cn/tags/MHN/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-04-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xinmoe.cn/tags/Armbian/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-04-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xinmoe.cn/tags/NanoPi-K2/</loc>
-    <lastmod>2021-02-14</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.xinmoe.cn/tags/OPQBOT/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-04-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xinmoe.cn/tags/Blog/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-04-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xinmoe.cn/tags/RTL-SDR/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-04-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xinmoe.cn/tags/Python/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-04-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xinmoe.cn/tags/Himawari8/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-04-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xinmoe.cn/tags/Valine/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-04-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xinmoe.cn/tags/Bluetooth/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-04-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -322,77 +273,63 @@
   
   <url>
     <loc>https://www.xinmoe.cn/categories/Intel/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-04-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xinmoe.cn/categories/Hexo/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-04-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xinmoe.cn/categories/Shell/</loc>
-    <lastmod>2021-02-14</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.xinmoe.cn/categories/Manage/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-04-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xinmoe.cn/categories/Raspberry/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-04-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xinmoe.cn/categories/Security/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-04-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xinmoe.cn/categories/NanoPi/</loc>
-    <lastmod>2021-02-14</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.xinmoe.cn/categories/Lua/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-04-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xinmoe.cn/categories/SDR/</loc>
-    <lastmod>2021-02-14</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.xinmoe.cn/categories/Meteo/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-04-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.xinmoe.cn/categories/Bluetooth/</loc>
-    <lastmod>2021-02-14</lastmod>
+    <lastmod>2021-04-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xinmoe.cn/categories/Meteorology/</loc>
+    <lastmod>2021-04-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
