@@ -165,28 +165,7 @@
 
   
   <url>
-    <loc>https://www.xinmoe.cn/tags/Xeon/</loc>
-    <lastmod>2021-04-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.xinmoe.cn/tags/Web/</loc>
-    <lastmod>2021-04-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.xinmoe.cn/tags/Note/</loc>
-    <lastmod>2021-04-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.xinmoe.cn/tags/Hexo/</loc>
     <lastmod>2021-04-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -207,7 +186,7 @@
   </url>
   
   <url>
-    <loc>https://www.xinmoe.cn/tags/MHN/</loc>
+    <loc>https://www.xinmoe.cn/tags/Note/</loc>
     <lastmod>2021-04-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -228,14 +207,14 @@
   </url>
   
   <url>
-    <loc>https://www.xinmoe.cn/tags/Blog/</loc>
+    <loc>https://www.xinmoe.cn/tags/Hexo/</loc>
     <lastmod>2021-04-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.xinmoe.cn/tags/RTL-SDR/</loc>
+    <loc>https://www.xinmoe.cn/tags/MHN/</loc>
     <lastmod>2021-04-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -263,7 +242,28 @@
   </url>
   
   <url>
+    <loc>https://www.xinmoe.cn/tags/Xeon/</loc>
+    <lastmod>2021-04-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.xinmoe.cn/tags/Bluetooth/</loc>
+    <lastmod>2021-04-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xinmoe.cn/tags/RTL-SDR/</loc>
+    <lastmod>2021-04-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xinmoe.cn/tags/Blog/</loc>
     <lastmod>2021-04-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -272,21 +272,7 @@
 
   
   <url>
-    <loc>https://www.xinmoe.cn/categories/Intel/</loc>
-    <lastmod>2021-04-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.xinmoe.cn/categories/Hexo/</loc>
-    <lastmod>2021-04-04</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.xinmoe.cn/categories/Shell/</loc>
     <lastmod>2021-04-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -300,7 +286,7 @@
   </url>
   
   <url>
-    <loc>https://www.xinmoe.cn/categories/Security/</loc>
+    <loc>https://www.xinmoe.cn/categories/Shell/</loc>
     <lastmod>2021-04-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -314,7 +300,21 @@
   </url>
   
   <url>
-    <loc>https://www.xinmoe.cn/categories/SDR/</loc>
+    <loc>https://www.xinmoe.cn/categories/Security/</loc>
+    <lastmod>2021-04-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xinmoe.cn/categories/Meteorology/</loc>
+    <lastmod>2021-04-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xinmoe.cn/categories/Intel/</loc>
     <lastmod>2021-04-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -328,7 +328,7 @@
   </url>
   
   <url>
-    <loc>https://www.xinmoe.cn/categories/Meteorology/</loc>
+    <loc>https://www.xinmoe.cn/categories/SDR/</loc>
     <lastmod>2021-04-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
