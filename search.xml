@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>气象记录</title>
+      <link href="2021/04/qx.html/"/>
+      <url>2021/04/qx.html/</url>
+      
+        <content type="html"><![CDATA[<h3 id="2021-04-05"><a href="#2021-04-05" class="headerlink" title="2021/04/05"></a>2021/04/05</h3><p><code>衡阳 57872</code></p><p>冷空气抵达与高空槽东移，出现小幅度的降温短暂阴雨天气。</p><table><thead><tr><th>气象要素</th><th>值</th><th>更新时间</th></tr></thead><tbody><tr><td>温度(degC)</td><td>12.7</td><td>2021-04-05 12:10</td></tr><tr><td>体感温度(degC)</td><td>14</td><td>2021-04-05 12:10</td></tr><tr><td>露点温度(degC)</td><td>11</td><td>2021-04-05 12:10</td></tr><tr><td>天气现象</td><td>阴</td><td>2021-04-05 12:10</td></tr><tr><td>地面气压(hPa)</td><td>1010</td><td>2021-04-05 12:10</td></tr><tr><td>相对湿度(%)</td><td>94</td><td>2021-04-05 12:10</td></tr><tr><td>风力等级</td><td>2级</td><td>2021-04-05 12:10</td></tr><tr><td>风向/风速角(deg)</td><td>东北风/29</td><td>2021-04-05 12:10</td></tr><tr><td>降水量(mm)</td><td>2.1</td><td>2021-04-05 12:10</td></tr><tr><td>能见度(m)</td><td>3617</td><td>2021-04-05 12:10</td></tr></tbody></table>]]></content>
+      
+      
+      <categories>
+          
+          <category> Meteorology </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Blog </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>配置气象云图绘图工具-SatimaV4</title>
       <link href="2021/02/satima.html/"/>
       <url>2021/02/satima.html/</url>
