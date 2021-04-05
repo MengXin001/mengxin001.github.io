@@ -56,11 +56,11 @@
     
     
     <entry>
-      <title>关于近日</title>
+      <title>【TOP】关于近日</title>
       <link href="2021/01/recent.html/"/>
       <url>2021/01/recent.html/</url>
       
-        <content type="html"><![CDATA[<h3 id="看板娘"><a href="#看板娘" class="headerlink" title="看板娘"></a>看板娘</h3><p>自建了Live2D看板娘的CDN，现在的首页看起来没有以前那么空白了(咕</p><h3 id="评论系统"><a href="#评论系统" class="headerlink" title="评论系统"></a>评论系统</h3><p>打算继续使用Valine系统，修改一些评论区的样式，包括系统&amp;浏览器信息显示部分等等，评论内加入了<code>Bilibili热词系列</code>的表情包</p><h3 id="首页样式"><a href="#首页样式" class="headerlink" title="首页样式"></a>首页样式</h3><p>参照了孤影墨香的样式配色以及滑块等</p><h3 id="balabala"><a href="#balabala" class="headerlink" title="balabala"></a>balabala</h3><p>从去年年底开始在完善2020年的气象年度回顾记录，小窝一直闲置的没有去维护，放假后好好打理一番这次一定</p>]]></content>
+        <content type="html"><![CDATA[<h3 id="balabala"><a href="#balabala" class="headerlink" title="balabala"></a>balabala</h3><ul><li>从去年年底开始在完善2020年的气象年度回顾记录，小窝一直闲置的没有去维护</li><li>摸鱼时间愈发的少，可能又会闲置许久</li><li>新学期选完科准备考试ing</li></ul>]]></content>
       
       
       <categories>
