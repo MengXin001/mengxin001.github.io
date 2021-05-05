@@ -24,7 +24,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>归档：2020/2 - 萌の新小窝</title>
+  <title>分类：OPQBot - 萌の新小窝</title>
   
 
   
@@ -106,7 +106,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <body>
     
 
-<header id="l_header" class="l_header auto shadow blur " style='opacity: 0' >
+<header id="l_header" class="l_header auto shadow blur show" style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -379,7 +379,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="half" class='cover-wrapper  dock' style="display: ;">
+        <div id="full" class='cover-wrapper  dock' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/MengXin001/CDN/pic/20170306.jpg"></div>
           
@@ -412,9 +412,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper" id="pjax-container">
           
 
+
 <div class='l_main'>
-	
-		
+  
+    
+      
   <section class="post-list">
     
       
@@ -434,29 +436,29 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title" >
-      <a href="/2020/02/6278c.html/">
-        Intel Xeon Gold 6278C参数
+      <a href="/2021/05/opqbot.html/">
+        OPQBot说明文档备份
       </a>
     </h2>
   
   <div class='md'>
     
-      <p>在华为云S6云服务器上发现的，该型号牙膏厂官网没有相关信息，属于服务商定制CPU</p>
+      <p>IOTBOT --为跨平台而生的说明文档备份......</p>
     
   </div>
   
     <div class='meta-v3' line_style='solid'>
       <div>
         
-        <time>2020-02-13</time>
+        <time>2021-05-05</time>
         
           <span class="dot"></span>
-          <a class="category-link" href="/categories/Intel/">Intel</a>
+          <a class="category-link" href="/categories/OPQBot/">OPQBot</a>
         
       </div>
       
         <div>
-          <a class='readmore' href='/2020/02/6278c.html/'>
+          <a class='readmore' href='/2021/05/opqbot.html/'>
             阅读全文
           </a>
         </div>
@@ -476,7 +478,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
 
 
-	
+    
+  
 </div>
 <aside class='l_side'>
   
@@ -686,14 +689,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   // header 这里无论是否开启pjax都需要
   var l_header=document.getElementById("l_header");
   
-  l_header.classList.remove("show");
+  l_header.classList.add("show");
   
   
     // cover
     var cover_wrapper=document.querySelector('.cover-wrapper');
     
-    cover_wrapper.id="half";
-    cover_wrapper.style.display="";
+    cover_wrapper.id="none";
+    cover_wrapper.style.display="none";
     
   
 </script>
