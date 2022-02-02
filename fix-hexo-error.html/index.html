@@ -544,7 +544,7 @@ FATAL Something&#39;s wrong. Maybe you can find the solution here: https://hexo.
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Hexo/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Hexo</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Note/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Note</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Note/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Note</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Hexo/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Hexo</p></a></div>
 
 
         
@@ -967,7 +967,7 @@ var loadCSS = function( href, before, media, attributes ){
   function loadIssuesJS() {
     if ($(".md").find(".issues-api").length == 0) return;
 	
-	  loadScript('/js/issues.js');
+	  loadScript('https://cdn.jsdelivr.net/npm/hexo-theme-volantis@4.3.1/source/js/issues.min.js');
 	
   };
   $(function () {
@@ -1147,7 +1147,7 @@ var loadCSS = function( href, before, media, attributes ){
 
 
   
-<script src="/js/app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/hexo-theme-volantis@<%- theme.info.theme_version %>/source/js/app.min.js"></script>
 
 
 
@@ -1159,7 +1159,7 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
 
 $('.input.u-search-input').one('focus',function(){
 	
-		loadScript('/js/search/hexo.js',setSearchService);
+		loadScript('https://cdn.jsdelivr.net/npm/hexo-theme-volantis@4.3.1/source/js/search/hexo.min.js',setSearchService);
 	
 })
 
