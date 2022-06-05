@@ -496,7 +496,7 @@ var _hmt = _hmt || [];
   
   
   <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>2022年6月1日，自FY4B发射近整整一年后，国家气象卫星中心正式开放下载数据。目前定位于132.7°E，投影位置于133°E。</p>
-<h2 id="改造"><a href="#改造" class="headerlink" title="改造"></a>改造</h2><p>鉴于Satpy还无正式发布FY-4B AGRI的Reader，所以在4A的Reader基础上临时手搓一份。<br>4B的存储路径稍微发生改变，同时4B的轨道静止成像仪新增一个<code>6.95µm</code>水汽通道，原先的10通道中心波长换至<code>7.92µm</code>。涉及到对于AB星的判断，所以此处没有在YAML里对波段进行增减处理，等待进一步规范。<br>PS:现阶建议使用GEO文件获得更好的瑞利散射校正。</p>
+<h2 id="改造"><a href="#改造" class="headerlink" title="改造"></a>改造</h2><p>鉴于Satpy还无正式发布FY-4B AGRI的Reader，所以在4A的Reader基础上临时手搓一份。<br>4B的存储路径稍微发生改变，同时4B的轨道静止成像仪新增一个<code>6.95µm</code>水汽通道，原先的10通道中心波长换至<code>7.42µm</code>。涉及到对于AB星的判断，所以此处没有在YAML里对波段进行增减处理，等待进一步规范。<br>PS:现阶建议使用GEO文件获得更好的瑞利散射校正。</p>
 <pre><code>#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # Copyright (c) 2019 Satpy developers
@@ -598,11 +598,10 @@ class HDF_AGRI_L1(HDF5FileHandler):
         logger.debug(&#39;Reading in get_dataset %s.&#39;, ds_name)
         file_key = ds_info.get(&#39;file_key&#39;, ds_name)
         if &quot;FY4B&quot; in self.filename:
-            data = self.get(&quot;Data/&quot; + file_key)
             if CHANS_ID in file_key:
-                file_key = f&#39;Data/&#123;file_key&#125;&#39;
+                data = self.get(&quot;Data/&quot; + file_key)
             elif SUN_ID in file_key or SAT_ID in file_key:
-                file_key = f&#39;Navigation/&#123;file_key&#125;&#39;
+                data = self.get(&quot;Navigation/&quot; + file_key)
         else:
             data = self.get(file_key)
 
