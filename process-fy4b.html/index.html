@@ -6,8 +6,6 @@
   
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -25,9 +23,13 @@
 
   <!-- 页面元数据 -->
   
-  <title>分类：Shell - 萌の新小窝</title>
+  <title>处理风云四号02星AGRI L1数据 - 萌の新小窝</title>
+  
+    <meta name="keywords" content="FY4B">
   
 
+  
+    <meta name="description" content="使用Satpy读取FY-4B AGRIL1级数据......">
   
 
   <!-- feed -->
@@ -389,7 +391,7 @@ var _hmt = _hmt || [];
       <div id="l_cover">
   
     
-        <div id="full" class='cover-wrapper  dock' style="display: none;">
+        <div id="full" class='cover-wrapper post dock' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="./img/(1).jpg"></div>
           
@@ -422,83 +424,533 @@ var _hmt = _hmt || [];
         <div class="body-wrapper" id="pjax-container">
           
 
-
 <div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+    <div class='headimg-div'>
+      <a class='headimg-a'>
+        <img class='headimg' src='https://wx1.sinaimg.cn/mw1024/9da82ba5gy1h2u5v8nud0j21cw0xxkjm.jpg'/>
+      </a>
+    </div>
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        处理风云四号02星AGRI L1数据
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="https://cdn.jsdelivr.net/gh/MengXin001/CDN/Head3.jpg">
+    <p>MengXin</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/Meteorology/">Meteorology</a>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2022年6月1日</p>
+  </a>
+</div>
+
+          
+        
+          
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-06-01T00:00:00+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2022年6月1日</p>
+  </a>
+</div>
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+  
+  <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>2022年6月1日，自FY4B发射近整整一年后，国家气象卫星中心正式开放下载数据。目前定位于132.7°E，投影位置于133°E。</p>
+<h2 id="改造"><a href="#改造" class="headerlink" title="改造"></a>改造</h2><p>鉴于Satpy还无正式发布FY-4B AGRI的Reader，所以在4A的Reader基础上临时手搓一份。<br>4B的存储路径稍微发生改变，同时4B的轨道静止成像仪新增一个<code>6.95µm</code>水汽通道，原先的10通道中心波长换至<code>7.92µm</code>。涉及到对于AB星的判断，所以此处没有在YAML里对波段进行增减处理，等待进一步规范。<br>PS:现阶建议使用GEO文件获得更好的瑞利散射校正。</p>
+<pre><code>#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# Copyright (c) 2019 Satpy developers
+#
+# This file is part of satpy.
+#
+# satpy is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later
+# version.
+#
+# satpy is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+# A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# satpy.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+&quot;&quot;&quot;Advanced Geostationary Radiation Imager reader for the Level_1 HDF format.
+The files read by this reader are described in the official Real Time Data Service:
+    http://fy4.nsmc.org.cn/data/en/data/realtime.html
+&quot;&quot;&quot;
+
+import logging
+from datetime import datetime
+
+import dask.array as da
+import numpy as np
+import xarray as xr
+
+from satpy.readers._geos_area import get_area_definition, get_area_extent
+from satpy.readers.hdf5_utils import HDF5FileHandler
+
+logger = logging.getLogger(__name__)
+
+# info of 500 m, 1 km, 2 km and 4 km data
+RESOLUTION_LIST = [500, 1000, 2000, 4000]
+_COFF_list = [10991.5, 5495.5, 2747.5, 1373.5]
+_CFAC_list = [81865099.0, 40932549.0, 20466274.0, 10233137.0]
+_LOFF_list = [10991.5, 5495.5, 2747.5, 1373.5]
+_LFAC_list = [81865099.0, 40932549.0, 20466274.0, 10233137.0]
+
+CHANS_ID = &#39;NOMChannel&#39;
+SAT_ID = &#39;NOMSatellite&#39;
+SUN_ID = &#39;NOMSun&#39;
+
+PLATFORM_NAMES = &#123;&#39;FY4A&#39;: &#39;FY-4A&#39;,
+                  &#39;FY4B&#39;: &#39;FY-4B&#39;,
+                  &#39;FY4C&#39;: &#39;FY-4C&#39;&#125;
+
+
+def scale(dn, slope, offset):
+    &quot;&quot;&quot;Convert digital number (DN) to calibrated quantity through scaling.
+    Args:
+        dn: Raw detector digital number
+        slope: Slope
+        offset: Offset
+    Returns:
+        Scaled data
+    &quot;&quot;&quot;
+    ref = dn * slope + offset
+    ref = ref.clip(min=0)
+    ref.attrs = dn.attrs
+
+    return ref
+
+
+def apply_lut(data, lut):
+    &quot;&quot;&quot;Calibrate digital number (DN) by applying a LUT.
+    Args:
+        data: Raw detector digital number
+        lut: the look up table
+    Returns:
+        Calibrated quantity
+    &quot;&quot;&quot;
+    # append nan to the end of lut for fillvalue
+    lut = np.append(lut, np.nan)
+    data.data = da.where(data.data &gt; lut.shape[0], lut.shape[0] - 1, data.data)
+    res = data.data.map_blocks(_getitem, lut, dtype=lut.dtype)
+    res = xr.DataArray(res, dims=data.dims,
+                       attrs=data.attrs, coords=data.coords)
+
+    return res
+
+
+def _getitem(block, lut):
+    return lut[block]
+
+
+class HDF_AGRI_L1(HDF5FileHandler):
+    &quot;&quot;&quot;AGRI l1 file handler.&quot;&quot;&quot;
+
+    def __init__(self, filename, filename_info, filetype_info):
+        &quot;&quot;&quot;Init filehandler.&quot;&quot;&quot;
+        super(HDF_AGRI_L1, self).__init__(filename, filename_info, filetype_info)
+
+    def get_dataset(self, dataset_id, ds_info):
+        &quot;&quot;&quot;Load a dataset.&quot;&quot;&quot;
+        ds_name = dataset_id[&#39;name&#39;]
+        logger.debug(&#39;Reading in get_dataset %s.&#39;, ds_name)
+        file_key = ds_info.get(&#39;file_key&#39;, ds_name)
+        if &quot;FY4B&quot; in self.filename:
+            data = self.get(&quot;Data/&quot; + file_key)
+            if CHANS_ID in file_key:
+                file_key = f&#39;Data/&#123;file_key&#125;&#39;
+            elif SUN_ID in file_key or SAT_ID in file_key:
+                file_key = f&#39;Navigation/&#123;file_key&#125;&#39;
+        else:
+            data = self.get(file_key)
+
+        data = self.get(file_key)
+
+        if data.ndim &gt;= 2:
+            data = data.rename(&#123;data.dims[-2]: &#39;y&#39;, data.dims[-1]: &#39;x&#39;&#125;)
+
+        data = self.calibrate(data, ds_info, ds_name, file_key)
+
+        self.adjust_attrs(data, ds_info)
+
+        return data
+
+    def adjust_attrs(self, data, ds_info):
+        &quot;&quot;&quot;Adjust the attrs of the data.&quot;&quot;&quot;
+        satname = PLATFORM_NAMES.get(self[&#39;/attr/Satellite Name&#39;], self[&#39;/attr/Satellite Name&#39;])
+        data.attrs.update(&#123;&#39;platform_name&#39;: satname,
+                           &#39;sensor&#39;: self[&#39;/attr/Sensor Identification Code&#39;].lower(),
+                           &#39;orbital_parameters&#39;: &#123;
+                               &#39;satellite_nominal_latitude&#39;: self[&#39;/attr/NOMCenterLat&#39;].item(),
+                               &#39;satellite_nominal_longitude&#39;: self[&#39;/attr/NOMCenterLon&#39;].item(),
+                               &#39;satellite_nominal_altitude&#39;: self[&#39;/attr/NOMSatHeight&#39;].item()&#125;&#125;)
+        data.attrs.update(ds_info)
+        # remove attributes that could be confusing later
+        data.attrs.pop(&#39;FillValue&#39;, None)
+        data.attrs.pop(&#39;Intercept&#39;, None)
+        data.attrs.pop(&#39;Slope&#39;, None)
+
+    def calibrate(self, data, ds_info, ds_name, file_key):
+        &quot;&quot;&quot;Calibrate the data.&quot;&quot;&quot;
+        # Check if calibration is present, if not assume dataset is an angle
+        calibration = ds_info.get(&#39;calibration&#39;)
+        # Return raw data in case of counts or no calibration
+        if calibration in (&#39;counts&#39;, None):
+            data.attrs[&#39;units&#39;] = ds_info[&#39;units&#39;]
+            ds_info[&#39;valid_range&#39;] = data.attrs[&#39;valid_range&#39;]
+        elif calibration == &#39;reflectance&#39;:
+            channel_index = int(file_key[-2:]) - 1
+            data = self.calibrate_to_reflectance(data, channel_index, ds_info)
+
+        elif calibration == &#39;brightness_temperature&#39;:
+            data = self.calibrate_to_bt(data, ds_info, ds_name)
+        elif calibration == &#39;radiance&#39;:
+            raise NotImplementedError(&quot;Calibration to radiance is not supported.&quot;)
+        # Apply range limits, but not for counts or we convert to float!
+        if calibration != &#39;counts&#39;:
+            data = data.where((data &gt;= min(data.attrs[&#39;valid_range&#39;])) &amp;
+                              (data &lt;= max(data.attrs[&#39;valid_range&#39;])))
+        else:
+            data.attrs[&#39;_FillValue&#39;] = data.attrs[&#39;FillValue&#39;].item()
+        return data
+
+    def calibrate_to_reflectance(self, data, channel_index, ds_info):
+        &quot;&quot;&quot;Calibrate to reflectance [%].&quot;&quot;&quot;
+        logger.debug(&quot;Calibrating to reflectances&quot;)
+        # using the corresponding SCALE and OFFSET
+        if &quot;FY4B&quot; in self.filename:
+            cal_coef = &#39;Calibration/CALIBRATION_COEF(SCALE+OFFSET)&#39;
+        else:
+            cal_coef = &#39;CALIBRATION_COEF(SCALE+OFFSET)&#39;
+        num_channel = self.get(cal_coef).shape[0]
+        if num_channel == 1:
+            # only channel_2, resolution = 500 m
+            channel_index = 0
+        data.attrs[&#39;scale_factor&#39;] = self.get(cal_coef)[channel_index, 0].values.item()
+        data.attrs[&#39;add_offset&#39;] = self.get(cal_coef)[channel_index, 1].values.item()
+        data = scale(data, data.attrs[&#39;scale_factor&#39;], data.attrs[&#39;add_offset&#39;])
+        data *= 100
+        ds_info[&#39;valid_range&#39;] = (data.attrs[&#39;valid_range&#39;] * data.attrs[&#39;scale_factor&#39;] + data.attrs[&#39;add_offset&#39;])
+        ds_info[&#39;valid_range&#39;] = ds_info[&#39;valid_range&#39;] * 100
+        return data
+
+    def calibrate_to_bt(self, data, ds_info, ds_name):
+        &quot;&quot;&quot;Calibrate to Brightness Temperatures [K].&quot;&quot;&quot;
+        logger.debug(&quot;Calibrating to brightness_temperature&quot;)
+        lut_key = ds_info.get(&#39;lut_key&#39;, ds_name)
+        if &quot;FY4B&quot; in self.filename:
+            lut = self.get(&quot;Calibration/&quot; + lut_key)
+        else:
+            lut = self.get(lut_key)
+        # the value of dn is the index of brightness_temperature
+        data = apply_lut(data, lut)
+        ds_info[&#39;valid_range&#39;] = lut.attrs[&#39;valid_range&#39;]
+        return data
+
+    def get_area_def(self, key):
+        &quot;&quot;&quot;Get the area definition.&quot;&quot;&quot;
+        res = key[&#39;resolution&#39;]
+        pdict = &#123;&#125;
+        pdict[&#39;coff&#39;] = _COFF_list[RESOLUTION_LIST.index(res)]
+        pdict[&#39;loff&#39;] = _LOFF_list[RESOLUTION_LIST.index(res)]
+        pdict[&#39;cfac&#39;] = _CFAC_list[RESOLUTION_LIST.index(res)]
+        pdict[&#39;lfac&#39;] = _LFAC_list[RESOLUTION_LIST.index(res)]
+        pdict[&#39;a&#39;] = self.file_content[&#39;/attr/dEA&#39;] * 1E3  # equator radius (m)
+        pdict[&#39;b&#39;] = pdict[&#39;a&#39;] * (1 - 1 / self.file_content[&#39;/attr/dObRecFlat&#39;])  # polar radius (m)
+        pdict[&#39;h&#39;] = self.file_content[&#39;/attr/NOMSatHeight&#39;]  # the altitude of satellite (m)
+
+        pdict[&#39;ssp_lon&#39;] = self.file_content[&#39;/attr/NOMCenterLon&#39;]
+        pdict[&#39;nlines&#39;] = self.file_content[&#39;/attr/RegLength&#39;]
+        pdict[&#39;ncols&#39;] = self.file_content[&#39;/attr/RegWidth&#39;]
+
+        pdict[&#39;scandir&#39;] = &#39;S2N&#39;
+
+        b500 = [&#39;C02&#39;]
+        b1000 = [&#39;C01&#39;, &#39;C03&#39;]
+        b2000 = [&#39;C04&#39;, &#39;C05&#39;, &#39;C06&#39;, &#39;C07&#39;]
+
+        pdict[&#39;a_desc&#39;] = &quot;AGRI &#123;&#125; area&quot;.format(self.filename_info[&#39;observation_type&#39;])
+
+        if key[&#39;name&#39;] in b500:
+            pdict[&#39;a_name&#39;] = self.filename_info[&#39;observation_type&#39;]+&#39;_500m&#39;
+            pdict[&#39;p_id&#39;] = &#39;FY-4A, 500m&#39;
+        elif key[&#39;name&#39;] in b1000:
+            pdict[&#39;a_name&#39;] = self.filename_info[&#39;observation_type&#39;]+&#39;_1000m&#39;
+            pdict[&#39;p_id&#39;] = &#39;FY-4A, 1000m&#39;
+        elif key[&#39;name&#39;] in b2000:
+            pdict[&#39;a_name&#39;] = self.filename_info[&#39;observation_type&#39;]+&#39;_2000m&#39;
+            pdict[&#39;p_id&#39;] = &#39;FY-4A, 2000m&#39;
+        else:
+            pdict[&#39;a_name&#39;] = self.filename_info[&#39;observation_type&#39;]+&#39;_4000m&#39;
+            pdict[&#39;p_id&#39;] = &#39;FY-4A, 4000m&#39;
+
+        pdict[&#39;coff&#39;] = pdict[&#39;coff&#39;] + 0.5
+        pdict[&#39;nlines&#39;] = pdict[&#39;nlines&#39;] - 1
+        pdict[&#39;ncols&#39;] = pdict[&#39;ncols&#39;] - 1
+        pdict[&#39;loff&#39;] = (pdict[&#39;loff&#39;] - self.file_content[&#39;/attr/End Line Number&#39;] + 0.5)
+        area_extent = get_area_extent(pdict)
+        area_extent = (area_extent[0], area_extent[1], area_extent[2], area_extent[3])
+
+        pdict[&#39;nlines&#39;] = pdict[&#39;nlines&#39;] + 1
+        pdict[&#39;ncols&#39;] = pdict[&#39;ncols&#39;] + 1
+        area = get_area_definition(pdict, area_extent)
+
+        return area
+
+    @property
+    def start_time(self):
+        &quot;&quot;&quot;Get the start time.&quot;&quot;&quot;
+        start_time = self[&#39;/attr/Observing Beginning Date&#39;] + &#39;T&#39; + self[&#39;/attr/Observing Beginning Time&#39;] + &#39;Z&#39;
+        return datetime.strptime(start_time, &#39;%Y-%m-%dT%H:%M:%S.%fZ&#39;)
+
+    @property
+    def end_time(self):
+        &quot;&quot;&quot;Get the end time.&quot;&quot;&quot;
+        end_time = self[&#39;/attr/Observing Ending Date&#39;] + &#39;T&#39; + self[&#39;/attr/Observing Ending Time&#39;] + &#39;Z&#39;
+        return datetime.strptime(end_time, &#39;%Y-%m-%dT%H:%M:%S.%fZ&#39;)
+</code></pre>
+<h2 id="合成"><a href="#合成" class="headerlink" title="合成"></a>合成</h2><p>红色通道校正方案及绿色波段的计算，由(<a target="_blank" rel="noopener" href="https://github.com/WP19VFF)[vff]%E6%8F%90%E4%BE%9B%E3%80%82">https://github.com/WP19VFF)[vff]提供。</a><br>新建AGRI合成脚本，BandMath：<code>(C02-0.13*C03)/0.87</code></p>
+<pre><code>#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# Copyright (c) 2015-2017 Satpy developers
+#
+# This file is part of satpy.
+#
+# satpy is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later
+# version.
+#
+# satpy is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+# A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# satpy.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+&quot;&quot;&quot;Composite classes for the AGRI instrument.&quot;&quot;&quot;
+
+import logging
+
+from satpy.composites import GenericCompositor
+
+LOG = logging.getLogger(__name__)
+
+
+class SimulatedGreen(GenericCompositor):
+
+    def __init__(self, name, fractions=(0.7, 0.2, 0.1), **kwargs):
+        &quot;&quot;&quot;Initialize fractions for input channels.
+
+        Args:
+            name (str): Name of this composite
+            fractions (iterable): Fractions of each input band to include in the result.
+
+        &quot;&quot;&quot;
+        self.fractions = fractions
+        super(SimulatedGreen, self).__init__(name, **kwargs)
+
+    def __call__(self, projectables, optional_datasets=None, **attrs):
+        &quot;&quot;&quot;Generate the single band composite.&quot;&quot;&quot;
+        c01, c02, c03 = self.match_data_arrays(projectables)
+        res = c01 * self.fractions[0] + c02 * self.fractions[1] + c03 * self.fractions[2]
+        res.attrs = c03.attrs.copy()
+        return super(SimulatedGreen, self).__call__((res,), **attrs)
+
+class RedCorrection(GenericCompositor):
+
+    def __init__(self, name, fractions=(0.87, 0.13), **kwargs):
+        self.fractions = fractions
+        super(RedCorrection, self).__init__(name, **kwargs)
+
+    def __call__(self, projectables, optional_datasets=None, **attrs):
+        &quot;&quot;&quot;Generate the single band composite.&quot;&quot;&quot;
+        c02, c03 = self.match_data_arrays(projectables)
+        res = (c02 - c03 * self.fractions[1]) / 0.87
+        res.attrs = c03.attrs.copy()
+        return super(RedCorrection, self).__call__((res,), **attrs)
+</code></pre>
+
+  
   
     
+    <div class='footer'>
       
-  <section class="post-list">
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>永久链接：<a href=https://www.xinmoe.cn/process-fy4b.html/>https://www.xinmoe.cn/process-fy4b.html/</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+    </div>
+  
+  
     
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-06-01T00:00:00+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2022年6月1日</p>
+  </a>
+</div>
+
+        
       
         
           
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-    
-        
-                
-                        
-                            
-                                <h2 class="article-title" >
-                                    <a href="/use-qcloud-detect.html/">
-                                        体验腾讯云万象优图
-                                    </a>
-                                </h2>
-                                
-                                    <div class='md'>
-                                        
-                                            <p><a href="https://cloud.tencent.com/developer/labs/lab/10071" target="_blank" rel="noopener">原文</a>，本文只作笔记说明下部分地方自己使用时发现的问题，少量步骤省略。</p>
-<h2 id="初始化配置"><a href="#初始化配置" class="headerlink" title="初始化配置"></a>初始化配置</h2><p>使用万象优图图片鉴黄 API 接口</p>
-                                                
-                                    </div>
-                                    
-                                        <div class='meta-v3' line_style='dashed'>
-                                            <div>
-                                                
-                                                    
-                                                        <a class='avatar' href='/'><img src='https://cdn.jsdelivr.net/gh/MengXin001/CDN/Head3.jpg'></a>
-                                                        <time>发布于：</time>
-                                                            <time>
-                                2019-12-31
-                              </time><span class="dot"></span>
-                                                            <time>更新于：</time>
-                                                            <time>
-                                2020-07-28
-                              </time>
-                                                            
-                                                                <span class="dot"></span>
-                                                                <a class="category-link" href="/categories/Shell/">Shell</a>
-                                                                    
-                                            </div>
-                                            
-                                                <div>
-                                                    <a class='readmore' href='/use-qcloud-detect.html/'>
-                                                        阅读全文
-                                                    </a>
-                                                </div>
-                                                
-                                        </div>
-                                        
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/FY4B/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>FY4B</p></a></div>
 
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.xinmoe.cn/process-fy4b.html/&title=处理风云四号02星AGRI L1数据 - 萌の新小窝&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.xinmoe.cn/process-fy4b.html/&title=处理风云四号02星AGRI L1数据 - 萌の新小窝&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://www.xinmoe.cn/process-fy4b.html/&title=处理风云四号02星AGRI L1数据 - 萌の新小窝&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
 </div>
-          </div>
+
+
+
         
       
-    
-  </section>
-  
-    
-  
+    </div>
+  </div>
 
 
-    
   
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/tackle-bufr.html/'>
+          <p class='title'>处理中国地区BUFR探空数据<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'># 前情提要由于种种不明因素???，官方渠道的探空数据进一步收紧。Wyoming极为便利的查询网站对于中国境内数据也多数缺少高空部分的数据，少部分渠道数据且用且珍惜。CMA每天需要向各国共享基本...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
 </div>
 <aside class='l_side'>
   
@@ -506,193 +958,28 @@ var _hmt = _hmt || [];
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box circle' href='/about/'>
-          <img no-lazy src='https://q4.qlogo.cn/g?b=qq&nk=3309939798&s=140'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">萌の新小窝</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:me@xxx.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/volantis-x/"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="/"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
 
-  
-    
-    
-  
-
-  <section class="widget category shadow desktop">
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/Bluetooth/" href="/categories/Bluetooth/"
-            id="categoriesBluetooth"
-            ><div class='name'>Bluetooth</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/Hexo/" href="/categories/Hexo/"
-            id="categoriesHexo"
-            ><div class='name'>Hexo</div><div class='badge'>(6)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/Intel/" href="/categories/Intel/"
-            id="categoriesIntel"
-            ><div class='name'>Intel</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/Meteorology/" href="/categories/Meteorology/"
-            id="categoriesMeteorology"
-            ><div class='name'>Meteorology</div><div class='badge'>(5)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/NanoPi/" href="/categories/NanoPi/"
-            id="categoriesNanoPi"
-            ><div class='name'>NanoPi</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/OPQBot/" href="/categories/OPQBot/"
-            id="categoriesOPQBot"
-            ><div class='name'>OPQBot</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/Raspberry/" href="/categories/Raspberry/"
-            id="categoriesRaspberry"
-            ><div class='name'>Raspberry</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/SDR/" href="/categories/SDR/"
-            id="categoriesSDR"
-            ><div class='name'>SDR</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/Security/" href="/categories/Security/"
-            id="categoriesSecurity"
-            ><div class='name'>Security</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/Shell/" href="/categories/Shell/"
-            id="categoriesShell"
-            ><div class='name'>Shell</div><div class='badge'>(1)</div></a></li>
-        
-      </ul>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%94%B9%E9%80%A0"><span class="toc-text">改造</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%88%E6%88%90"><span class="toc-text">合成</span></a></li></ol>
     </div>
   </section>
 
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/AdGuard/" style="font-size: 14px; color: #999">AdGuard</a> <a href="/tags/Armbian/" style="font-size: 14px; color: #999">Armbian</a> <a href="/tags/Blog/" style="font-size: 19px; color: #777">Blog</a> <a href="/tags/Bluetooth/" style="font-size: 14px; color: #999">Bluetooth</a> <a href="/tags/CFOSAT/" style="font-size: 14px; color: #999">CFOSAT</a> <a href="/tags/FY4B/" style="font-size: 14px; color: #999">FY4B</a> <a href="/tags/HY2/" style="font-size: 14px; color: #999">HY2</a> <a href="/tags/Hexo/" style="font-size: 24px; color: #555">Hexo</a> <a href="/tags/Himawari8/" style="font-size: 14px; color: #999">Himawari8</a> <a href="/tags/MHN/" style="font-size: 14px; color: #999">MHN</a> <a href="/tags/NanoPi-K2/" style="font-size: 19px; color: #777">NanoPi K2</a> <a href="/tags/Note/" style="font-size: 19px; color: #777">Note</a> <a href="/tags/OPQBot/" style="font-size: 14px; color: #999">OPQBot</a> <a href="/tags/Python/" style="font-size: 19px; color: #777">Python</a> <a href="/tags/RTL-SDR/" style="font-size: 14px; color: #999">RTL-SDR</a> <a href="/tags/Valine/" style="font-size: 14px; color: #999">Valine</a> <a href="/tags/Web/" style="font-size: 14px; color: #999">Web</a> <a href="/tags/Xeon/" style="font-size: 14px; color: #999">Xeon</a> <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" style="font-size: 14px; color: #999">树莓派</a>
-    </div>
-  </section>
-
-
-  
-
-  
-    
-    
-
-<section class="widget qrcode shadow desktop mobile">
-  
-
-  <div class='content article-entry'>
-    
-      <img src='https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png'
-      
-        height='64px'
-      />
-    
-      <img src='https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png'
-      
-        height='64px'
-      />
-    
-  </div>
-</section>
 
   
 
 
 </aside>
+
 
 
 		  
@@ -701,8 +988,8 @@ var _hmt = _hmt || [];
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="处理风云四号02星AGRI L1数据";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要

@@ -432,7 +432,7 @@ var _hmt = _hmt || [];
   
     <div class='headimg-div'>
       <a class='headimg-a'>
-        <img class='headimg' src='https://gitee.com//MengXin546/CDN/raw/master/img/SKEWT_20220202000000_45004.png'/>
+        <img class='headimg' src='https://cdn.jsdelivr.net/gh/MengXin001/CDN@1.1/img/SKEWT_20220202000000_45004.png'/>
       </a>
     </div>
   
@@ -479,10 +479,10 @@ var _hmt = _hmt || [];
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-02-02T16:45:28+08:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-06-05T20:48:17+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年2月2日</p>
+    <p>更新于：2022年6月5日</p>
   </a>
 </div>
 
@@ -495,7 +495,7 @@ var _hmt = _hmt || [];
 
   
   
-  <h3 id="前情提要"><a href="#前情提要" class="headerlink" title="# 前情提要"></a># 前情提要</h3><p>由于种种不明因素<sup>???</sup>，官方渠道的探空数据进一步收紧。Wyoming极为便利的查询网站对于中国境内数据也多数缺少高空部分的数据，少部分渠道数据且用且珍惜。<img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/aru/aru-17.gif" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/aru/aru-17.gif" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt=""><br>CMA每天需要向各国共享基本站点的00/12Z探空数据，其中共享的数据格式为BUFR(数据质量很不错)。先前在Github搜寻一圈使用过ecmwf/eccodes（ECMWF’s GRIB and BUFR encoding/decoding library）进行处理，但对于进行探空可视化所需的读取过于繁杂。</p>
+  <h3 id="前情提要"><a href="#前情提要" class="headerlink" title="# 前情提要"></a># 前情提要</h3><p>由于种种不明因素<sup>???</sup>，官方渠道的探空数据进一步收紧。Wyoming极为便利的查询网站对于中国境内数据也多数缺少高空部分的数据，少部分渠道数据且用且珍惜。<img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/aru/aru-17.gif" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/aru/aru-17.gif" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><br>CMA每天需要向各国共享基本站点的00/12Z探空数据，其中共享的数据格式为BUFR(数据质量很不错)。先前在Github搜寻一圈使用过ecmwf/eccodes（ECMWF’s GRIB and BUFR encoding/decoding library）进行处理，但对于进行探空可视化所需的读取过于繁杂。</p>
 <p>前几天Pyy老师开源了<strong>CyanideCN/TaxolLib</strong>包含许多的Libs，其中的 <code>upperair_bufr.py</code> 使用pybufrkit进行读取，已经预先处理好了各类要素的编号，大大减轻了处理负担。  </p>
 <p>稍做处理返回要素数据，配套<code>metpy</code>库可以计算各类指数。</p>
 <pre><code>    def get_data(self, station_id):
@@ -506,16 +506,22 @@ var _hmt = _hmt || [];
             wdir = df[&#39;wind_direction&#39;]
             wspd = df[&#39;wind_speed&#39;]
             alt = df[&#39;geopotential&#39;]
-            return pres, temp, dwpt, wdir, wspd, alt</code></pre><pre><code>Sounding = SoundingDecoder(&#39;C:/Users/Administrator/Desktop/Sat/SatData/Upper_air/A_IUKN09BABJ300000_C_RJTD_20220130013517_60.bufr&#39;)
+            return pres, temp, dwpt, wdir, wspd, alt
+</code></pre>
+<pre><code>Sounding = SoundingDecoder(&#39;C:/Users/Administrator/Desktop/Sat/SatData/Upper_air/A_IUKN09BABJ300000_C_RJTD_20220130013517_60.bufr&#39;)
 data = Sounding.query(&quot;52836&quot;)
 pres, temp, dwpt, wdir, wspd, alt = Sounding.get_data(&quot;52836&quot;)
-print(alt)</code></pre><p>同时也可以使用<code>to_sharppy</code>直接生成SHARPPy格式的探空数据，丢入SHARPPy绘制分析。</p>
+print(alt)
+</code></pre>
+<p>同时也可以使用<code>to_sharppy</code>直接生成SHARPPy格式的探空数据，丢入SHARPPy绘制分析。</p>
 <pre><code>import datetime
 date = &quot;2022013001351&quot;
 dtime = datetime.datetime.strptime(date, &#39;%Y%m%d%H%M%S&#39;)
 outdir = &#39;C:/Users/Administrator/Desktop/Sat/SatData/Upper_air&#39;
 Sounding = SoundingDecoder(&#39;C:/Users/Administrator/Desktop/Sat/SatData/Upper_air/A_IUKN09BABJ300000_C_RJTD_20220130013517_60.bufr&#39;)
-out = Sounding.to_sharppy(&quot;52836&quot;, dtime, outdir)</code></pre><p>这里贴一份upperair_bufr.py，还请大家给Pyy老师一个Star！<a href="https://github.com/CyanideCN/TaxolLib/blob/main/upperair_bufr.py" target="_blank" rel="noopener"><strong>CyanideCN/TaxolLib</strong></a></p>
+out = Sounding.to_sharppy(&quot;52836&quot;, dtime, outdir)
+</code></pre>
+<p>这里贴一份upperair_bufr.py，还请大家给Pyy老师一个Star！<a target="_blank" rel="noopener" href="https://github.com/CyanideCN/TaxolLib/blob/main/upperair_bufr.py"><strong>CyanideCN/TaxolLib</strong></a></p>
 <pre><code># https://github.com/CyanideCN/TaxolLib/blob/main/upperair_bufr.py
 
 import os
@@ -535,11 +541,11 @@ def safe_number(arr):
     return arr_new
 
 def decimal_fmt(num):
-    return &#39;{:.2f}&#39;.format(num)
+    return &#39;&#123;:.2f&#125;&#39;.format(num)
 
 def format_str(tup):
     tup = map(decimal_fmt, tup)
-    fmt = &#39;{:&gt;7},{:&gt;10},{:&gt;10},{:&gt;10},{:&gt;10},{:&gt;10}\n&#39;.format(*tup)
+    fmt = &#39;&#123;:&gt;7&#125;,&#123;:&gt;10&#125;,&#123;:&gt;10&#125;,&#123;:&gt;10&#125;,&#123;:&gt;10&#125;,&#123;:&gt;10&#125;\n&#39;.format(*tup)
     return fmt
 
 class SoundingDecoder(object):
@@ -570,7 +576,7 @@ class SoundingDecoder(object):
         return np.array(id_list)
 
     def _query(self, subset_num):
-        TEMPLATE = &#39;@[{}] &gt; {}&#39;
+        TEMPLATE = &#39;@[&#123;&#125;] &gt; &#123;&#125;&#39;
         q = DataQuerent(NodePathParser())
         df = DataFrame()
         pres_msg = q.query(self.msg, TEMPLATE.format(subset_num, self.CODE_PRES)).results
@@ -586,7 +592,7 @@ class SoundingDecoder(object):
         wspd_msg = q.query(self.msg, TEMPLATE.format(subset_num, self.CODE_WSPD)).results
         df[&#39;wind_speed&#39;] = dump_msg(wspd_msg)
         # Basic QC
-        df = df.fillna(value={&#39;dewpoint&#39;:-9999}) # Fill missing dewpoint at high levels
+        df = df.fillna(value=&#123;&#39;dewpoint&#39;:-9999&#125;) # Fill missing dewpoint at high levels
         df = df.interpolate(method=&#39;linear&#39;, limit_direction=&#39;forward&#39;, axis=0).drop_duplicates(&#39;geopotential&#39;).sort_values(by=&#39;geopotential&#39;)
         return df.fillna(-9999) # Fill Nans in starting level
 
@@ -603,7 +609,7 @@ class SoundingDecoder(object):
         outpath = os.path.join(outdir, fname)
         f = open(outpath, &#39;w&#39;)
         f.write(&#39;%TITLE%\n&#39;)
-        f.write(&#39; {}   {}\n\n&#39;.format(station_id, dtime.strftime(&#39;%y%m%d/%H%M&#39;)))
+        f.write(&#39; &#123;&#125;   &#123;&#125;\n\n&#39;.format(station_id, dtime.strftime(&#39;%y%m%d/%H%M&#39;)))
         f.write(&#39;   LEVEL       HGHT       TEMP       DWPT       WDIR       WSPD\n&#39;)
         f.write(&#39;-------------------------------------------------------------------\n&#39;)
         f.write(&#39;%RAW%\n&#39;)
@@ -614,7 +620,9 @@ class SoundingDecoder(object):
             f.write(formatted)
         f.write(&#39;%END%&#39;)
         f.close()
-        return outpath</code></pre>
+        return outpath
+</code></pre>
+
   
   
     
@@ -648,10 +656,10 @@ class SoundingDecoder(object):
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-02-02T16:45:28+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-06-05T20:48:17+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年2月2日</p>
+    <p>更新于：2022年6月5日</p>
   </a>
 </div>
 
@@ -726,6 +734,12 @@ class SoundingDecoder(object):
 
   
     <div class="prev-next">
+      
+        <a class='prev' href='/process-fy4b.html/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>处理风云四号02星AGRI L1数据</p>
+          <p class='content'>前言2022年6月1日，自FY4B发射近整整一年后，国家气象卫星中心正式开放下载数据。目前定位于132.7°E，投影位置于133°E。
+改造鉴于Satpy还无正式发布FY-4B AGRI的Rea...</p>
+        </a>
       
       
         <a class='next' href='/end-2021.html/'>
