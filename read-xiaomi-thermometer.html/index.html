@@ -443,8 +443,8 @@ var _hmt = _hmt || [];
             
 <div class='new-meta-item author'>
   <a class='author' href="/" rel="nofollow">
-    <img no-lazy src="https://cdn.jsdelivr.net/gh/MengXin001/CDN/Head3.jpg">
-    <p>MengXin</p>
+    <img no-lazy src="https://document-1254197101.cos.ap-guangzhou.myqcloud.com/hexo/pic/Head.jpg">
+    <p>A tqm</p>
   </a>
 </div>
 
@@ -473,10 +473,10 @@ var _hmt = _hmt || [];
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-04-04T09:52:31+08:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-10-09T11:43:22+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021年4月4日</p>
+    <p>更新于：2022年10月9日</p>
   </a>
 </div>
 
@@ -503,14 +503,18 @@ var _hmt = _hmt || [];
 0x250946170B
 0x240946170B
 0x1F0946640B
-0x000000 ---空数据</code></pre><h2 id="解码"><a href="#解码" class="headerlink" title="解码"></a>解码</h2><p>以Hex数据<code>1F0946640B</code>为例<br>将十六进制数据两两分组得五组数据将其编号</p>
+0x000000 ---空数据
+</code></pre>
+<h2 id="解码"><a href="#解码" class="headerlink" title="解码"></a>解码</h2><p>以Hex数据<code>1F0946640B</code>为例<br>将十六进制数据两两分组得五组数据将其编号</p>
 <pre><code>1F
 09
 46
 64
-0B</code></pre><h4 id="温度数据"><a href="#温度数据" class="headerlink" title="温度数据"></a>温度数据</h4><p>传感器精度为小数点后两位小数，官方取小数点后一位数据，这里可以自行选择精度。<br>    1.取分组后的数据前两组<code>1F</code> <code>09</code>。<br>    2.将数据反序排列为<code>09</code> <code>1F</code>。（十六进制第一位不能为0，转换时舍去0实际输入<code>91F</code>）<br>    3.转为十进制得到数字<code>2335</code>。<br>    4.十进制数字÷100得<code>23.35</code>，此数据即为当前得温度数据</p>
+0B
+</code></pre>
+<h4 id="温度数据"><a href="#温度数据" class="headerlink" title="温度数据"></a>温度数据</h4><p>传感器精度为小数点后两位小数，官方取小数点后一位数据，这里可以自行选择精度。<br>    1.取分组后的数据前两组<code>1F</code> <code>09</code>。<br>    2.将数据反序排列为<code>09</code> <code>1F</code>。（十六进制第一位不能为0，转换时舍去0实际输入<code>91F</code>）<br>    3.转为十进制得到数字<code>2335</code>。<br>    4.十进制数字÷100得<code>23.35</code>，此数据即为当前得温度数据</p>
 <h4 id="湿度数据"><a href="#湿度数据" class="headerlink" title="湿度数据"></a>湿度数据</h4><p>1.取分组后的第三组数据<code>46</code><br>2.转换为十进制数据得<code>70</code>，即为当前湿度数据。<br>后面两组数据暂时没有摸索出来用途，0B组似乎是固定数值没有变动。</p>
-<h2 id="On-Raspberry"><a href="#On-Raspberry" class="headerlink" title="On Raspberry"></a>On Raspberry</h2><p>推荐使用Gatttool与Bluez组合，<a href="https://blog.csdn.net/qq_33433070/article/details/78668105" target="_blank" rel="noopener">参考文章</a>。<br>当然上述只是对数据的解码提出的思路，进行本地归档还需要带家用Python或者其他语言进行处理</p>
+<h2 id="On-Raspberry"><a href="#On-Raspberry" class="headerlink" title="On Raspberry"></a>On Raspberry</h2><p>推荐使用Gatttool与Bluez组合，<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_33433070/article/details/78668105">参考文章</a>。<br>当然上述只是对数据的解码提出的思路，进行本地归档还需要带家用Python或者其他语言进行处理</p>
 
   
   
@@ -545,10 +549,10 @@ var _hmt = _hmt || [];
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-04-04T09:52:31+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-10-09T11:43:22+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021年4月4日</p>
+    <p>更新于：2022年10月9日</p>
   </a>
 </div>
 
@@ -635,9 +639,8 @@ var _hmt = _hmt || [];
       
         <a class='next' href='/todo.html/'>
           <p class='title'>关于近日<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>2021-8-13balabala
-继上回，半年摸鱼之中学考顺利结束。
-即将进入一个转折阶段，将来是不是要走强基计划?还没有做出最后的决定。一个暑期的学习自身感觉就过于浮躁，处于无止境的拖延和划...</p>
+          <p class='content'>2022-10-09好久没来打理，碎碎念的上次更新时间还是2021年。突然之间发现Jsdelivr寄了，急忙更换了下资源链接。果然免费的才是最贵的啊TT
+</p>
         </a>
       
     </div>

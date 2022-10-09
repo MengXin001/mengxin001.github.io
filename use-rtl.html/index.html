@@ -443,8 +443,8 @@ var _hmt = _hmt || [];
             
 <div class='new-meta-item author'>
   <a class='author' href="/" rel="nofollow">
-    <img no-lazy src="https://cdn.jsdelivr.net/gh/MengXin001/CDN/Head3.jpg">
-    <p>MengXin</p>
+    <img no-lazy src="https://document-1254197101.cos.ap-guangzhou.myqcloud.com/hexo/pic/Head.jpg">
+    <p>A tqm</p>
   </a>
 </div>
 
@@ -473,10 +473,10 @@ var _hmt = _hmt || [];
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-27T23:13:54+08:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-10-09T11:43:22+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年7月27日</p>
+    <p>更新于：2022年10月9日</p>
   </a>
 </div>
 
@@ -490,7 +490,7 @@ var _hmt = _hmt || [];
   
   
   <h3 id="关于RTLSDR"><a href="#关于RTLSDR" class="headerlink" title="关于RTLSDR"></a>关于RTLSDR</h3><p>RTL-SDR这是一个低廉的家用消费档次的 DVB-T USB 接口的接收机的创新发明，一个完全的软件定义无线电。[^1]</p>
-<a id="more"></a>
+<span id="more"></span>
 <p>也就是俗称的电视棒,可以用较低的价格来玩转软件无线电<br>本文所用到的是RTL2832U+R820T2</p>
 <h3 id="食材"><a href="#食材" class="headerlink" title="食材"></a>食材</h3><ul>
 <li>一根电视棒RTL2832U+R820T2（某宝上40左右即可买到）</li>
@@ -506,29 +506,35 @@ cd build
 cmake ../ -DINSTALL_UDEV_RULES=ON
 make
 sudo make install
-sudo ldconfig</code></pre>
+sudo ldconfig
+</code></pre>
 <p>至此rtlsdr接受工作已经完成，接下来你可以食用freqshow直接在树莓派上显示，也可以通过rtl-tcp用windows下的sdrsharp软件来收听（windows和树莓派需位于同一局域网或树莓派所在网络开启了端口转发）。<br>在这里给出freqshow食用方法[^2]，但更推荐使用第二个操作</p>
 <pre><code class="bash">sudo pip install pyrtlsdr
 cd ~
 git clone https://github.com/adafruit/FreqShow.git
-cd FreqShow</code></pre>
+cd FreqShow
+</code></pre>
 <p>修改freqshow.py文件如下</p>
 <pre><code class="bash"># Initialize pygame and SDL to use the PiTFT display and chscreen.
 #os.putenv(&#39;SDL_VIDEODRIVER&#39;, &#39;fbcon&#39;)
 #os.putenv(&#39;SDL_FBDEV&#39;      , &#39;/dev/fb1&#39;)
 #os.putenv(&#39;SDL_MOUSEDRV&#39;   , &#39;TSLIB&#39;)
 #os.putenv(&#39;SDL_MOUSEDEV&#39;   , &#39;/dev/input/touchscreen&#39;)
-pygame.mouse.set_visible(True)</code></pre>
+pygame.mouse.set_visible(True)
+</code></pre>
 <pre><code class="bash">sudo python freqshow.py
-#在freqshow目录里执行这个命令来启动freqshow</code></pre>
+#在freqshow目录里执行这个命令来启动freqshow
+</code></pre>
 <p>使用tcp转发操作起来就比较容易<br>执行<code>rtl_tcp -a 你的树莓派内网ip</code><br>然后在windows上使用SDRSharp选择RTL_TCP，填入ip即可端口默认1234。</p>
-<p>取消勾选RTLAGC<br>增益可自行拉下面的滑动条，取最合适的就可以。<a href="https://jq.qq.com/?_wv=1027&k=55b9O0W" target="_blank" rel="noopener">软件可以进大佬群自取</a></p>
+<p>取消勾选RTLAGC<br>增益可自行拉下面的滑动条，取最合适的就可以。<a target="_blank" rel="noopener" href="https://jq.qq.com/?_wv=1027&k=55b9O0W">软件可以进大佬群自取</a></p>
 <h4 id="Windows平台接受"><a href="#Windows平台接受" class="headerlink" title="Windows平台接受"></a>Windows平台接受</h4><p>依然要用到上面的软件（大佬群可以拿！）<br>先运行zadig进入Options选List All Devices就可以看到所有插在电脑上的rtl设备。选择rtl2832u点Reinstall Driver安装驱动。<br>运行#SDR选择RTL-USB/AM模式调节频率即可收听</p>
 <h3 id="在树莓派上Dump1090"><a href="#在树莓派上Dump1090" class="headerlink" title="在树莓派上Dump1090"></a>在树莓派上Dump1090</h3><p>建议在pi的根目录执行</p>
 <pre><code>git clone git://github.com/MalcolmRobb/dump1090.git
 cd dump1090
-make</code></pre><p>安装完成后执行<code>./dump1090 -–interactive –-net</code>后在终端和访问树莓派的内网地址<code>ip:8080</code>即可显示上空飞机的信息</p>
-<p>[^1]：来自百度百科<a href="https://baike.baidu.com/item/RTL-SDR/1338576" target="_blank" rel="noopener">https://baike.baidu.com/item/RTL-SDR/1338576</a><br>[^2]：freqshow安装过程参考<a href="https://learn.adafruit.com/freq-show-raspberry-pi-rtl-sdr-scanner/installation" target="_blank" rel="noopener">https://learn.adafruit.com/freq-show-raspberry-pi-rtl-sdr-scanner/installation</a></p>
+make
+</code></pre>
+<p>安装完成后执行<code>./dump1090 -–interactive –-net</code>后在终端和访问树莓派的内网地址<code>ip:8080</code>即可显示上空飞机的信息</p>
+<p>[^1]：来自百度百科<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/RTL-SDR/1338576">https://baike.baidu.com/item/RTL-SDR/1338576</a><br>[^2]：freqshow安装过程参考<a target="_blank" rel="noopener" href="https://learn.adafruit.com/freq-show-raspberry-pi-rtl-sdr-scanner/installation">https://learn.adafruit.com/freq-show-raspberry-pi-rtl-sdr-scanner/installation</a></p>
 
   
   
@@ -563,10 +569,10 @@ make</code></pre><p>安装完成后执行<code>./dump1090 -–interactive –-ne
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-27T23:13:54+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-10-09T11:43:22+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年7月27日</p>
+    <p>更新于：2022年10月9日</p>
   </a>
 </div>
 

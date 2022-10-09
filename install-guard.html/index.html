@@ -443,8 +443,8 @@ var _hmt = _hmt || [];
             
 <div class='new-meta-item author'>
   <a class='author' href="/" rel="nofollow">
-    <img no-lazy src="https://cdn.jsdelivr.net/gh/MengXin001/CDN/Head3.jpg">
-    <p>MengXin</p>
+    <img no-lazy src="https://document-1254197101.cos.ap-guangzhou.myqcloud.com/hexo/pic/Head.jpg">
+    <p>A tqm</p>
   </a>
 </div>
 
@@ -473,10 +473,10 @@ var _hmt = _hmt || [];
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-28T00:19:46+08:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-10-09T11:43:22+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年7月28日</p>
+    <p>更新于：2022年10月9日</p>
   </a>
 </div>
 
@@ -490,27 +490,33 @@ var _hmt = _hmt || [];
   
   
   <h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>连接你的树莓派，从Github获取发布的AdGuardHome</p>
-<a id="more"></a>
+<span id="more"></span>
 <center><iframe frameborder="0" scrolling="0" allowtransparency="true" src="https://api.2heng.xin/github-card/?repo=AdguardTeam/AdGuardHome" width="400" height="153" style="margin-left: 50%; transform: translateX(-50%);"></iframe></center>
 
-<pre><code class="BASH">wget https://github.com/AdguardTeam/AdGuardHome/releases/download/v0.101.0/AdGuardHome_linux_arm.tar.gz</code></pre>
+<pre><code class="BASH">wget https://github.com/AdguardTeam/AdGuardHome/releases/download/v0.101.0/AdGuardHome_linux_arm.tar.gz
+</code></pre>
 <pre><code class="BASH"># 解压
 tar -xvzf AdGuardHome_linux_arm.tar.gz
 cd AdGuardHome
 # screen后台运行
 screen -S Ad
-sudo ./AdGuardHome</code></pre>
+sudo ./AdGuardHome
+</code></pre>
 <h2 id="AdGuardHome配置"><a href="#AdGuardHome配置" class="headerlink" title="AdGuardHome配置"></a>AdGuardHome配置</h2><p>访问<code>树莓派内网IP:3000</code>进入后台<br>设置账户密码，建议在路由器中分配静态内网IP给树莓派。<br><img src="https://i.loli.net/2020/03/20/mdPE4kcgeuhax3o.jpg" class="lazyload" data-srcset="https://i.loli.net/2020/03/20/mdPE4kcgeuhax3o.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Set"><br>完成设置后Login进入控制台<br><img src="https://i.loli.net/2020/03/20/PiFQIGW2mnbVD63.png" class="lazyload" data-srcset="https://i.loli.net/2020/03/20/PiFQIGW2mnbVD63.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="Main"></p>
 <h2 id="DNS配置"><a href="#DNS配置" class="headerlink" title="DNS配置"></a>DNS配置</h2><p>在过滤器中勾选自带的过滤器并应用。<br>还可以添加Adgk的广告过滤规则。添加以下链接并应用更新规则。建议修改规则自动更新时间为24Hours</p>
-<pre><code>https://gitee.com/banbendalao/adguard/raw/master/ADgk.txt</code></pre><p>在DNS设置中设置上游DNS，不推荐使用默认的CloudFlareDNS，可以使用以下国内的公共DNS</p>
+<pre><code>https://gitee.com/banbendalao/adguard/raw/master/ADgk.txt
+</code></pre>
+<p>在DNS设置中设置上游DNS，不推荐使用默认的CloudFlareDNS，可以使用以下国内的公共DNS</p>
 <pre><code>Ali DNS: 223.5.5.5;223.6.6.6
 Baidu DNS: 180.76.76.76
 Tencent DNS: 119.29.29.29
 oneDNS: 117.50.11.11
 CNNIC sDNS: 1.2.4.8
-114DNS: 114.114.114.114(推荐设置为备用DNS)</code></pre><p>点击测试DNS服务器可用后，应用设置。</p>
+114DNS: 114.114.114.114(推荐设置为备用DNS)
+</code></pre>
+<p>点击测试DNS服务器可用后，应用设置。</p>
 <h2 id="设备接入"><a href="#设备接入" class="headerlink" title="设备接入"></a>设备接入</h2><p>将需要接入的设备WIFIDNS设置为树莓派的内网IP即可，在AdGuardHome后台有详细的设置教程。</p>
-<h2 id="拦截追踪"><a href="#拦截追踪" class="headerlink" title="拦截追踪"></a>拦截追踪</h2><p>接入设备后，访问一些网站就可以在AdGuardHome后台看到拦截的情况了。这是使用一晚上拦截追踪的情况。<br><img src="https://i.loli.net/2020/03/20/DZEFyMPQmw9pO2C.png" class="lazyload" data-srcset="https://i.loli.net/2020/03/20/DZEFyMPQmw9pO2C.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt=""></p>
+<h2 id="拦截追踪"><a href="#拦截追踪" class="headerlink" title="拦截追踪"></a>拦截追踪</h2><p>接入设备后，访问一些网站就可以在AdGuardHome后台看到拦截的情况了。这是使用一晚上拦截追踪的情况。<br><img src="https://i.loli.net/2020/03/20/DZEFyMPQmw9pO2C.png" class="lazyload" data-srcset="https://i.loli.net/2020/03/20/DZEFyMPQmw9pO2C.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <table>
 <thead>
 <tr>
@@ -653,10 +659,10 @@ CNNIC sDNS: 1.2.4.8
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-28T00:19:46+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-10-09T11:43:22+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年7月28日</p>
+    <p>更新于：2022年10月9日</p>
   </a>
 </div>
 

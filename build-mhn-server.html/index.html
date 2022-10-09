@@ -443,8 +443,8 @@ var _hmt = _hmt || [];
             
 <div class='new-meta-item author'>
   <a class='author' href="/" rel="nofollow">
-    <img no-lazy src="https://cdn.jsdelivr.net/gh/MengXin001/CDN/Head3.jpg">
-    <p>MengXin</p>
+    <img no-lazy src="https://document-1254197101.cos.ap-guangzhou.myqcloud.com/hexo/pic/Head.jpg">
+    <p>A tqm</p>
   </a>
 </div>
 
@@ -473,10 +473,10 @@ var _hmt = _hmt || [];
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-27T23:15:41+08:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-10-09T11:43:22+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年7月27日</p>
+    <p>更新于：2022年10月9日</p>
   </a>
 </div>
 
@@ -489,7 +489,7 @@ var _hmt = _hmt || [];
 
   
   
-  <h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>一台1核2G或以上的服务器<br>服务器系统为Ubuntu 14.04/16.04/12.02或Centos 6.9 。<a id="more"></a>以下操作我是在Ubuntu16.04 LTS服务器版本下进行的<br>如果为国内服务器请务必连接代理或更换软件源为腾讯云镜像源&amp;以下地址</p>
+  <h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>一台1核2G或以上的服务器<br>服务器系统为Ubuntu 14.04/16.04/12.02或Centos 6.9 。<span id="more"></span>以下操作我是在Ubuntu16.04 LTS服务器版本下进行的<br>如果为国内服务器请务必连接代理或更换软件源为腾讯云镜像源&amp;以下地址</p>
 <pre><code>deb http://us-east-2.ec2.archive.ubuntu.com/ubuntu/ xenial main restricted
 deb http://us-east-2.ec2.archive.ubuntu.com/ubuntu/ xenial-updates main restricted
 deb http://us-east-2.ec2.archive.ubuntu.com/ubuntu/ xenial universe
@@ -498,25 +498,34 @@ deb http://us-east-2.ec2.archive.ubuntu.com/ubuntu/ xenial-updates main restrict
 deb http://us-east-2.ec2.archive.ubuntu.com/ubuntu/ xenial universe
 deb http://us-east-2.ec2.archive.ubuntu.com/ubuntu/ xenial-updates universe
 deb http://us-east-2.ec2.archive.ubuntu.com/ubuntu/ xenial multiverse
-deb http://us-east-2.ec2.archive.ubuntu.com/ubuntu/ xenial-updates multiverse</code></pre><h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><pre><code class="BASH">cd /opt/
+deb http://us-east-2.ec2.archive.ubuntu.com/ubuntu/ xenial-updates multiverse
+</code></pre>
+<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><pre><code class="BASH">cd /opt/
 sudo git clone https://github.com/threatstream/mhn.git
 cd mhn/
-sudo ./install.sh</code></pre>
-<p>若Github clone速度较慢可使用国内镜像仓库<code>https://git.code.tencent.com/MengXin/mhn.git</code><br>过程中请保证网络畅通，确保你当前网络环境可以访问上述源和Github，避免进行二次安装下载包错误。如果安装顺利3分钟左右就可以进入配置<br><img src="https://document-1254197101.cos.ap-guangzhou.myqcloud.com/hexo/pic/2-1024x594.png" class="lazyload" data-srcset="https://document-1254197101.cos.ap-guangzhou.myqcloud.com/hexo/pic/2-1024x594.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt=""></p>
+sudo ./install.sh
+</code></pre>
+<p>若Github clone速度较慢可使用国内镜像仓库<code>https://git.code.tencent.com/MengXin/mhn.git</code><br>过程中请保证网络畅通，确保你当前网络环境可以访问上述源和Github，避免进行二次安装下载包错误。如果安装顺利3分钟左右就可以进入配置<br><img src="https://document-1254197101.cos.ap-guangzhou.myqcloud.com/hexo/pic/2-1024x594.png" class="lazyload" data-srcset="https://document-1254197101.cos.ap-guangzhou.myqcloud.com/hexo/pic/2-1024x594.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <h3 id="配置后台"><a href="#配置后台" class="headerlink" title="配置后台"></a>配置后台</h3><p>1.不运行debug<br>2.输要设置的后台管理的账号邮箱可以不填自己真实的<br>3.设置你的后台密码<br>4.重复密码<br>5.后台管理系统的地址，如果你的服务器开了80端口可以直接空格下一项<br>6.攻击地图的地址，请开启服务器的3000端口或者自行设置其他端口<br>7.邮件设置空格跳过<br>8.TLS和SSL都选n<br>9.不安装Splunk和ELK<br>安装完成后（设置完规则后）执行<code>supervisorctl status</code> 检查服务状态<br>不出意外的话mhn-celery-worker是启动失败的，执行<code>chmod 777 -R /var/log/mhn/mhn.log</code>后重新启动一遍服务<code>supervisorctl restart all</code>正确的情况是全部服务都在 RUNNING状态，此时访问服务器ip就可以进入后台管理页面。</p>
-<h2 id="关于报错"><a href="#关于报错" class="headerlink" title="关于报错"></a>关于报错</h2><p>启动失败的服务除honeymap服务外都可以尝试用<code>supervisorctl start 服务名字</code><br>honeymap服务启动失败多半是因为网络原因，更换一个更好的梯子代理后重新尝试安装install.sh。<a href="https://blog.csdn.net/wutianxu123/article/details/84886811" target="_blank" rel="noopener">这里</a>给出了一个手动修复的教程，但我在尝试安装go的时候还是会被墙或者报错。</p>
+<h2 id="关于报错"><a href="#关于报错" class="headerlink" title="关于报错"></a>关于报错</h2><p>启动失败的服务除honeymap服务外都可以尝试用<code>supervisorctl start 服务名字</code><br>honeymap服务启动失败多半是因为网络原因，更换一个更好的梯子代理后重新尝试安装install.sh。<a target="_blank" rel="noopener" href="https://blog.csdn.net/wutianxu123/article/details/84886811">这里</a>给出了一个手动修复的教程，但我在尝试安装go的时候还是会被墙或者报错。</p>
 <h2 id="原版配置"><a href="#原版配置" class="headerlink" title="原版配置"></a>原版配置</h2><h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><ul>
 <li>The MHN server is supported on Ubuntu 18.04, Ubuntu 16.04, and Centos 6.9.  </li>
 <li>Other versions of Linux may work but are generally not tested or supported.</li>
 </ul>
-<p>Note: if you run into trouble during the install, please checkout the <a href="https://github.com/Pwnlandia/MHN/wiki/MHN-Troubleshooting-Guide" target="_blank" rel="noopener">troubleshooting guide</a> on the wiki.  If you only want to experiment with MHN on some virtual machines, please check out the <a href="https://github.com/Pwnlandia/mhn/wiki/Getting-up-and-running-using-Vagrant" target="_blank" rel="noopener">Getting up and Running with Vagrant</a> guide on the wiki.</p>
+<p>Note: if you run into trouble during the install, please checkout the <a target="_blank" rel="noopener" href="https://github.com/Pwnlandia/MHN/wiki/MHN-Troubleshooting-Guide">troubleshooting guide</a> on the wiki.  If you only want to experiment with MHN on some virtual machines, please check out the <a target="_blank" rel="noopener" href="https://github.com/Pwnlandia/mhn/wiki/Getting-up-and-running-using-Vagrant">Getting up and Running with Vagrant</a> guide on the wiki.</p>
 <p>Install Git</p>
 <pre><code># on Debian or Ubuntu
-$ sudo apt install git -y</code></pre><p>Install MHN</p>
+$ sudo apt install git -y
+</code></pre>
+<p>Install MHN</p>
 <pre><code>$ cd /opt/
 $ sudo git clone https://github.com/pwnlandia/mhn.git
-$ cd mhn/</code></pre><p>Run the following script to complete the installation.  While this script runs,<br>you will be prompted for some configuration options.  See below for how this<br>looks.</p>
-<pre><code>$ sudo ./install.sh</code></pre><h3 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h3><pre><code>===========================================================
+$ cd mhn/
+</code></pre>
+<p>Run the following script to complete the installation.  While this script runs,<br>you will be prompted for some configuration options.  See below for how this<br>looks.</p>
+<pre><code>$ sudo ./install.sh
+</code></pre>
+<h3 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h3><pre><code>===========================================================
 MHN Configuration
 ===========================================================
 Do you wish to run in Debug mode?: y/n n
@@ -531,7 +540,9 @@ Use SSL for email?: y/n n
 Mail server username [&quot;&quot;]: 
 Mail server password [&quot;&quot;]: 
 Mail default sender [&quot;&quot;]: 
-Path for log file [&quot;mhn.log&quot;]: </code></pre><h3 id="Running"><a href="#Running" class="headerlink" title="Running"></a>Running</h3><p>If the installation scripts ran successfully, you should have a number of<br>services running on your MHN server.  See below for checking these.</p>
+Path for log file [&quot;mhn.log&quot;]: 
+</code></pre>
+<h3 id="Running"><a href="#Running" class="headerlink" title="Running"></a>Running</h3><p>If the installation scripts ran successfully, you should have a number of<br>services running on your MHN server.  See below for checking these.</p>
 <pre><code>user@precise64:/opt/mhn/scripts$ sudo /etc/init.d/nginx status
  * nginx is running
 user@precise64:/opt/mhn/scripts$ sudo /etc/init.d/supervisor status
@@ -544,17 +555,23 @@ mhn-celery-beat                  RUNNING    pid 29909, uptime 0:18:41
 mhn-celery-worker                RUNNING    pid 29910, uptime 0:18:41
 mhn-collector                    RUNNING    pid 7872,  uptime 0:18:41
 mhn-uwsgi                        RUNNING    pid 29911, uptime 0:18:41
-mnemosyne                        RUNNING    pid 28173, uptime 0:30:08</code></pre><h3 id="Running-MHN-Behind-a-Proxy"><a href="#Running-MHN-Behind-a-Proxy" class="headerlink" title="Running MHN Behind a Proxy"></a>Running MHN Behind a Proxy</h3><p>For directions on running MHN behind a web proxy, follow the directions in the<br><a href="https://github.com/pwnlandia/mhn/wiki/Running-MHN-Behind-a-Web-Proxy" target="_blank" rel="noopener">wiki.</a></p>
-<h3 id="Running-MHN-Over-HTTPS"><a href="#Running-MHN-Over-HTTPS" class="headerlink" title="Running MHN Over HTTPS"></a>Running MHN Over HTTPS</h3><p>By default MHN will run without HTTPS, to configure your installation to use SSL<br>certificates directions can be found in the <a href="https://github.com/pwnlandia/mhn/wiki/Running-MHN-Over-HTTPS" target="_blank" rel="noopener">wiki.</a></p>
+mnemosyne                        RUNNING    pid 28173, uptime 0:30:08
+</code></pre>
+<h3 id="Running-MHN-Behind-a-Proxy"><a href="#Running-MHN-Behind-a-Proxy" class="headerlink" title="Running MHN Behind a Proxy"></a>Running MHN Behind a Proxy</h3><p>For directions on running MHN behind a web proxy, follow the directions in the<br><a target="_blank" rel="noopener" href="https://github.com/pwnlandia/mhn/wiki/Running-MHN-Behind-a-Web-Proxy">wiki.</a></p>
+<h3 id="Running-MHN-Over-HTTPS"><a href="#Running-MHN-Over-HTTPS" class="headerlink" title="Running MHN Over HTTPS"></a>Running MHN Over HTTPS</h3><p>By default MHN will run without HTTPS, to configure your installation to use SSL<br>certificates directions can be found in the <a target="_blank" rel="noopener" href="https://github.com/pwnlandia/mhn/wiki/Running-MHN-Over-HTTPS">wiki.</a></p>
 <h3 id="Running-MHN-with-Docker"><a href="#Running-MHN-with-Docker" class="headerlink" title="Running MHN with Docker"></a>Running MHN with Docker</h3><p>Running MHN in docker is not officially supported, but it works.<br>The container takes a few minutes to start at the first launch to initialize.<br>Splunk, ArcSight and ELK are not yet supported in Docker.</p>
-<h4 id="Build-it"><a href="#Build-it" class="headerlink" title="Build it"></a>Build it</h4><pre><code>$ docker build -t mhn .</code></pre><h4 id="Run-it"><a href="#Run-it" class="headerlink" title="Run it"></a>Run it</h4><pre><code>$ docker run -d -p 10000:10000 -p 80:80 -p 3000:3000 -p 8089:8089 \
+<h4 id="Build-it"><a href="#Build-it" class="headerlink" title="Build it"></a>Build it</h4><pre><code>$ docker build -t mhn .
+</code></pre>
+<h4 id="Run-it"><a href="#Run-it" class="headerlink" title="Run it"></a>Run it</h4><pre><code>$ docker run -d -p 10000:10000 -p 80:80 -p 3000:3000 -p 8089:8089 \
 $ --restart unless-stopped \
 $ --name mhn \
 $ -e SUPERUSER_EMAIL=root@localhost \
 $ -e SUPERUSER_PASSWORD=password \
 $ -e SERVER_BASE_URL=&quot;http://mhn&quot; \
 $ -e HONEYMAP_URL=&quot;http://mhn:3000&quot; \
-$ mhn</code></pre><h4 id="Environment-variables"><a href="#Environment-variables" class="headerlink" title="Environment variables"></a>Environment variables</h4><pre><code>SUPERUSER_EMAIL
+$ mhn
+</code></pre>
+<h4 id="Environment-variables"><a href="#Environment-variables" class="headerlink" title="Environment variables"></a>Environment variables</h4><pre><code>SUPERUSER_EMAIL
 SUPERUSER_PASSWORD
 SERVER_BASE_URL
 HONEYMAP_URL
@@ -566,7 +583,9 @@ SMTP_SSL
 SMTP_USERNAME
 SMTP_PASSWORD
 SMTP_SENDER
-MHN_LOG</code></pre><h2 id="Deploying-honeypots-with-MHN"><a href="#Deploying-honeypots-with-MHN" class="headerlink" title="Deploying honeypots with MHN"></a>Deploying honeypots with MHN</h2><p>MHN was designed to make scalable deployment of honeypots easier.  Here are the<br>steps for deploying a honeypot with MHN:</p>
+MHN_LOG
+</code></pre>
+<h2 id="Deploying-honeypots-with-MHN"><a href="#Deploying-honeypots-with-MHN" class="headerlink" title="Deploying honeypots with MHN"></a>Deploying honeypots with MHN</h2><p>MHN was designed to make scalable deployment of honeypots easier.  Here are the<br>steps for deploying a honeypot with MHN:</p>
 <ol>
 <li>Login to your MHN server web app.</li>
 <li>Click the “Deploy” link in the upper left hand corner.</li>
@@ -574,12 +593,16 @@ MHN_LOG</code></pre><h2 id="Deploying-honeypots-with-MHN"><a href="#Deploying-ho
 <li>Copy the deployment command.</li>
 <li>Login to a honeypot server and run this command as root.</li>
 </ol>
-<p>If the deploy script successfully completes you should see the new sensor listed<br>under your deployed sensor list. For a full list of supported sensors, check the list here: <a href="https://github.com/pwnlandia/mhn/wiki/List-of-Supported-Sensors" target="_blank" rel="noopener">List of Supported Sensors</a></p>
+<p>If the deploy script successfully completes you should see the new sensor listed<br>under your deployed sensor list. For a full list of supported sensors, check the list here: <a target="_blank" rel="noopener" href="https://github.com/pwnlandia/mhn/wiki/List-of-Supported-Sensors">List of Supported Sensors</a></p>
 <h2 id="Integration-with-Splunk-and-ArcSight"><a href="#Integration-with-Splunk-and-ArcSight" class="headerlink" title="Integration with Splunk and ArcSight"></a>Integration with Splunk and ArcSight</h2><p>hpfeeds-logger can be used to integrate MHN with Splunk and ArcSight.</p>
 <h4 id="Splunk"><a href="#Splunk" class="headerlink" title="Splunk"></a>Splunk</h4><pre><code>cd /opt/mhn/scripts/
-sudo ./install_hpfeeds-logger-splunk.sh</code></pre><p>This will log the events as key/value pairs to /var/log/mhn-splunk.log.  This<br>log should be monitored by the SplunkUniversalForwarder.</p>
+sudo ./install_hpfeeds-logger-splunk.sh
+</code></pre>
+<p>This will log the events as key/value pairs to /var/log/mhn-splunk.log.  This<br>log should be monitored by the SplunkUniversalForwarder.</p>
 <h4 id="Arcsight"><a href="#Arcsight" class="headerlink" title="Arcsight"></a>Arcsight</h4><pre><code>cd /opt/mhn/scripts/
-sudo ./install_hpfeeds-logger-arcsight.sh</code></pre><p>This will log the events as CEF to /var/log/mhn-arcsight.log</p>
+sudo ./install_hpfeeds-logger-arcsight.sh
+</code></pre>
+<p>This will log the events as CEF to /var/log/mhn-arcsight.log</p>
 
   
   
@@ -614,10 +637,10 @@ sudo ./install_hpfeeds-logger-arcsight.sh</code></pre><p>This will log the event
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-07-27T23:15:41+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-10-09T11:43:22+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年7月27日</p>
+    <p>更新于：2022年10月9日</p>
   </a>
 </div>
 

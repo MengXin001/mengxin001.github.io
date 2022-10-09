@@ -449,8 +449,8 @@ var _hmt = _hmt || [];
             
 <div class='new-meta-item author'>
   <a class='author' href="/" rel="nofollow">
-    <img no-lazy src="https://cdn.jsdelivr.net/gh/MengXin001/CDN/Head3.jpg">
-    <p>MengXin</p>
+    <img no-lazy src="https://document-1254197101.cos.ap-guangzhou.myqcloud.com/hexo/pic/Head.jpg">
+    <p>A tqm</p>
   </a>
 </div>
 
@@ -479,10 +479,10 @@ var _hmt = _hmt || [];
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-04-04T12:29:02+08:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-10-09T11:43:22+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021年4月4日</p>
+    <p>更新于：2022年10月9日</p>
   </a>
 </div>
 
@@ -495,25 +495,28 @@ var _hmt = _hmt || [];
 
   
   
-  <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>作者在1.4.0+的版本中去除了邮件通知。过一段时间再看看commit修改下。<br>你现在可以使用1.3.10继续实现Valine的邮件通知或Valine-admin<a id="more"></a></p>
+  <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>作者在1.4.0+的版本中去除了邮件通知。过一段时间再看看commit修改下。<br>你现在可以使用1.3.10继续实现Valine的邮件通知或Valine-admin<span id="more"></span></p>
 <h2 id="主题配置"><a href="#主题配置" class="headerlink" title="主题配置"></a>主题配置</h2><p>进入theme目录中你所使用的主题文件夹，这里以<code>hexo-Sakura</code>主题为例，编辑<code>layout/_partial/comments.ejs</code>。<br>在原有的<code>&lt;script&gt;</code>中添加以下代码</p>
 <pre><code class="JavaScript">var notify = &#39;true&#39; ? true : false;
 var verify = &#39;false&#39; ? true : false;
 var GUEST_INFO = [&#39;nick&#39;,&#39;mail&#39;,&#39;link&#39;];
-var guest_info = &#39;nick,mail,link&#39;.split(&#39;,&#39;).filter(function(item){
+var guest_info = &#39;nick,mail,link&#39;.split(&#39;,&#39;).filter(function(item)&#123;
   return GUEST_INFO.indexOf(item) &gt; -1
-});</code></pre>
+&#125;);
+</code></pre>
 <p>在<code>valine.init</code>中添加</p>
-<pre><code class="JavaScript">notify:notify</code></pre>
+<pre><code class="JavaScript">notify:notify
+</code></pre>
 <p><img src="https://s1.ax1x.com/2020/03/15/83M3y4.png" class="lazyload" data-srcset="https://s1.ax1x.com/2020/03/15/83M3y4.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="添加"></p>
-<h2 id="后台配置"><a href="#后台配置" class="headerlink" title="后台配置"></a>后台配置</h2><p>访问<a href="https://Leancloud.cn" target="_blank" rel="noopener">LeanCloud控制台</a><br>进入应用-设置-邮件模板<br>编辑<code>用于重置密码的邮件主题</code><br>这里提供一个内容模板，可以自行修改内容</p>
-<pre><code class="HTML">&lt;p&gt;Hi, {{username}}&lt;/p&gt;
+<h2 id="后台配置"><a href="#后台配置" class="headerlink" title="后台配置"></a>后台配置</h2><p>访问<a target="_blank" rel="noopener" href="https://leancloud.cn/">LeanCloud控制台</a><br>进入应用-设置-邮件模板<br>编辑<code>用于重置密码的邮件主题</code><br>这里提供一个内容模板，可以自行修改内容</p>
+<pre><code class="HTML">&lt;p&gt;Hi, &#123;&#123;username&#125;&#125;&lt;/p&gt;
 &lt;p&gt;
 你在气象观测/萌新的BLOG的评论收到了新的回复，请点击查看：
 &lt;/p&gt;
-&lt;center&gt;&lt;a href=&quot;https://moex.club&quot; style=&quot;display: inline-block; padding: 10px 20px; border-radius: 4px; background-color: #3090e4; color: #fff; text-decoration: none;&quot;&gt;马上查看!&lt;/a&gt;&lt;/center&gt;</code></pre>
-<p>收到回复的效果如下<br><img src="https://i.loli.net/2020/03/15/HXsR8t4gMEf9dPe.jpg" class="lazyload" data-srcset="https://i.loli.net/2020/03/15/HXsR8t4gMEf9dPe.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt=""><br>注：开启邮件回复提醒会valine自动开启评论验证码验证。</p>
-<h3 id="Ad"><a href="#Ad" class="headerlink" title="Ad"></a>Ad</h3><p>气象观测站点上线啦！还不赶紧去看看<br><a href="https://moex.club" target="_blank" rel="noopener">点我直达</a></p>
+&lt;center&gt;&lt;a href=&quot;https://moex.club&quot; style=&quot;display: inline-block; padding: 10px 20px; border-radius: 4px; background-color: #3090e4; color: #fff; text-decoration: none;&quot;&gt;马上查看!&lt;/a&gt;&lt;/center&gt;
+</code></pre>
+<p>收到回复的效果如下<br><img src="https://i.loli.net/2020/03/15/HXsR8t4gMEf9dPe.jpg" class="lazyload" data-srcset="https://i.loli.net/2020/03/15/HXsR8t4gMEf9dPe.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><br>注：开启邮件回复提醒会valine自动开启评论验证码验证。</p>
+<h3 id="Ad"><a href="#Ad" class="headerlink" title="Ad"></a>Ad</h3><p>气象观测站点上线啦！还不赶紧去看看<br><a target="_blank" rel="noopener" href="https://moex.club/">点我直达</a></p>
 
   
   
@@ -548,10 +551,10 @@ var guest_info = &#39;nick,mail,link&#39;.split(&#39;,&#39;).filter(function(ite
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-04-04T12:29:02+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-10-09T11:43:22+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021年4月4日</p>
+    <p>更新于：2022年10月9日</p>
   </a>
 </div>
 
