@@ -1,0 +1,23 @@
+@use "../mixins" as *;
+
+html {
+  -webkit-tap-highlight-color: transparent;
+  font-family: var(--va-font-sans);
+}
+
+a {
+  color: var(--va-c-link);
+  font-weight: 500;
+}
+
+* {
+  outline: none;
+}
+
+hr {
+  margin: 1rem;
+}
+
+button {
+  background-color: transparent;
+}
