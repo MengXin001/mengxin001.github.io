@@ -37,7 +37,7 @@ export default defineSiteConfig({
     },
     {
       name: '网易云音乐',
-      link: 'https://music.163.com/#/user/home?id=247102977',
+      link: 'https://music.163.com/#/user/home',
       icon: 'i-ri-netease-cloud-music-line',
       color: '#C20C0C',
     },
