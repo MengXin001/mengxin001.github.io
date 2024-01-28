@@ -31,7 +31,7 @@ export default defineSiteConfig({
     },
     {
       name: '豆瓣',
-      link: 'https://www.douban.com/people/yunyoujun/',
+      link: 'https://www.douban.com/people/',
       icon: 'i-ri-douban-line',
       color: '#007722',
     },
