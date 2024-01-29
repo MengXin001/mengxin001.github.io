@@ -11,7 +11,6 @@ tags:
  - HY2
  - CFOSAT
 description: 在处理SCAT微波散射计L2B级数据时的奇技淫巧......
-cover: /img/CFO_EXPR_SCA_C_L2B_OR_20210723T100441_15127_125_33_owv.png
 ---
 
 ## # Introduction
@@ -53,4 +52,3 @@ v = (wind_speed * np.cos(np.radians(wind_dir))
 BigShuiTai Plotter https://github.com/BigShuiTai/HY-CFOSAT-ASCAT-Wind-Data-Plotter (请等待使用正式发布的Version 1.0.0)
 更多个性化设置详见Readme。
 See https://github.com/BigShuiTai/HY-CFOSAT-ASCAT-Wind-Data-Plotter/issues/4
-![](/img/H2C_OPER_SCA_L2B_OR_20211010T000404_20211010T004830_05258_pwp_250_07_owv.png)

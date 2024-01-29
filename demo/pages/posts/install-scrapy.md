@@ -26,7 +26,7 @@ sudo apt-get install python3-pip
 ``` 
 sudo apt-get install python3-dev
 ```
-没有开发依赖项在`Twisted`安装中会提示如下报错。被该报错困扰许久......![](/images/cry.gif) ![](/images/cry.gif)
+没有开发依赖项在`Twisted`安装中会提示如下报错。被该报错困扰许久......
 ``` BASH
 build/temp.linux-x86_64-2.7/twisted/test/raiser.o 
 twisted/test/raiser.c:4:20: fatal error: Python.h: No such file or directory 
