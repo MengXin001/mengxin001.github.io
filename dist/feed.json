@@ -1,0 +1,155 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "萌の新えか",
+    "home_page_url": "https://www.moexin.cn/",
+    "feed_url": "https://www.moexin.cn/feed.json",
+    "description": "Valaxy Theme Sakura Preview.",
+    "icon": "https://document-1254197101.cos.ap-guangzhou.myqcloud.com/hexo/pic/Head.jpg",
+    "author": {
+        "name": "萌新",
+        "url": "https://valaxy.site"
+    },
+    "items": [
+        {
+            "id": "",
+            "content_html": "<p>以下操作在Armbian系统下进行，系统已经预装完成Python3.8。<br>\n1.安装<code>pip</code></p>\n<pre><code>sudo apt-get install python3-pip\n</code></pre>\n<p>完成后输入`</p>\n",
+            "url": "https://www.moexin.cn/posts/install-scrapy",
+            "title": "在NanoPi上安装Scrapy框架",
+            "summary": "使用Armbian系统，已经预装Python3.8安装Scrapy框架",
+            "date_modified": "2020-07-27T20:00:00.000Z",
+            "date_published": "2024-01-29T03:51:14.236Z",
+            "author": {
+                "name": "萌新",
+                "url": "https://valaxy.site"
+            }
+        },
+        {
+            "id": "",
+            "content_html": "<h2>代码测试</h2>\n<p>二分查找 <code>binsearch</code></p>\n<pre><code class=\"language-ts\">// [l, r)\nfunction search(nums: number[], target: number): number </code></pre>\n",
+            "url": "https://www.moexin.cn/posts/doc",
+            "title": "测试文档",
+            "date_modified": "2024-01-21T16:00:00.000Z",
+            "date_published": "2024-01-28T10:43:45.054Z",
+            "author": {
+                "name": "萌新",
+                "url": "https://valaxy.site"
+            }
+        },
+        {
+            "id": "",
+            "content_html": "<h2>代码测试</h2>\n<p>新版 Mesovortices 采用<code>Flowbite+TailwindCSS</code>布局。采用了伟大的<code>HarmonyOS_Regular</code>。</p>\n<p>导航栏加入了 Avatar 和 Bre</p>\n",
+            "url": "https://www.moexin.cn/posts/mesovortices-update",
+            "title": "Mesovortices更新",
+            "date_modified": "2024-01-27T16:00:00.000Z",
+            "date_published": "2024-01-28T10:32:58.799Z",
+            "author": {
+                "name": "萌新",
+                "url": "https://valaxy.site"
+            }
+        },
+        {
+            "id": "",
+            "content_html": "<h3># 前情提要</h3>\n<p>由于种种不明因素<sup>???</sup>，官方渠道的探空数据进一步收紧。Wyoming极为便利的查询网站对于中国境内数据也多数缺少高空部分的数据，少部分渠道数据且用</p>\n",
+            "url": "https://www.moexin.cn/posts/tackle-bufr",
+            "title": "处理中国地区BUFR探空数据",
+            "summary": "安利 Upperair_bufr Lib --- 快速上手处理BUFR气象探空数据",
+            "date_modified": "2022-02-02T11:00:00.000Z",
+            "date_published": "2024-01-28T10:08:32.552Z",
+            "author": {
+                "name": "萌新",
+                "url": "https://valaxy.site"
+            }
+        },
+        {
+            "id": "",
+            "content_html": "<p>最近恰逢双十一天仪数据商城上线了，支持海丝一号和巢湖一号所有存档数据的查询与下载。<br>\n支持多星轨道预报，以及编程数据下单。</p>\n<p>自从海洋卫星中心和对地观测中心加高GF3的使用门槛后，让本人一类没有任</p>\n",
+            "url": "https://www.moexin.cn/posts/spacety",
+            "title": "天仪器海丝&巢湖一号SAR初体验",
+            "summary": "天仪，让航天触手可及",
+            "date_modified": "2022-11-13T00:00:00.000Z",
+            "date_published": "2024-01-28T10:03:58.427Z",
+            "author": {
+                "name": "萌新",
+                "url": "https://valaxy.site"
+            }
+        },
+        {
+            "id": "",
+            "content_html": "",
+            "url": "https://www.moexin.cn/posts/gaofen7",
+            "title": "高分七号图像配准",
+            "summary": "高分七号图像配准让图像融合更清晰",
+            "date_modified": "2023-08-28T00:00:00.000Z",
+            "date_published": "2024-01-28T10:01:20.280Z",
+            "author": {
+                "name": "萌新",
+                "url": "https://valaxy.site"
+            }
+        },
+        {
+            "id": "",
+            "content_html": "<h2>关于</h2>\n<p>SatimaV4由<a href=\"https://github.com/CyanideCN/SatimaV4\">CyanideCN</a>制作，在Linux和Windows均可实现高效的对Himawar</p>\n",
+            "url": "https://www.moexin.cn/posts/use-satima",
+            "title": "配置气象云图绘图工具2.0-SatimaV4",
+            "summary": "在Linux & Windows系统上，配置SatimaV4云图绘制工具开始高效绘图",
+            "date_modified": "2021-06-04T16:00:00.000Z",
+            "date_published": "2024-01-28T09:42:19.629Z",
+            "author": {
+                "name": "萌新",
+                "url": "https://valaxy.site"
+            }
+        },
+        {
+            "id": "",
+            "content_html": "<h2>前言</h2>\n<p>2022年6月1日，自FY4B发射近整整一年后，国家气象卫星中心正式开放下载数据。目前定位于132.7°E，投影位置于133°E。</p>\n<h2>改造</h2>\n<p>鉴于Satpy还无正式发布FY-4</p>\n",
+            "url": "https://www.moexin.cn/posts/process-fy4b",
+            "title": "处理风云四号02星AGRI L1数据",
+            "summary": "使用Satpy读取FY-4B AGRIL1级数据......",
+            "date_modified": "2022-06-01T00:00:00.000Z",
+            "date_published": "2022-06-01T00:00:00.000Z",
+            "author": {
+                "name": "萌新",
+                "url": "https://valaxy.site"
+            }
+        },
+        {
+            "id": "",
+            "content_html": "<h2># Introduction</h2>\n<h3><strong>HaiYang 2</strong> <sup>[1]</sup></h3>\n<p>Operational Sat: HY-2B/HY-2C/HY-2D flying o</p>\n",
+            "url": "https://www.moexin.cn/posts/process-scat",
+            "title": "处理HY2/CFOSAT卫星SCA L2B数据",
+            "summary": "在处理SCAT微波散射计L2B级数据时的奇技淫巧......",
+            "date_modified": "2021-10-30T00:00:00.000Z",
+            "date_published": "2021-10-30T00:00:00.000Z",
+            "author": {
+                "name": "萌新",
+                "url": "https://valaxy.site"
+            }
+        },
+        {
+            "id": "",
+            "content_html": "<h3>前言</h3>\n<p>在网上新寻找到的一款工具，目前绘制FY-4A/FY-3D/Sentinel3/<br>\n参考<a href=\"https://github.com/zxdawn\">朝曦dawn</a> &amp; [官方Doc](htt</p>\n",
+            "url": "https://www.moexin.cn/posts/use-satpy",
+            "title": "配置气象云图绘图工具-Satpy",
+            "summary": "一款新鲜的Python气象绘图软件持续更新ing<br>Just A New Toy",
+            "date_modified": "2021-10-22T00:00:00.000Z",
+            "date_published": "2021-10-30T00:00:00.000Z",
+            "author": {
+                "name": "萌新",
+                "url": "https://valaxy.site"
+            }
+        },
+        {
+            "id": "",
+            "content_html": "<ul>\n<li>2021/02/10 受到强南支槽影响，深圳出现了大面积的中到大雨，局部暴雨天气，为近年来少见。</li>\n<li>2021/02/26 受到地面辐合影响，深圳出现了局部大雨，大康等地积水明显。</li>\n<li>202</li>\n</ul>\n",
+            "url": "https://www.moexin.cn/posts/meteorological-logs",
+            "title": "2021年气象记录",
+            "summary": "Some Meteorology Logs......",
+            "date_modified": "2021-04-05T16:00:00.000Z",
+            "date_published": "2021-10-22T00:00:00.000Z",
+            "author": {
+                "name": "萌新",
+                "url": "https://valaxy.site"
+            }
+        }
+    ]
+}

@@ -1,0 +1,1 @@
+import{d as s,k as a,l as n,m as r,o as c,c as p}from"./app-xtvO_iNw.js";import{b as o}from"./route-block-zudrvJp0.js";const u=s({__name:"[...path]",setup(f){const t=a(),e=n();return r(()=>{t.push("/"),e.path!=="/"&&e.path.endsWith("/")&&t.replace(e.path.slice(0,-1))}),(i,m)=>(c(),p("div"))}});typeof o=="function"&&o(u);export{u as default};

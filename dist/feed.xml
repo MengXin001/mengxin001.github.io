@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>萌の新えか</title>
+        <link>https://www.moexin.cn/</link>
+        <description>Valaxy Theme Sakura Preview.</description>
+        <lastBuildDate>Mon, 29 Jan 2024 03:58:43 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <image>
+            <title>萌の新えか</title>
+            <url>https://document-1254197101.cos.ap-guangzhou.myqcloud.com/hexo/pic/Head.jpg</url>
+            <link>https://www.moexin.cn/</link>
+        </image>
+        <copyright>CC BY-NC-SA 4.0 2024 © 萌新</copyright>
+        <atom:link href="https://www.moexin.cn/feed.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[在NanoPi上安装Scrapy框架]]></title>
+            <link>https://www.moexin.cn/posts/install-scrapy</link>
+            <guid>https://www.moexin.cn/posts/install-scrapy</guid>
+            <pubDate>Mon, 29 Jan 2024 03:51:14 GMT</pubDate>
+            <description><![CDATA[使用Armbian系统，已经预装Python3.8安装Scrapy框架]]></description>
+            <content:encoded><![CDATA[<p>以下操作在Armbian系统下进行，系统已经预装完成Python3.8。<br>
+1.安装<code>pip</code></p>
+<pre><code>sudo apt-get install python3-pip
+</code></pre>
+<p>完成后输入`</p>
+]]></content:encoded>
+            <author>i@valaxy.site (萌新)</author>
+        </item>
+        <item>
+            <title><![CDATA[测试文档]]></title>
+            <link>https://www.moexin.cn/posts/doc</link>
+            <guid>https://www.moexin.cn/posts/doc</guid>
+            <pubDate>Sun, 28 Jan 2024 10:43:45 GMT</pubDate>
+            <content:encoded><![CDATA[<h2>代码测试</h2>
+<p>二分查找 <code>binsearch</code></p>
+<pre><code class="language-ts">// [l, r)
+function search(nums: number[], target: number): number </code></pre>
+]]></content:encoded>
+            <author>i@valaxy.site (萌新)</author>
+        </item>
+        <item>
+            <title><![CDATA[Mesovortices更新]]></title>
+            <link>https://www.moexin.cn/posts/mesovortices-update</link>
+            <guid>https://www.moexin.cn/posts/mesovortices-update</guid>
+            <pubDate>Sun, 28 Jan 2024 10:32:58 GMT</pubDate>
+            <content:encoded><![CDATA[<h2>代码测试</h2>
+<p>新版 Mesovortices 采用<code>Flowbite+TailwindCSS</code>布局。采用了伟大的<code>HarmonyOS_Regular</code>。</p>
+<p>导航栏加入了 Avatar 和 Bre</p>
+]]></content:encoded>
+            <author>i@valaxy.site (萌新)</author>
+        </item>
+        <item>
+            <title><![CDATA[处理中国地区BUFR探空数据]]></title>
+            <link>https://www.moexin.cn/posts/tackle-bufr</link>
+            <guid>https://www.moexin.cn/posts/tackle-bufr</guid>
+            <pubDate>Sun, 28 Jan 2024 10:08:32 GMT</pubDate>
+            <description><![CDATA[安利 Upperair_bufr Lib --- 快速上手处理BUFR气象探空数据]]></description>
+            <content:encoded><![CDATA[<h3># 前情提要</h3>
+<p>由于种种不明因素<sup>???</sup>，官方渠道的探空数据进一步收紧。Wyoming极为便利的查询网站对于中国境内数据也多数缺少高空部分的数据，少部分渠道数据且用</p>
+]]></content:encoded>
+            <author>i@valaxy.site (萌新)</author>
+        </item>
+        <item>
+            <title><![CDATA[天仪器海丝&巢湖一号SAR初体验]]></title>
+            <link>https://www.moexin.cn/posts/spacety</link>
+            <guid>https://www.moexin.cn/posts/spacety</guid>
+            <pubDate>Sun, 28 Jan 2024 10:03:58 GMT</pubDate>
+            <description><![CDATA[天仪，让航天触手可及]]></description>
+            <content:encoded><![CDATA[<p>最近恰逢双十一天仪数据商城上线了，支持海丝一号和巢湖一号所有存档数据的查询与下载。<br>
+支持多星轨道预报，以及编程数据下单。</p>
+<p>自从海洋卫星中心和对地观测中心加高GF3的使用门槛后，让本人一类没有任</p>
+]]></content:encoded>
+            <author>i@valaxy.site (萌新)</author>
+        </item>
+        <item>
+            <title><![CDATA[高分七号图像配准]]></title>
+            <link>https://www.moexin.cn/posts/gaofen7</link>
+            <guid>https://www.moexin.cn/posts/gaofen7</guid>
+            <pubDate>Sun, 28 Jan 2024 10:01:20 GMT</pubDate>
+            <description><![CDATA[高分七号图像配准让图像融合更清晰]]></description>
+            <author>i@valaxy.site (萌新)</author>
+        </item>
+        <item>
+            <title><![CDATA[配置气象云图绘图工具2.0-SatimaV4]]></title>
+            <link>https://www.moexin.cn/posts/use-satima</link>
+            <guid>https://www.moexin.cn/posts/use-satima</guid>
+            <pubDate>Sun, 28 Jan 2024 09:42:19 GMT</pubDate>
+            <description><![CDATA[在Linux & Windows系统上，配置SatimaV4云图绘制工具开始高效绘图]]></description>
+            <content:encoded><![CDATA[<h2>关于</h2>
+<p>SatimaV4由<a href="https://github.com/CyanideCN/SatimaV4">CyanideCN</a>制作，在Linux和Windows均可实现高效的对Himawar</p>
+]]></content:encoded>
+            <author>i@valaxy.site (萌新)</author>
+        </item>
+        <item>
+            <title><![CDATA[处理风云四号02星AGRI L1数据]]></title>
+            <link>https://www.moexin.cn/posts/process-fy4b</link>
+            <guid>https://www.moexin.cn/posts/process-fy4b</guid>
+            <pubDate>Wed, 01 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[使用Satpy读取FY-4B AGRIL1级数据......]]></description>
+            <content:encoded><![CDATA[<h2>前言</h2>
+<p>2022年6月1日，自FY4B发射近整整一年后，国家气象卫星中心正式开放下载数据。目前定位于132.7°E，投影位置于133°E。</p>
+<h2>改造</h2>
+<p>鉴于Satpy还无正式发布FY-4</p>
+]]></content:encoded>
+            <author>i@valaxy.site (萌新)</author>
+        </item>
+        <item>
+            <title><![CDATA[处理HY2/CFOSAT卫星SCA L2B数据]]></title>
+            <link>https://www.moexin.cn/posts/process-scat</link>
+            <guid>https://www.moexin.cn/posts/process-scat</guid>
+            <pubDate>Sat, 30 Oct 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[在处理SCAT微波散射计L2B级数据时的奇技淫巧......]]></description>
+            <content:encoded><![CDATA[<h2># Introduction</h2>
+<h3><strong>HaiYang 2</strong> <sup>[1]</sup></h3>
+<p>Operational Sat: HY-2B/HY-2C/HY-2D flying o</p>
+]]></content:encoded>
+            <author>i@valaxy.site (萌新)</author>
+        </item>
+        <item>
+            <title><![CDATA[配置气象云图绘图工具-Satpy]]></title>
+            <link>https://www.moexin.cn/posts/use-satpy</link>
+            <guid>https://www.moexin.cn/posts/use-satpy</guid>
+            <pubDate>Sat, 30 Oct 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[一款新鲜的Python气象绘图软件持续更新ing<br>Just A New Toy]]></description>
+            <content:encoded><![CDATA[<h3>前言</h3>
+<p>在网上新寻找到的一款工具，目前绘制FY-4A/FY-3D/Sentinel3/<br>
+参考<a href="https://github.com/zxdawn">朝曦dawn</a> &amp; [官方Doc](htt</p>
+]]></content:encoded>
+            <author>i@valaxy.site (萌新)</author>
+        </item>
+        <item>
+            <title><![CDATA[2021年气象记录]]></title>
+            <link>https://www.moexin.cn/posts/meteorological-logs</link>
+            <guid>https://www.moexin.cn/posts/meteorological-logs</guid>
+            <pubDate>Fri, 22 Oct 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Some Meteorology Logs......]]></description>
+            <content:encoded><![CDATA[<ul>
+<li>2021/02/10 受到强南支槽影响，深圳出现了大面积的中到大雨，局部暴雨天气，为近年来少见。</li>
+<li>2021/02/26 受到地面辐合影响，深圳出现了局部大雨，大康等地积水明显。</li>
+<li>202</li>
+</ul>
+]]></content:encoded>
+            <author>i@valaxy.site (萌新)</author>
+        </item>
+    </channel>
+</rss>
